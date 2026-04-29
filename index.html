@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D.H.N | Mobile Developer Portfolio</title>
+    <style>
+        :root {
+            --bg: #0f172a;
+            --card-bg: #1e293b;
+            --accent: #38bdf8;
+            --text-main: #f8fafc;
+            --text-dim: #94a3b8;
+        }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
+        
+        /* Header Section */
+        header { text-align: center; margin-bottom: 5rem; }
+        .profile-title { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
+        .profile-subtitle { font-size: 1.1rem; color: var(--text-dim); }
+
+        /* Apps Section */
+        .section-title {
+            font-size: 1.5rem;
+            border-left: 4px solid var(--accent);
+            padding-left: 1rem;
+            margin-bottom: 2rem;
+        }
+        .app-card {
+            background: var(--card-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+            transition: transform 0.3s;
+        }
+        .app-card:hover { transform: translateY(-5px); }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00ffff, #008080);
+            border-radius: 22%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 2rem;
+        }
+        .app-info h3 { margin: 0 0 0.5rem 0; font-size: 1.8rem; }
+        .app-info p { color: var(--text-dim); margin-bottom: 1.5rem; }
+        
+        .links { display: flex; gap: 1rem; flex-wrap: wrap; }
+        .link-btn {
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: 0.2s;
+        }
+        .primary { background: var(--accent); color: var(--bg); }
+        .secondary { border: 1px solid var(--accent); color: var(--accent); }
+        .link-btn:hover { opacity: 0.8; }
+
+        footer { text-align: center; margin-top: 6rem; color: var(--text-dim); font-size: 0.9rem; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-title">D.H.N</div>
+            <div class="profile-subtitle">Professional Mobile Developer specialized in React Native & Ionic</div>
+        </header>
+
+        <h2 class="section-title">Developed Projects</h2>
+        
+        <div class="app-card">
+            <div class="app-icon">R&S</div>
+            <div class="app-info">
+                <h3>Rotate & Shadow</h3>
+                <p>A meditative 3D puzzle game featuring over 150 levels. Use spatial reasoning to rotate objects and match their shadows to target silhouettes.</p>
+                <div class="links">
+                    <a href="https://apps.apple.com/us/app/rotate-shadow-zen-puzzle/id6762373381" class="link-btn primary">App Store</a>
+                    <a href="#" class="link-btn primary">Google Play</a>
+                    <a href="./rotate-shadow/privacy-policy.html" class="link-btn secondary">Privacy Policy</a>
+                    <a href="./rotate-shadow/support.html" class="link-btn secondary">Support</a>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 D.H.N. Designed for a minimalist workspace setup.</p>
+        </footer>
+    </div>
+</body>
+</html>
