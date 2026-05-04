@@ -41,19 +41,27 @@
             gap: 2rem;
             align-items: center;
             transition: transform 0.3s;
+            margin-bottom: 2rem;
         }
         .app-card:hover { transform: translateY(-5px); }
         .app-icon {
-            width: 120px;
-            height: 120px;
-            background: linear-gradient(135deg, #00ffff, #008080);
-            border-radius: 22%;
+            width: 150px;
+            height: 150px;
+            /* background: linear-gradient(135deg, #00ffff, #008080); */
+            /* border-radius: 22%; */
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
             font-weight: bold;
             font-size: 2rem;
+
+            img { 
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 22%; 
+            }
         }
         .app-info h3 { margin: 0 0 0.5rem 0; font-size: 1.8rem; }
         .app-info p { color: var(--text-dim); margin-bottom: 1.5rem; }
@@ -84,15 +92,33 @@
         <h2 class="section-title">Developed Projects</h2>
         
         <div class="app-card">
-            <div class="app-icon">R&S</div>
+            <div class="app-icon">
+                <img src="./assets/images/RotateShadow_Logo.png" alt="Rotate & Shadow Icon">
+            </div>
             <div class="app-info">
                 <h3>Rotate & Shadow</h3>
-                <p>A meditative 3D puzzle game featuring over 150 levels. Use spatial reasoning to rotate objects and match their shadows to target silhouettes.</p>
+                <p>A meditative 3D puzzle game featuring over many levels. Use spatial reasoning to rotate objects and match their shadows to target silhouettes.</p>
                 <div class="links">
                     <a href="https://apps.apple.com/us/app/rotate-shadow-zen-puzzle/id6762373381" class="link-btn primary">App Store</a>
                     <a href="#" class="link-btn primary">Google Play</a>
                     <a href="./rotate-shadow/privacy-policy.html" class="link-btn secondary">Privacy Policy</a>
                     <a href="./rotate-shadow/support.html" class="link-btn secondary">Support</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="app-card">
+            <div class="app-icon">
+                <img src="./assets/images/TheGridSkylines_Logo.png" alt="The Grid Skylines Icon">
+            </div>
+            <div class="app-info">
+                <h3>The Grid Skylines</h3>
+                <p>A city-building simulation game where you design and manage your own urban landscape with unique architectural challenges.</p>
+                <div class="links">
+                    <a href="https://apps.apple.com/us/app/the-grid-skylines/id6765679575" class="link-btn primary">App Store</a>
+                    <a href="#" class="link-btn primary">Google Play</a>
+                    <a href="./the-grid-skylines/privacy-policy.html" class="link-btn secondary">Privacy Policy</a>
+                    <a href="./the-grid-skylines/support.html" class="link-btn secondary">Support</a>
                 </div>
             </div>
         </div>
