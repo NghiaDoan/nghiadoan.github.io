@@ -28,6 +28,30 @@
             border-radius: 1rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .app-icon {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+
+            img { 
+                width: 100%;
+                height: 100%;
+                object-fit: contain;
+                border-radius: 22%; 
+            }
+        }
         .back-link {
             display: inline-block;
             margin-bottom: 2rem;
@@ -52,7 +76,16 @@
 <body>
     <div class="container">
         <a href="../index.html" class="back-link">&larr; Back to Home</a>
-        <h1>Privacy Policy</h1>
+        
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/TheGridSkylines_Logo.png" alt="Rotate & Shadow Icon">
+            </div>
+            <div>
+                <h1>Privacy Policy</h1>
+            </div>
+        </div>
+
         <p>Latest Update: May 4, 2026</p>
         
         <p>Your privacy is important to us. <strong>The Grid Skyscrapers</strong> is built as an Ad-Supported app. This service is provided at no cost and is intended for use as is.</p>
