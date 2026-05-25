@@ -18,109 +18,434 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 3rem;
+            padding: 2.5rem 2rem;
             border-radius: 1rem;
             box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        
+        /* Horizontal Scroll Segment Control Styles */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #334155;
+            padding-bottom: 0.75rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #1e293b;
+            -webkit-overflow-scrolling: touch;
+        }
+        .lang-scroll-container::-webkit-scrollbar {
+            height: 4px;
+        }
+        .lang-scroll-container::-webkit-scrollbar-track {
+            background: #1e293b;
+        }
+        .lang-scroll-container::-webkit-scrollbar-thumb {
+            background-color: #334155;
+            border-radius: 2px;
+        }
+        .lang-btn {
+            background: #0f172a;
+            color: var(--text-dim);
+            border: 1px solid #334155;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-main);
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #0f172a;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
         .header {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            margin-bottom: 2rem;
         }
         .app-icon {
-            width: 150px;
-            height: 150px;
+            width: 120px;
+            height: 120px;
             flex-shrink: 0;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 2rem;
             margin-bottom: 1rem;
+        }
+        .app-icon img { 
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%; 
+        }
 
-            img { 
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                border-radius: 22%; 
-            }
-        }
-        .back-link {
-            display: inline-block;
-            margin-bottom: 2rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        h1 { border-bottom: 2px solid #334155; padding-bottom: 0.5rem; margin-top: 0; }
-        h2 { color: var(--accent); margin-top: 2rem; font-size: 1.5rem; }
-        p, li { color: var(--text-dim); }
+        h1 { text-align: center; font-size: 2rem; margin: 0; }
+        h2 { color: var(--accent); margin-top: 2rem; font-size: 1.4rem; border-bottom: 1px solid #334155; padding-bottom: 0.25rem; }
+        p, li { color: var(--text-dim); font-size: 1rem; }
         .highlight-box {
             background: #0f172a;
-            padding: 1.5rem;
+            padding: 1.25rem;
             border-radius: 0.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             border-left: 4px solid var(--accent);
         }
-        ul { padding-left: 1.2rem; }
-        footer { text-align: center; margin-top: 3rem; color: #64748b; font-size: 0.8rem; }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { text-align: center; margin-top: 4rem; color: #64748b; font-size: 0.85rem; border-top: 1px solid #334155; padding-top: 1.5rem; }
+        
+        /* Language section toggling */
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../index.html" class="back-link">&larr; Back to Home</a>
         
+        <!-- Segment Control Component for Multi-language (Above Logo) -->
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
+                <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ru')">Русский</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
+                <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+            </div>
+        </div>
+        
         <div class="header">
             <div class="app-icon">
-                <img src="../assets/images/TheGridSkyscrapers_Logo.png" alt="Rotate & Shadow Icon">
-            </div>
-            <div>
-                <h1>Privacy Policy</h1>
+                <img src="../assets/images/TheGridSkyscrapers_Logo.png" alt="The Grid Skyscrapers Logo">
             </div>
         </div>
 
-        <p>Latest Update: May 4, 2026</p>
-        
-        <p>Your privacy is important to us. <strong>The Grid Skyscrapers</strong> is built as an Ad-Supported app. This service is provided at no cost and is intended for use as is.</p>
-
-        <div class="highlight-box">
-            <strong>Summary:</strong> We do not personally collect any identifiable information. We use industry-standard third-party services to show advertisements and maintain the game.
+        <!-- ENGLISH CONTENT -->
+        <div id="content-en" class="lang-content active">
+            <h1>Privacy Policy</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Latest Update: May 4, 2026</p>
+            <p>Your privacy is important to us. <strong>The Grid Skyscrapers</strong> is built as an Ad-Supported app. This service is provided at no cost and is intended for use as is.</p>
+            <div class="highlight-box">
+                <strong>Summary:</strong> We do not personally collect any identifiable information. We use industry-standard third-party services to show advertisements and maintain the game.
+            </div>
+            <h2>1. Information Collection and Use</h2>
+            <p>We (the developer) <strong>DO NOT</strong> personally collect, store, or share any of your personal information (such as your name, email address, or phone number).</p>
+            <h2>2. Advertisements</h2>
+            <p>To support the ongoing development of the game, we display advertisements via AdMob. These third-party ad providers may collect non-personal data, such as:</p>
+            <ul>
+                <li>Device advertising identifiers (IDFA for iOS and AAID for Android).</li>
+                <li>Device information (model, operating system version).</li>
+                <li>General location data (city or country level).</li>
+            </ul>
+            <h2>3. Third-Party Service Providers</h2>
+            <p>The app may use libraries from the following providers for functional purposes:</p>
+            <ul>
+                <li>Google Play Services / Apple App Store</li>
+                <li>Ad Networks (Google AdMob)</li>
+            </ul>
+            <h2>4. Changes to This Policy</h2>
+            <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+            <h2>5. Contact Us</h2>
+            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at: <strong>nghiadoan2901@gmail.com</strong></p>
         </div>
 
-        <h2>1. Information Collection and Use</h2>
-        <p>We (the developer) <strong>DO NOT</strong> personally collect, store, or share any of your personal information (such as your name, email address, or phone number).</p>
+        <!-- VIETNAMESE CONTENT -->
+        <div id="content-vi" class="lang-content">
+            <h1>Chính Sách Bảo Mật</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Cập nhật mới nhất: Ngày 4 tháng 5 năm 2026</p>
+            <p>Quyền riêng tư của bạn rất quan trọng với chúng tôi. <strong>The Grid Skyscrapers</strong> được xây dựng như một ứng dụng Hỗ trợ Quảng cáo. Dịch vụ này được cung cấp hoàn toàn miễn phí và được thiết kế để sử dụng nguyên bản.</p>
+            <div class="highlight-box">
+                <strong>Tóm tắt:</strong> Chúng tôi không cá nhân thu thập bất kỳ thông tin nhận dạng nào của bạn. Chúng tôi sử dụng các dịch vụ bên thứ ba đạt tiêu chuẩn ngành để hiển thị quảng cáo và duy trì trò chơi.
+            </div>
+            <h2>1. Thu thập và Sử dụng Thông tin</h2>
+            <p>Chúng tôi (nhà phát triển) <strong>KHÔNG</strong> tự mình thu thập, lưu trữ hoặc chia sẻ bất kỳ thông tin cá nhân nào của bạn (chẳng hạn như tên, địa chỉ email hoặc số điện thoại).</p>
+            <h2>2. Quảng cáo</h2>
+            <p>Để hỗ trợ quá trình phát triển liên tục của trò chơi, chúng tôi hiển thị quảng cáo thông qua AdMob. Các nhà cung cấp quảng cáo bên thứ ba này có thể thu thập dữ liệu phi cá nhân, chẳng hạn như:</p>
+            <ul>
+                <li>Định danh quảng cáo của thiết bị (IDFA cho iOS và AAID cho Android).</li>
+                <li>Thông tin thiết bị (mẫu máy, phiên bản hệ điều hành).</li>
+                <li>Dữ liệu vị trí tổng quát (ở cấp độ thành phố hoặc quốc gia).</li>
+            </ul>
+            <h2>3. Nhà cung cấp Dịch vụ Bên thứ ba</h2>
+            <p>Ứng dụng có thể sử dụng các thư viện từ các nhà cung cấp sau vì mục đích chức năng:</p>
+            <ul>
+                <li>Dịch vụ Google Play / Apple App Store</li>
+                <li>Mạng quảng cáo (Google AdMob)</li>
+            </ul>
+            <h2>4. Thay đổi đối với Chính sách này</h2>
+            <p>Chúng tôi có thể cập nhật Chính sách Bảo mật của mình theo thời gian. Bạn nên định kỳ xem lại trang này để nắm bắt mọi thay đổi. Các thay đổi đối với Chính sách Bảo mật này có hiệu lực ngay khi chúng được đăng trên trang này.</p>
+            <h2>5. Liên hệ với Chúng tôi</h2>
+            <p>Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào về Chính sách Bảo mật của chúng tôi, đừng ngần ngại liên hệ tại: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
 
-        <h2>2. Advertisements</h2>
-        <p>To support the ongoing development of the game, we display advertisements via AdMob. These third-party ad providers may collect non-personal data, such as:</p>
-        <ul>
-            <li>Device advertising identifiers (IDFA for iOS and AAID for Android).</li>
-            <li>Device information (model, operating system version).</li>
-            <li>General location data (city or country level).</li>
-        </ul>
+        <!-- SIMPLIFIED CHINESE CONTENT -->
+        <div id="content-zh-CN" class="lang-content">
+            <h1>隐私政策</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最后更新：2026年5月4日</p>
+            <p>您的隐私对我们至关重要。<strong>The Grid Skyscrapers</strong> 是一款内置广告的免费应用。本服务由开发者免费提供，并按原样使用。</p>
+            <div class="highlight-box">
+                <strong>摘要：</strong> 我们个人不会收集任何可识别个人身份的信息。我们使用符合行业标准的第三方服务来展示广告并维护游戏运行。
+            </div>
+            <h2>1. 信息收集与使用</h2>
+            <p>我们（开发者）<strong>绝不会</strong>个人收集、存储或共享您的任何个人信息（如您的姓名、电子邮件地址或电话号码）。</p>
+            <h2>2. 广告展示</h2>
+            <p>为了支持游戏的持续开发与运营，我们通过 AdMob 展示广告。这些第三方广告提供商可能会收集非个人数据，例如：</p>
+            <ul>
+                <li>设备广告标识符（iOS 的 IDFA 和 Android 的 AAID）。</li>
+                <li>设备信息（设备型号、操作系统版本）。</li>
+                <li>大致地理位置数据（城市或国家级别）。</li>
+            </ul>
+            <h2>3. 第三方服务提供商</h2>
+            <p>本应用可能会出于功能需要使用以下提供商的库：</p>
+            <ul>
+                <li>Google Play 服务 / Apple App Store</li>
+                <li>广告网络（Google AdMob）</li>
+            </ul>
+            <h2>4. 本政策的修订</h2>
+            <p>我们可能会不时更新隐私政策。建议您定期查看此页面以了解任何更改。本隐私政策的修订自在此页面上发布之日起立即生效。</p>
+            <h2>5. 联系我们</h2>
+            <p>如果您对我们的隐私政策有任何疑问或建议，欢迎随时联系我们：<strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
 
-        <h2>3. Third-Party Service Providers</h2>
-        <p>The app may use libraries from the following providers for functional purposes:</p>
-        <ul>
-            <li>Google Play Services / Apple App Store</li>
-            <li>Ad Networks (Google AdMob)</li>
-        </ul>
+        <!-- TRADITIONAL CHINESE CONTENT -->
+        <div id="content-zh-TW" class="lang-content">
+            <h1>隱私政策</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最後更新：2026年5月4日</p>
+            <p>您的隱私對我們至關重要。<strong>The Grid Skyscrapers</strong> 是一款內置廣告的免費應用程式。本服務由開發者免費提供，並按原樣使用。</p>
+            <div class="highlight-box">
+                <strong>摘要：</strong> 我們個人不會收集任何可識別個人身分的資訊。我們使用符合行業標準的第三方服務來展示廣告並維持遊戲運行。</div >
+            <h2>1. 資訊收集與使用</h2>
+            <p>我們（開發者）<strong>絕不會</strong>個人收集、存儲或共享您的任何個人資訊（如您的姓名、電子郵件地址或電話號碼）。</p>
+            <h2>2. 廣告展示</h2>
+            <p>為了支持遊戲的持續開發與營運，我們透過 AdMob 展示廣告。這些第三方廣告提供商可能會收集非個人數據，例如：</p>
+            <ul>
+                <li>設備廣告識別碼（iOS 的 IDFA 和 Android 的 AAID）。</li>
+                <li>設備資訊（設備型號、作業系統版本）。</li>
+                <li>大致地理位置數據（城市或國家級別）。</li>
+            </ul>
+            <h2>3. 第三方服務提供商</h2>
+            <p>本應用程式可能會出於功能需要使用以下提供商的庫：</p>
+            <ul>
+                <li>Google Play 服務 / Apple App Store</li>
+                <li>廣告網絡（Google AdMob）</li>
+            </ul>
+            <h2>4. 本政策的修訂</h2>
+            <p>我們可能會不時更新隱私政策。建議您定期查看此頁面以了解任何更改。本隱私政策的修訂自在此頁面上發布之日起立即生效。</p>
+            <h2>5. 聯絡我們</h2>
+            <p>如果您對我們的隱私政策有任何疑問或建議，歡迎隨時聯絡我們：<strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
 
-        <h2>4. Changes to This Policy</h2>
-        <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+        <!-- KOREAN CONTENT -->
+        <div id="content-ko" class="lang-content">
+            <h1>개인정보 처리방침</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">최종 업데이트: 2026년 5월 4일</p>
+            <p>귀하의 개인정보는 저희에게 매우 중요합니다. <strong>The Grid Skyscrapers</strong>는 광고 지원 앱으로 빌드되었습니다. 이 서비스는 개발자가 무료로 제공하며 있는 그대로 사용하도록 의도되었습니다.</p>
+            <div class="highlight-box">
+                <strong>요약:</strong> 저희는 개인을 식별할 수 있는 어떠한 정보도 직접 수집하지 않습니다. 광고를 표시하고 게임을 유지하기 위해 업계 표준의 제3자 서비스를 사용합니다.
+            </div>
+            <h2>1. 정보 수집 및 사용</h2>
+            <p>저희(개발자)는 귀하의 개인정보(이름, 이메일 주소, 전화번호 등)를 직접 수집, 저장 또는 공유하지 <strong>않습니다</strong>.</p>
+            <h2>2. 광고</h2>
+            <p>게임의 지속적인 개발을 지원하기 위해 AdMob을 통해 광고를 표시합니다. 이러한 제3자 광고 제공업체는 다음과 같은 비개인적 데이터를 수집할 수 있습니다:</p>
+            <ul>
+                <li>기기 광고 식별자 (iOS의 IDFA 및 Android의 AAID).</li>
+                <li>기기 정보 (모델, 운영체제 버전).</li>
+                <li>일반적인 위치 데이터 (도시 또는 국가 수준).</li>
+            </ul>
+            <h2>3. 제3자 서비스 제공업체</h2>
+            <p>앱은 기능적 목적을 위해 다음 제공업체의 라이브러리를 사용할 수 있습니다:</p>
+            <ul>
+                <li>Google Play 서비스 / Apple App Store</li>
+                <li>광고 네트워크 (Google AdMob)</li>
+            </ul>
+            <h2>4. 본 방침의 변경</h2>
+            <p>저희는 수시로 개인정보 처리방침을 업데이트할 수 있습니다. 따라서 변경 사항이 있는지 이 페이지를 정기적으로 확인하는 것이 좋습니다. 본 개인정보 처리방침의 변경 사항은 이 페이지에 게시되는 즉시 효력이 발생합니다.</p>
+            <h2>5. 문의하기</h2>
+            <p>개인정보 처리방침에 대해 질문이나 제안 사항이 있으시면 언제든지 다음 주소로 문의해 주십시오: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
 
-        <h2>5. Contact Us</h2>
-        <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at: <strong>nghiadoan2901@gmail.com</strong></p>
+        <!-- JAPANESE CONTENT -->
+        <div id="content-ja" class="lang-content">
+            <h1>プライバシーポリシー</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最終更新日：2026年5月4日</p>
+            <p>お客様のプライバシーは私たちにとって非常に重要です。<strong>The Grid Skyscrapers</strong> は広告対応アプリとして構築されています。このサービスは開発者から無償で提供され、そのままの状態での利用を前提としています。</p>
+            <div class="highlight-box">
+                <strong>概要：</strong> 私たち開発者が個人を特定できる情報を直接収集することはありません。広告の表示およびゲームの維持のために、業界標準のサードパーティサービスを利用しています。
+            </div>
+            <h2>1. 情報の収集と利用</h2>
+            <p>私たち（開発者）は、お客様의個人情報（氏名、メールアドレス、電話番号など）を直接収集、保存、または共有することは<strong>ありません</strong>。</p>
+            <h2>2. 広告について</h2>
+            <p>ゲームの継続的な開発をサポートするために、AdMobを介して広告を表示しています。これらのサードパーティ広告配信事業者は、以下のような非個人データを収集する場合があります：</p>
+            <ul>
+                <li>デバイスの広告識別子（iOSのIDFAおよびAndroidのAAID）。</li>
+                <li>デバイス情報（端末モデル、OSのバージョン）。</li>
+                <li>大まかな位置データ（都市または国レベル）。</li>
+            </ul>
+            <h2>3. サードパーティサービスプロバイダー</h2>
+            <p>本アプリは、機能的な目的のために以下のプロバイダーのライブラリを使用する場合があります：</p>
+            <ul>
+                <li>Google Play サービス / Apple App Store</li>
+                <li>広告ネットワーク（Google AdMob）</li>
+            </ul>
+            <h2>4. 本ポリシーの変更について</h2>
+            <p>私たちはプライバシーポリシーを随時更新することがあります。変更がないか定期的にこのページを確認することをお勧めします。本プライバシーポリシーの変更は、このページに掲載された時点で有効になります。</p>
+            <h2>5. お問い合わせ</h2>
+            <p>プライバシーポリシーに関するご質問やご提案がございましたら、お気軽に次のアドレスまでお問い合わせください：<strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
+
+        <!-- RUSSIAN CONTENT -->
+        <div id="content-ru" class="lang-content">
+            <h1>Политика конфиденциальности</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Последнее обновление: 4 мая 2026 г.</p>
+            <p>Ваша конфиденциальность очень важна для нас. Приложение <strong>The Grid Skyscrapers</strong> создано как приложение с поддержкой рекламы. Данная услуга предоставляется разработчиком бесплатно и предназначена для использования как есть.</p>
+            <div class="highlight-box">
+                <strong>Резюме:</strong> Мы лично не собираем никакую личную информацию. Мы используем стандартные сторонние сервисы для показа рекламы и технической поддержки игры.
+            </div>
+            <h2>1. Сбор и использование информации</h2>
+            <p>Мы (разработчик) <strong>НЕ</strong> собираем, не храним и не передаем лично вашу персональную информацию (такую как ваше имя, адрес электронной почты или номер телефона).</p>
+            <h2>2. Реклама</h2>
+            <p>Для поддержки дальнейшей разработки игры мы отображаем рекламу через AdMob. Эти сторонние рекламные провайдеры могут собирать неперсональные данные, такие как:</p>
+            <ul>
+                <li>Рекламные идентификаторы устройства (IDFA для iOS и AAID для Android).</li>
+                <li>Информация об устройстве (модель, версия операционной системы).</li>
+                <li>Общие данные о местоположении (на уровне города или страны).</li>
+            </ul>
+            <h2>3. Сторонние поставщики услуг</h2>
+            <p>Приложение может использовать библиотеки следующих поставщиков в функциональных целях:</p>
+            <ul>
+                <li>Сервисы Google Play / Apple App Store</li>
+                <li>Рекламные сети (Google AdMob)</li>
+            </ul>
+            <h2>4. Изменения в настоящей Политике</h2>
+            <p>Мы можем время от времени обновлять нашу Политику конфиденциальности. Вам рекомендуется периодически просматривать эту страницу на предмет изменений. Изменения вступают в силу с момента их публикации на этой странице.</p>
+            <h2>5. Контакты</h2>
+            <p>Если у вас есть какие-либо вопросы или предложения по поводу нашей Политики конфиденциальности, без колебаний обращайтесь к нам по адресу: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
+
+        <!-- SPANISH CONTENT -->
+        <div id="content-es" class="lang-content">
+            <h1>Política de Privacidad</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Última actualización: 4 de mayo de 2026</p>
+            <p>Su privacidad es muy importante para nosotros. <strong>The Grid Skyscrapers</strong> se creó como una aplicación financiada con publicidad. Este servicio es proporcionado por el desarrollador sin costo alguno y está diseñado para ser utilizado tal cual.</p>
+            <div class="highlight-box">
+                <strong>Resumen:</strong> Nosotros personalmente no recopilamos ninguna información de identificación personal. Utilizamos servicios de terceros estándar de la industria para mostrar anuncios y mantener el juego.
+            </div>
+            <h2>1. Recopilación y uso de información</h2>
+            <p>Nosotros (el desarrollador) <strong>NO</strong> recopilamos, almacenamos ni compartimos personalmente ninguna de sus informaciones personales (como su nombre, dirección de correo electrónico o número de teléfono).</p>
+            <h2>2. Publicidad</h2>
+            <p>Para apoyar el desarrollo continuo del juego, mostramos anuncios a través de AdMob. Estos proveedores de anuncios de terceros pueden recopilar datos no personales, como:</p>
+            <ul>
+                <li>Identificadores de publicidad del dispositivo (IDFA para iOS y AAID para Android).</li>
+                <li>Información del dispositivo (modelo, versión del sistema operativo).</li>
+                <li>Datos de ubicación general (a nivel de ciudad o país).</li>
+            </ul>
+            <h2>3. Proveedores de servicios de terceros</h2>
+            <p>La aplicación puede utilizar bibliotecas de los siguientes proveedores para fines funcionales:</p>
+            <ul>
+                <li>Google Play Services / Apple App Store</li>
+                <li>Redes de anuncios (Google AdMob)</li>
+            </ul>
+            <h2>4. Cambios a esta política</h2>
+            <p>Es posible que actualicemos nuestra Política de Privacidad de vez en cuando. Se le aconseja revisar esta página periódicamente para ver si hay cambios. Los cambios en esta Política de Privacidad son efectivos cuando se publican en esta página.</p>
+            <h2>5. Contáctenos</h2>
+            <p>Si tiene alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dude en contactarnos en: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
+
+        <!-- GERMAN CONTENT -->
+        <div id="content-de" class="lang-content">
+            <h1>Datenschutzerklärung</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Letzte Aktualisierung: 4. Mai 2026</p>
+            <p>Ihre Privatsphäre ist uns sehr wichtig. <strong>The Grid Skyscrapers</strong> wird als werbefinanzierte App bereitgestellt. Dieser Dienst wird vom Entwickler kostenlos zur Verfügung gestellt und ist für die Nutzung im Ist-Zustand bestimmt.</p>
+            <div class="highlight-box">
+                <strong>Zusammenfassung:</strong> Wir persönlich sammeln keine personenbezogenen Daten. Wir nutzen branchenübliche Dienste von Drittanbietern, um Werbung anzuzeigen und das Spiel zu unterhalten.
+            </div>
+            <h2>1. Datenerhebung und -nutzung</h2>
+            <p>Wir (der Entwickler) sammeln, speichern oder teilen <strong>KEINE</strong> personenbezogenen Daten von Ihnen (wie Name, E-Mail-Adresse oder Telefonnummer).</p>
+            <h2>2. Werbung</h2>
+            <p>Um die laufende Entwicklung des Spiels zu unterstützen, zeigen wir Werbung über AdMob an. Diese Drittanbieter von Werbung können nicht-personenbezogene Daten sammeln, wie z. B.:</p>
+            <ul>
+                <li>Werbeidentifikatoren des Geräts (IDFA für iOS und AAID für Android).</li>
+                <li>Geräteinformationen (Modell, Version des Betriebssystems).</li>
+                <li>Allgemeine Standortdaten (auf Stadt- oder Landebene).</li>
+            </ul>
+            <h2>3. Drittanbieter von Dienstleistungen</h2>
+            <p>Die App kann Bibliotheken der folgenden Anbieter für funktionale Zwecke verwenden:</p>
+            <ul>
+                <li>Google Play Services / Apple App Store</li>
+                <li>Werbenetzwerke (Google AdMob)</li>
+            </ul>
+            <h2>4. Änderungen dieser Richtlinie</h2>
+            <p>Wir können unsere Datenschutzerklärung von Zeit zu Zeit aktualisieren. Es wird empfohlen, diese Seite regelmäßig auf Änderungen zu überprüfen. Änderungen dieser Datenschutzerklärung werden wirksam, wenn sie auf dieser Seite veröffentlicht werden.</p>
+            <h2>5. Kontaktieren Sie uns</h2>
+            <p>Wenn Fragen oder Anregungen zu unserer Datenschutzerklärung haben, zögern Sie nicht, uns zu kontaktieren unter: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
 
         <footer>
             &copy; 2026 The Grid Skyscrapers. Developed by D.H.N.
         </footer>
     </div>
+
+    <!-- Active Language Switching Logic -->
+    <script>
+        function switchLanguage(langCode) {
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Remove active class from all content blocks
+            const contents = document.querySelectorAll('.lang-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            // Add active class to selected button
+            const clickedBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes("'" + langCode + "'"));
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+                
+                // Smooth scroll the active tab to center if needed
+                clickedBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            
+            // Add active class to selected content block
+            const targetContent = document.getElementById('content-' + langCode);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
+    </script>
 </body>
 </html>

@@ -6,13 +6,12 @@
     <title>Support - The Grid Skyscrapers</title>
     <style>
         :root {
-            /* Tông màu Neon Night City mới */
             --bg: #0b0f1a;
             --card-bg: #161e2e;
             --accent: #22d3ee; /* Cyan Neon */
             --text-main: #f8fafc;
             --text-dim: #94a3b8;
-            --error: #f43f5e; /* Rose Neon cho cơ chế Lives */
+            --error: #f43f5e; /* Rose Neon */
         }
         body {
             font-family: 'Inter', system-ui, sans-serif;
@@ -20,133 +19,572 @@
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
-            padding: 2rem;
+            padding: 2rem 1rem;
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
-            padding: 3rem;
+            padding: 2.5rem 2rem;
             border-radius: 1rem;
             box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
             border: 1px solid #1e293b;
         }
-        .header {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
-        .app-icon {
-            width: 150px;
-            height: 150px;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 2rem;
-            margin-bottom: 1rem;
-
-            img { 
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                border-radius: 22%; 
-            }
-        }
         .back-link {
             display: inline-block;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
             transition: opacity 0.2s;
         }
         .back-link:hover { opacity: 0.8; }
-        h1 { border-bottom: 2px solid #334155; padding-bottom: 0.5rem; margin-top: 0; font-weight: 800; }
-        h2 { color: var(--accent); margin-top: 2rem; font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px; }
+        
+        /* Horizontal Scroll Segment Control */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #1e293b;
+            padding-bottom: 0.75rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #161e2e;
+            -webkit-overflow-scrolling: touch;
+        }
+        .lang-scroll-container::-webkit-scrollbar {
+            height: 4px;
+        }
+        .lang-scroll-container::-webkit-scrollbar-track {
+            background: #161e2e;
+        }
+        .lang-scroll-container::-webkit-scrollbar-thumb {
+            background-color: #1e293b;
+            border-radius: 2px;
+        }
+        .lang-btn {
+            background: #0b0f1a;
+            color: var(--text-dim);
+            border: 1px solid #1e293b;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-main);
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #0b0f1a;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .app-icon img { 
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%; 
+        }
+
+        h1 { text-align: center; font-weight: 800; font-size: 2rem; margin: 0; }
+        h2 { color: var(--accent); margin-top: 2rem; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 1px; border-bottom: 1px solid #1e293b; padding-bottom: 0.25rem; }
         h3 { color: var(--text-main); margin-top: 1.5rem; font-size: 1.1rem; border-left: 3px solid var(--accent); padding-left: 10px; }
         p, li { color: var(--text-dim); }
         .contact-box {
-            background: #0f172a;
-            padding: 1.5rem;
+            background: #0b0f1a;
+            padding: 1.25rem;
             border-radius: 0.5rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             border-left: 4px solid var(--accent);
         }
-        ul { padding-left: 1.2rem; }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
         .highlight { color: var(--accent); font-weight: 600; }
         .warning { color: var(--error); font-weight: 600; }
-        footer { text-align: center; margin-top: 3rem; color: #64748b; font-size: 0.8rem; }
+        footer { text-align: center; margin-top: 4rem; color: #64748b; font-size: 0.85rem; border-top: 1px solid #1e293b; padding-top: 1.5rem; }
+        
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="../index.html" class="back-link">&larr; Back to Home</a>
         
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
+                <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ru')">Русский</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
+                <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+            </div>
+        </div>
+        
         <div class="header">
             <div class="app-icon">
-                <img src="../assets/images/TheGridSkyscrapers_Logo.png" alt="Rotate & Shadow Icon">
-            </div>
-            <div>
-                <h1>Support Center</h1>
+                <img src="../assets/images/TheGridSkyscrapers_Logo.png" alt="The Grid Skyscrapers Logo">
             </div>
         </div>
 
-        <p>Latest Update: May 4, 2026</p>
-        
-        <p>Welcome to the <strong>The Grid Skyscrapers</strong> support page. We are dedicated to providing the most challenging yet satisfying logic puzzle experience on mobile. If you encounter any technical issues or need help mastering the skyline, you are in the right place.</p>
-
-        <h2>Frequently Asked Questions (FAQ)</h2>
-        
-        <h3>Q: How do I play The Grid Skyscrapers?</h3>
-        <p>A: Your goal is to fill the 9x9 grid with buildings of varying heights (1-9). Two rules apply: 1) Each height must appear only once per row and column (Sudoku-style). 2) The numbers at the edge indicate how many buildings you can "see" from that direction. Taller buildings block the view of shorter ones behind them.</p>
-
-        <h3>Q: What happens if I misplace a building?</h3>
-        <p>A: The game features a <span class="warning">3-Lives System</span>. If you place a building that violates the row/column logic or the visibility clues, you will lose one life. Losing all three lives results in a Game Over for that level.</p>
-
-        <h3>Q: How do the difficulty modes differ?</h3>
-        <p>A: All modes use a 9x9 grid, but the number of starting buildings changes:
+        <div id="content-en" class="lang-content active">
+            <h1>Support Center</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Latest Update: May 4, 2026</p>
+            <p>Welcome to the <strong>The Grid Skyscrapers</strong> support page. We are dedicated to providing the most challenging yet satisfying logic puzzle experience on mobile. If you encounter any technical issues or need help mastering the skyline, you are in the right place.</p>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <h3>Q: How do I play The Grid Skyscrapers?</h3>
+            <p>A: Your goal is to fill the 9x9 grid with buildings of varying heights (1-9). Two rules apply: 1) Each height must appear only once per row and column (Sudoku-style). 2) The numbers at the edge indicate how many buildings you can "see" from that direction. Taller buildings block the view of shorter ones behind them.</p>
+            <h3>Q: What happens if I misplace a building?</h3>
+            <p>A: The game features a <span class="warning">3-Lives System</span>. If you place a building that violates the row/column logic or the visibility clues, you will lose one life. Losing all three lives results in a Game Over for that level.</p>
+            <h3>Q: How do the difficulty modes differ?</h3>
+            <p>A: All modes use a 9x9 grid, but the number of starting buildings changes:
+                <ul>
+                    <li><span class="highlight">Easy:</span> 40 fixed buildings.</li>
+                    <li><span class="highlight">Normal:</span> 30 fixed buildings.</li>
+                    <li><span class="highlight">Hard:</span> 23 fixed buildings.</li>
+                    <li><span class="highlight">Expert:</span> 16 fixed buildings.</li>
+                </ul>
+            </p>
+            <h3>Q: Can I play without an internet connection?</h3>
+            <p>A: Absolutely. The game is fully playable offline, perfect for long flights or commutes.</p>
+            <h3>Q: I'm stuck! How do Hints work?</h3>
+            <p>A: Tap the <span class="highlight">Hint</span> icon to automatically fill one correct building in your current grid. Hints are limited, so use them wisely on Expert levels!</p>
+            <h2>Contact Us</h2>
+            <div class="contact-box">
+                <p>If you have found a bug or have suggestions, please reach out:</p>
+                <ul>
+                    <li><strong>Email Support:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>Response Time:</strong> Within 24-48 business hours</li>
+                </ul>
+            </div>
+            <h2>Helpful Tips</h2>
             <ul>
-                <li><span class="highlight">Easy:</span> 40 fixed buildings.</li>
-                <li><span class="highlight">Normal:</span> 30 fixed buildings.</li>
-                <li><span class="highlight">Hard:</span> 23 fixed buildings.</li>
-                <li><span class="highlight">Expert:</span> 16 fixed buildings.</li>
+                <li><strong>Use Focus Mode:</strong> Tap any cell to highlight its row and column. This helps you calculate visibility without getting distracted by other buildings.</li>
+                <li><strong>Master the "1" and "9":</strong> A clue of "1" means the tallest building (9) is right at the edge. A clue of "9" means buildings are placed in perfect ascending order.</li>
+                <li><strong>Note System:</strong> Switch to Note mode to mark possible heights before committing to a permanent building.</li>
             </ul>
-        </p>
-
-        <h3>Q: Can I play without an internet connection?</h3>
-        <p>A: Absolutely. Like its predecessor, <strong>The Grid Skyscrapers</strong> is fully playable offline, perfect for long flights or commutes.</p>
-
-        <h3>Q: I'm stuck! How do Hints work?</h3>
-        <p>A: Tap the <span class="highlight">Hint</span> icon to automatically fill one correct building in your current grid. Hints are limited, so use them wisely on Expert levels!</p>
-
-        <h2>Contact Us</h2>
-        <div class="contact-box">
-            <p>If you have found a bug or have suggestions for the 3D visuals, please reach out:</p>
+            <h2>Technical Information</h2>
             <ul>
-                <li><strong>Email Support:</strong> nghiadoan2901@gmail.com</li>
-                <li><strong>Response Time:</strong> Within 24-48 business hours</li>
+                <li><strong>Compatibility:</strong> Requires iOS 15.1+ or Android 10.0+</li>
+                <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color: var(--accent);">View here</a></li>
             </ul>
         </div>
 
-        <h2>Helpful Tips</h2>
-        <ul>
-            <li><strong>Use Focus Mode:</strong> Tap any cell to highlight its row and column. This helps you calculate visibility without getting distracted by other buildings.</li>
-            <li><strong>Master the "1" and "9":</strong> A clue of "1" means the tallest building (9) is right at the edge. A clue of "9" means buildings are placed in perfect ascending order.</li>
-            <li><strong>Note System:</strong> Switch to Note mode to mark possible heights before committing to a permanent building.</li>
-        </ul>
+        <div id="content-vi" class="lang-content">
+            <h1>Trung Tâm Hỗ Trợ</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Cập nhật mới nhất: Ngày 4 tháng 5 năm 2026</p>
+            <p>Chào mừng bạn đến với trang hỗ trợ của <strong>The Grid Skyscrapers</strong>. Chúng tôi luôn nỗ lực mang lại trải nghiệm giải đố logic thử thách và thỏa mãn nhất trên di động. Nếu bạn gặp bất kỳ sự cố kỹ thuật nào hoặc cần trợ giúp để làm chủ những tòa tháp, bạn đã đến đúng nơi.</p>
+            <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+            <h3>Q: Làm thế nào để chơi The Grid Skyscrapers?</h3>
+            <p>A: Mục tiêu của bạn là điền vào lưới 9x9 các tòa nhà có chiều cao khác nhau từ 1 đến 9. Hai quy luật áp dụng: 1) Mỗi chiều cao chỉ xuất hiện một lần duy nhất trên mỗi hàng và mỗi cột (giống Sudoku). 2) Các con số ở rìa biểu thị số lượng tòa nhà bạn có thể "nhìn thấy" từ hướng đó. Tòa nhà cao hơn sẽ che khuất tầm nhìn của các tòa nhà thấp hơn phía sau.</p>
+            <h3>Q: Điều gì xảy ra nếu tôi đặt sai vị trí tòa nhà?</h3>
+            <p>A: Trò chơi có <span class="warning">Hệ thống 3 Mạng</span>. Nếu bạn đặt một tòa nhà vi phạm logic hàng/cột hoặc các gợi ý tầm nhìn, bạn sẽ mất một mạng. Mất hết ba mạng đồng nghĩa với việc Trò chơi kết thúc (Game Over) cho ván đấu đó.</p>
+            <h3>Q: Các chế độ độ khó khác nhau như thế nào?</h3>
+            <p>A: Tất cả các chế độ đều sử dụng lưới 9x9, nhưng số lượng tòa nhà cố định ban đầu sẽ thay đổi:
+                <ul>
+                    <li><span class="highlight">Dễ:</span> 40 tòa nhà cố định có sẵn.</li>
+                    <li><span class="highlight">Thường:</span> 30 tòa nhà cố định có sẵn.</li>
+                    <li><span class="highlight">Khó:</span> 23 tòa nhà cố định có sẵn.</li>
+                    <li><span class="highlight">Chuyên gia:</span> 16 tòa nhà cố định có sẵn.</li>
+                </ul>
+            </p>
+            <h3>Q: Tôi có thể chơi khi không có kết nối Internet không?</h3>
+            <p>A: Chắc chắn rồi. <strong>The Grid Skyscrapers</strong> có thể chơi ngoại tuyến hoàn toàn, cực kỳ hoàn hảo cho các chuyến bay dài hoặc khi đi tàu xe.</p>
+            <h3>Q: Tôi bị kẹt rồi! Cơ chế Gợi ý hoạt động như thế nào?</h3>
+            <p>A: Nhấn vào biểu tượng <span class="highlight">Gợi ý (Hint)</span> để tự động điền một tòa nhà chính xác vào lưới hiện tại của bạn. Gợi ý có giới hạn, vì vậy hãy sử dụng chúng thật khôn ngoan ở các cấp độ Chuyên gia nhé!</p>
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-box">
+                <p>Nếu bạn phát hiện lỗi (bug) hoặc có ý kiến đóng góp, vui lòng liên hệ:</p>
+                <ul>
+                    <li><strong>Email Hỗ trợ:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>Thời gian phản hồi:</strong> Trong vòng 24-48 giờ làm việc</li>
+                </ul>
+            </div>
+            <h2>Mẹo Chơi Hữu Ích</h2>
+            <ul>
+                <li><strong>Sử dụng Chế độ Tập trung (Focus Mode):</strong> Nhấn vào ô bất kỳ để làm nổi bật hàng và cột của ô đó. Điều này giúp bạn tính toán tầm nhìn chính xác mà không bị phân tâm bởi các tòa nhà khác.</li>
+                <li><strong>Làm chủ số "1" và "9":</strong> Gợi ý số "1" có nghĩa là tòa nhà cao nhất (9) nằm ngay sát rìa. Gợi ý số "9" nghĩa là các tòa nhà được xếp theo thứ tự tăng dần hoàn hảo.</li>
+                <li><strong>Hệ thống Ghi chú (Note):</strong> Chuyển sang chế độ Ghi chú để đánh dấu các chiều cao có thể có trước khi quyết định đặt một tòa nhà cố định.</li>
+            </ul>
+            <h2>Thông Tin Kỹ Thuật</h2>
+            <ul>
+                <li><strong>Tương thích:</strong> Yêu cầu iOS 15.1+ hoặc Android 10.0+</li>
+                <li><strong>Chính sách bảo mật:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Xem tại đây</a></li>
+            </ul>
+        </div>
 
-        <h2>Technical Information</h2>
-        <ul>
-            <li><strong>Compatibility:</strong> Requires iOS 15.1+ or Android 10.0+</li>
-            <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color: var(--accent);">View here</a></li>
-        </ul>
+        <div id="content-zh-CN" class="lang-content">
+            <h1>技术支持中心</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最后更新：2026年5月4日</p>
+            <p>欢迎来到 <strong>The Grid Skyscrapers</strong> 技术支持页面。我们致力于在移动端为您带来最具挑战性和成就感的逻辑解谜体验。如果您遇到任何技术问题或需要解谜技巧，您来对地方了。</p>
+            <h2>常见问题解答 (FAQ)</h2>
+            <h3>Q: 如何游玩 The Grid Skyscrapers？</h3>
+            <p>A: 您的目标是在 9x9 的网格中填入高度为 1 到 9 的建筑。适用两条规则：1) 每个高度在每行和每列中只能出现一次（数独风格）。2) 网格边缘的数字表示从该方向可以“看到”的建筑数量。较高的建筑会完全遮挡身后较矮建筑的视线。</p>
+            <h3>Q: 如果我放错了建筑的位置会怎么样？</h3>
+            <p>A: 游戏拥有 <span class="warning">3血生命系统</span>。如果您放置的建筑违反了行/列逻辑或视野线索，您将失去一点生命值。失去全部三点生命值将导致该关卡游戏结束（Game Over）。</p>
+            <h3>Q: 不同的难度模式有什么区别？</h3>
+            <p>A: 所有模式均使用 9x9 网格，但初始给出的固定建筑数量不同：
+                <ul>
+                    <li><span class="highlight">简单：</span> 40座固定建筑。</li>
+                    <li><span class="highlight">普通：</span> 30座固定建筑。</li>
+                    <li><span class="highlight">困难：</span> 23座固定建筑。</li>
+                    <li><span class="highlight">专家：</span> 16座固定建筑。</li>
+                </ul>
+            </p>
+            <h3>Q: 可以在没有网络连接的情况下游玩吗？</h3>
+            <p>A: 完全可以。游戏支持完全离线游玩，非常适合长途飞行或通勤途中。定义。</p>
+            <h3>Q: 我卡关了！提示如何工作？</h3>
+            <p>A: 点击 <span class="highlight">提示 (Hint)</span> 图标会自动在当前网格中填入一个正确的建筑。提示数量有限，请在专家关卡中谨慎使用！</p>
+            <h2>联系我们</h2>
+            <div class="contact-box">
+                <p>如果您发现了Bug或有任何建议，请与我们取得联系：</p>
+                <ul>
+                    <li><strong>邮件支持：</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>回复时间：</strong> 24-48个工作日小时内</li>
+                </ul>
+            </div>
+            <h2>实用小贴士</h2>
+            <ul>
+                <li><strong>使用聚焦模式：</strong> 点击任意格子可高亮其所在的行和列。这能帮助您轻松计算视野，而不受其他建筑干扰。</li>
+                <li><strong>攻克“1”和“9”：</strong> 边缘提示为“1”意味着最高的建筑 (9) 就在最边缘。提示为“9”意味着建筑按照从小到大的顺序完美排列。</li>
+                <li><strong>笔记系统：</strong> 切换到笔记模式可以在最终确定建筑前，先标记出可能的高度。</li>
+            </ul>
+            <h2>技术信息</h2>
+            <ul>
+                <li><strong>兼容性：</strong> 需要 iOS 15.1+ 或 Android 10.0+</li>
+                <li><strong>隐私政策：</strong> <a href="privacy-policy.html" style="color: var(--accent);">点击此处查看</a></li>
+            </ul>
+        </div>
+
+        <div id="content-zh-TW" class="lang-content">
+            <h1>技術支援中心</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最後更新：2026年5月4日</p>
+            <p>歡迎來到 <strong>The Grid Skyscrapers</strong> 技術支援頁面。我們致力於在移動端為您帶來最具挑戰性和成就感的邏輯解謎體驗。如果您遇到任何技術問題或需要解謎技巧，您來對地方了。</p>
+            <h2>常見問題解答 (FAQ)</h2>
+            <h3>Q: 如何遊玩 The Grid Skyscrapers？</h3>
+            <p>A: 您的目標是在 9x9 的網格中填入高度為 1 到 9 的建築。適用兩條規則：1) 每個高度在每行和每列中只能出現一次（數獨風格）。2) 網格邊緣的數字表示從該方向可以“看到”的建築數量。較高的建築會完全遮擋身後較矮建築的視線。</p>
+            <h3>Q: 如果我放錯了建築的位置會怎麼樣？</h3>
+            <p>A: 遊戲擁有 <span class="warning">3血生命系統</span>。如果您放置的建築違反了行/列邏輯或視野線索，您將失去一點生命值。失去全部三點生命值將導致該關卡遊戲結束（Game Over）。</p>
+            <h3>Q: 不同的難度模式有什麼區別？</h3>
+            <p>A: 所有模式均使用 9x9 網格，但初始給出的固定建築數量不同：
+                <ul>
+                    <li><span class="highlight">簡單：</span> 40座固定建築。</li>
+                    <li><span class="highlight">普通：</span> 30座固定建築。</li>
+                    <li><span class="highlight">困難：</span> 23座固定建築。</li>
+                    <li><span class="highlight">專家：</span> 16座固定建築。</li>
+                </ul>
+            </p>
+            <h3>Q: 可以在沒有網路連接的情況下遊玩嗎？</h3>
+            <p>A: 完全可以。遊戲支援完全離線遊玩，非常適合長途飛行或通勤途中。</p>
+            <h3>Q: 我卡關了！提示如何工作？</h3>
+            <p>A: 點擊 <span class="highlight">提示 (Hint)</span> 圖標會自動在當前網格中填入一個正確的建築。提示數量有限，請在專家關卡中謹慎使用！</p>
+            <h2>聯絡我們</h2>
+            <div class="contact-box">
+                <p>如果您發現了Bug或有任何建議，請與我們取得聯絡：</p>
+                <ul>
+                    <li><strong>郵件支援：</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>回覆時間：</strong> 24-48個工作日小時內</li>
+                </ul>
+            </div>
+            <h2>實用小貼士</h2>
+            <ul>
+                <li><strong>使用聚焦模式：</strong> 點擊任意格子可高亮其所在的行和列。這能幫助您輕鬆計算視野，而不受其他建築干擾。</li>
+                <li><strong>攻克“1”和“9”：</strong> 邊緣提示為“1”意味著最高的建築 (9) 就在最邊緣。提示為“9”意味著建築按照從小到大的順序完美排列。</li>
+                <li><strong>筆記系統：</strong> 切換到筆記模式可以在最終確定建築前，先標記出可能的高度。</li>
+            </ul>
+            <h2>技術資訊</h2>
+            <ul>
+                <li><strong>相容性：</strong> 需要 iOS 15.1+ 或 Android 10.0+</li>
+                <li><strong>隱私政策：</strong> <a href="privacy-policy.html" style="color: var(--accent);">點擊此處查看</a></li>
+            </ul>
+        </div>
+
+        <div id="content-ko" class="lang-content">
+            <h1>고객 지원 센터</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">최종 업데이트: 2026년 5월 4일</p>
+            <p><strong>The Grid Skyscrapers</strong> 지원 페이지에 오신 것을 환영합니다. 저희는 모바일에서 가장 도전적이면서도 만족스러운 논리 퍼즐 경험을 제공하기 위해 최선을 다하고 있습니다. 기술적인 문제가 발생했거나 빌딩을 다루는 데 도움이 필요하시다면 올바른 장소를 찾아오셨습니다.</p>
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <h3>Q: The Grid Skyscrapers는 어떻게 플레이하나요?</h3>
+            <p>A: 목표는 9x9 그리드를 다양한 높이(1-9)의 빌딩으로 채우는 것입니다. 두 가지 규칙이 적용됩니다. 1) 각 높이는 각 행과 열에 한 번만 나타나야 합니다 (스도쿠 스타일). 2) 가장자리의 숫자는 해당 방향에서 "볼 수 있는" 빌딩의 개수를 나타냅니다. 높은 빌딩은 뒤에 있는 낮은 빌딩의 시야를 가립니다.</p>
+            <h3>Q: 빌딩을 잘못 배치하면 어떻게 되나요?</h3>
+            <p>A: 게임에는 <span class="warning">3개의 하트 라이프 시스템</span>이 있습니다. 행/열 로직이나 시야 힌트를 위반하는 빌딩을 배치하면 하트를 하나 잃게 됩니다. 하트 3개를 모두 잃으면 해당 레벨은 게임 오버(Game Over)가 됩니다.</p>
+            <h3>Q: 난이도 모드는 어떻게 다른가요?</h3>
+            <p>A: 모든 모드는 9x9 그리드를 사용하지만, 처음에 주어지는 고정 빌딩의 개수가 다릅니다:
+                <ul>
+                    <li><span class="highlight">쉬움:</span> 고정 빌딩 40개.</li>
+                    <li><span class="highlight">보통:</span> 고정 빌딩 30개.</li>
+                    <li><span class="highlight">어려움:</span> 고정 빌딩 23개.</li>
+                    <li><span class="highlight">전문가:</span> 고정 빌딩 16개.</li>
+                </ul>
+            </p>
+            <h3>Q: 인터넷 연결 없이도 플레이할 수 있나요?</h3>
+            <p>A: 물론입니다. 게임은 오프라인에서 완전 플레이가 가능하므로 긴 비행이나 출퇴근 시간에 이상적입니다.</p>
+            <h3>Q: 너무 어려워요! 힌트는 어떻게 작동하나요?</h3>
+            <p>A: <span class="highlight">힌트 (Hint)</span> 아이콘을 누르면 현재 그리드에 올바른 빌딩 하나가 자동으로 채워집니다. 힌트의 개수는 제한되어 있으니 전문가 레벨에서 현명하게 사용하세요!</p>
+            <h2>문의하기</h2>
+            <div class="contact-box">
+                <p>버그를 발견하셨거나 제안 사항이 있으시면 언제든지 연락해 주세요:</p>
+                <ul>
+                    <li><strong>이메일 지원:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>답변 시간:</strong> 영업일 기준 24~48시간 이내</li>
+                </ul>
+            </div>
+            <h2>유용한 팁</h2>
+            <ul>
+                <li><strong>포커스 모드 활용:</strong> 아무 셀이나 누르면 해당 행과 열이 하이라이트됩니다. 다른 빌딩에 방해받지 않고 시야를 계산하는 데 큰 도움이 됩니다.</li>
+                <li><strong>"1"과 "9" 공략:</strong> 힌트가 "1"이면 가장 높은 빌딩(9)이 가장자리에 바로 위치함을 뜻합니다. 힌트가 "9"이면 빌딩들이 완벽한 오름차순으로 배치됨을 뜻합니다.</li>
+                <li><strong>메모 시스템:</strong> 영구적인 빌딩을 배치하기 전에 메모 모드로 전환하여 들어갈 수 있는 후보 높이들을 마킹해 보세요.</li>
+            </ul>
+            <h2>기술 정보</h2>
+            <ul>
+                <li><strong>호환성:</strong> iOS 15.1+ 또는 Android 10.0+ 요구</li>
+                <li><strong>개인정보 처리방침:</strong> <a href="privacy-policy.html" style="color: var(--accent);">여기서 확인</a></li>
+            </ul>
+        </div>
+
+        <div id="content-ja" class="lang-content">
+            <h1>サポートセンター</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最終更新日：2026年5月4日</p>
+            <p><strong>The Grid Skyscrapers</strong> サポートページへようこそ。私たちは、モバイルで最も挑戦的でやりがいのあるロジックパズル体験を提供することに全力を尽くしています。技術的な問題が発生した場合や、ビルディングの配置に困ったときはこちらをご確認ください。</p>
+            <h2>よくある質問 (FAQ)</h2>
+            <h3>Q: The Grid Skyscrapers のプレイ方法は？</h3>
+            <p>A: 目的は、9x9のグリッドを1から9までの異なる高さのビルで埋めることです。次の2つのルールがあります。1) 各行および各列に、同じ高さのビルは1つしか配置できません（数独スタイル）。2) 外側の数字は、その方向から見たときに「見える」ビルの数を表します。高いビルは、後ろにある低いビルを隠します。</p>
+            <h3>Q: ビルを間違えて配置するとどうなりますか？</h3>
+            <p>A: ゲームには <span class="warning">3ライフシステム</span> が搭載されています。行/列のロジックや視界のヒントに違反するビルを配置すると、ライフを1つ失います。3つのライフをすべて失うと、そのレベルはゲームオーバー（Game Over）になります。</p>
+            <h3>Q: 難易度モードの違いは何ですか？</h3>
+            <p>A: すべてのモードで9x9のグリッドを使用しますが、最初に配置されている固定ビルの数が異なります：
+                <ul>
+                    <li><span class="highlight">簡単:</span> 固定ビル40棟。</li>
+                    <li><span class="highlight">普通:</span> 固定ビル30棟。</li>
+                    <li><span class="highlight">難しい:</span> 固定ビル23棟。</li>
+                    <li><span class="highlight">エキスパート:</span> 固定ビル16棟。</li>
+                </ul>
+            </p>
+            <h3>Q: インターネット接続がなくてもプレイできますか？</h3>
+            <p>A: はい、もちろんです。ゲームは完全にオフラインでプレイ可能なため、長時間の飛行機移動や通勤・通学中にも最適です。</p>
+            <h3>Q: 行き詰まりました！ヒントはどのように機能しますか？</h3>
+            <p>A: <span class="highlight">ヒント (Hint)</span> アイコンをタップすると、現在のグリッドに正しいビルが1つ自動的に配置されます。ヒントの数には限りがありますので、エキスパートレベルでは計画的に使用してください！</p>
+            <h2>お問い合わせ</h2>
+            <div class="contact-box">
+                <p>バグを見つけた場合や、ご意見・ご要望がございましたら、下記までご連絡ください：</p>
+                <ul>
+                    <li><strong>メールサポート:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>返信時間:</strong> 24〜48営業時間以内</li>
+                </ul>
+            </div>
+            <h2>役立つヒント</h2>
+            <ul>
+                <li><strong>フォーカスモードの活用:</strong> 任意のマスをタップすると、その行と列がハイライされます。他のビルに邪魔されることなく、視界の計算に集中できます。</li>
+                <li><strong>「1」と「9」をマスターする:</strong> 外側の数字が「1」の場合、最も高いビル(9)がすぐ目の前にあることを意味します。「9」の場合は、ビルが手前から奥へ完璧な昇順で並んでいることを意味します。</li>
+                <li><strong>メモシステム:</strong> ビルを確定する前に、メモモードに切り替えて配置可能な高さの候補をマークしましょう。</li>
+            </ul>
+            <h2>技術情報</h2>
+            <ul>
+                <li><strong>互換性:</strong> iOS 15.1+ または Android 10.0+ が必要</li>
+                <li><strong>プライバシーポリシー:</strong> <a href="privacy-policy.html" style="color: var(--accent);">こちらから確認</a></li>
+            </ul>
+        </div>
+
+        <div id="content-ru" class="lang-content">
+            <h1>Центр поддержки</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Последнее обновление: 4 мая 2026 г.</p>
+            <p>Добро пожаловать на страницу поддержки игры <strong>The Grid Skyscrapers</strong>. Мы стремимся предоставить вам самый сложный, но при этом увлекательный опыт логических головоломок на мобильных устройствах. Если вы столкнулись с техническими проблемами или вам нужна помощь, вы попали по адресу.</p>
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            <h3>Q: Как играть в The Grid Skyscrapers?</h3>
+            <p>A: Ваша цель — заполнить сетку 9x9 зданиями разной высоты (от 1 до 9). Действуют два правила: 1) Каждая высота должна появляться только один раз в строке и столбце (в стиле Судоку). 2) Числа по краям показывают, сколько зданий вы можете «увидеть» в этом направлении. Более высокие здания блокируют обзор на более низкие дома за ними.</p>
+            <h3>Q: Что произойдет, если я неверно поставлю здание?</h3>
+            <p>A: В игре действует <span class="warning">Система 3-х жизней</span>. Если вы разместите здание, нарушающее логику строк/столбцов или подсказки видимости, вы потеряете одну жизнь. Потеря всех трех жизней приведет к завершению игры (Game Over) на этом уровне.</p>
+            <h3>Q: Чем отличаются режимы сложности?</h3>
+            <p>A: Все режимы используют сетку 9x9, но меняется количество изначально открытых зданий:
+                <ul>
+                    <li><span class="highlight">Легкий:</span> 40 фиксированных зданий.</li>
+                    <li><span class="highlight">Нормальный:</span> 30 фиксированных зданий.</li>
+                    <li><span class="highlight">Сложный:</span> 23 фиксированных здания.</li>
+                    <li><span class="highlight">Эксперт:</span> 16 фиксированных зданий.</li>
+                </ul>
+            </p>
+            <h3>Q: Можно ли играть без подключения к интернету?</h3>
+            <p>A: Абсолютно. Игра полностью доступна в автономном режиме (офлайн), что идеально подходит для длительных перелетов или поездок на работу.</p>
+            <h3>Q: Я застрял! Как работают подсказки?</h3>
+            <p>A: Нажмите на иконку <span class="highlight">Подсказки (Hint)</span>, чтобы автоматически заполнить одно правильное здание в вашей текущей сетке. Количество подсказок ограничено, поэтому используйте их с умом на уровнях Эксперта!</p>
+            <h2>Контакты</h2>
+            <div class="contact-box">
+                <p>Если вы обнаружили ошибку или у вас есть предложения, пожалуйста, свяжитесь с нами:</p>
+                <ul>
+                    <li><strong>Поддержка по почте:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>Время ответа:</strong> В течение 24-48 рабочих часов</li>
+                </ul>
+            </div>
+            <h2>Полезные советы</h2>
+            <ul>
+                <li><strong>Используйте режим фокуса:</strong> Нажмите на любую ячейку, чтобы подсветить ее строку и столбец. Это поможет вам рассчитать видимость, не отвлекаясь на другие здания.</li>
+                <li><strong>Мастерство «1» и «9»:</strong> Подсказка «1» означает, что самое высокое здание (9) находится прямо у края. Подсказка «9» означает, что здания расположены в идеальном возрастающем порядке.</li>
+                <li><strong>Система заметок:</strong> Переключитесь в режим заметок (Note), чтобы пометить возможную высоту зданий перед тем, как зафиксировать окончательный вариант.</li>
+            </ul>
+            <h2>Техническая информация</h2>
+            <ul>
+                <li><strong>Совместимость:</strong> Требуется iOS 15.1+ или Android 10.0+</li>
+                <li><strong>Политика конфиденциальности:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Посмотреть здесь</a></li>
+            </ul>
+        </div>
+
+        <div id="content-es" class="lang-content">
+            <h1>Centro de Soporte</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Última actualización: 4 de mayo de 2026</p>
+            <p>Bienvenido a la página de soporte de <strong>The Grid Skyscrapers</strong>. Nos dedicamos a ofrecer la experiencia de acertijos lógicos más desafiante y satisfactoria en dispositivos móviles. Si encuentras algún problema técnico o necesitas ayuda para dominar el horizonte urbano, estás en el lugar correcto.</p>
+            <h2>Preguntas Frecuentes (FAQ)</h2>
+            <h3>Q: ¿Cómo se juega a The Grid Skyscrapers?</h3>
+            <p>A: Tu objetivo es llenar la cuadrícula de 9x9 con edificios de diferentes alturas (1-9). Se aplican dos reglas: 1) Cada altura debe aparecer solo una vez por fila y columna (estilo Sudoku). 2) Los números en el borde indican cuántos edificios puedes "ver" desde esa dirección. Los edificios más altos bloquean la vista de los más bajos detrás de ellos.</p>
+            <h3>Q: ¿Qué pasa si coloco mal un edificio?</h3>
+            <p>A: El juego cuenta con un <span class="warning">Sistema de 3 Vidas</span>. Si colocas un edificio que viola la lógica de filas/columnas o las pistas de visibilidad, perderás una vida. Perder las tres vidas resultará en Fin de la Partida (Game Over) para ese nivel.</p>
+            <h3>Q: ¿En qué se diferencian los modos de dificultad?</h3>
+            <p>A: Todos los modos usan una cuadrícula de 9x9, pero cambia el número de edificios iniciales fijos:
+                <ul>
+                    <li><span class="highlight">Fácil:</span> 40 edificios fijos.</li>
+                    <li><span class="highlight">Normal:</span> 30 edificios fijos.</li>
+                    <li><span class="highlight">Difícil:</span> 23 edificios fijos.</li>
+                    <li><span class="highlight">Experto:</span> 16 edificios fijos.</li>
+                </ul>
+            </p>
+            <h3>Q: ¿Puedo jugar sin conexión a Internet?</h3>
+            <p>A: Absolutamente. El juego es completamente jugable sin conexión, ideal para vuelos largos o trayectos diarios.</p>
+            <h3>Q: ¡Me he quedado atascado! ¿Cómo funcionan las Pistas?</h3>
+            <p>A: Toca el icono de <span class="highlight">Pista (Hint)</span> para rellenar automáticamente un edificio correcto en tu cuadrícula actual. ¡Las pistas son limitadas, así que úsalas con sabiduría en los niveles Experto!</p>
+            <h2>Contáctenos</h2>
+            <div class="contact-box">
+                <p>Si has encontrado un error o tienes sugerencias, por favor ponte en contacto:</p>
+                <ul>
+                    <li><strong>Soporte por Correo:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>Tiempo de respuesta:</strong> Dentro de 24-48 horas laborables</li>
+                </ul>
+            </div>
+            <h2>Consejos Útiles</h2>
+            <ul>
+                <li><strong>Usa el Modo Enfoque:</strong> Toca cualquier casilla para resaltar su fila y columna. Esto te ayuda a calcular la visibilidad sin distraerte con otros edificios.</li>
+                <li><strong>Domina el "1" y el "9":</strong> Una pista de "1" significa que el edificio más alto (9) está justo en el borde. Una pista de "9" significa que los edificios se colocan en perfecto orden ascendente.</li>
+                <li><strong>Sistema de Notas:</strong> Cambia al modo Nota para marcar las posibles alturas antes de comprometerte con un edificio permanente.</li>
+            </ul>
+            <h2>Información Técnica</h2>
+            <ul>
+                <li><strong>Compatibilidad:</strong> Requiere iOS 15.1+ o Android 10.0+</li>
+                <li><strong>Política de Privacidad:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Ver aquí</a></li>
+            </ul>
+        </div>
+
+        <div id="content-de" class="lang-content">
+            <h1>Support-Center</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Letzte Aktualisierung: 4. Mai 2026</p>
+            <p>Willkommen auf der Support-Seite von <strong>The Grid Skyscrapers</strong>. Wir sind bestrebt, das anspruchsvollste und zugleich lohnendste Logikrätsel-Erlebnis auf dem Handy zu bieten. Wenn Sie auf technische Probleme stoßen oder Hilfe beim Meistern der Skyline benötigen, sind Sie hier genau richtig.</p>
+            <h2>Häufig gestellte Fragen (FAQ)</h2>
+            <h3>Q: Wie spiele ich The Grid Skyscrapers?</h3>
+            <p>A: Ihr Ziel ist es, das 9x9-Raster mit Gebäuden unterschiedlicher Höhe (1-9) zu füllen. Es gelten zwei Regeln: 1) Jede Höhe darf nur einmal pro Zeile und Spalte vorkommen (Sudoku-Stil). 2) Die Zahlen am Rand geben an, wie viele Gebäude Sie aus dieser Richtung „sehen“ können. Höhere Gebäude blockieren die Sicht auf kleinere Häuser dahinter.</p>
+            <h3>Q: Was passiert, wenn ich ein Gebäude falsch platziere?</h3>
+            <p>A: Das Spiel verfügt über ein <span class="warning">3-Leben-System</span>. Wenn Sie ein Gebäude platzieren, das gegen die Zeilen-/Spaltenlogik oder die Sichtweitenhinweise verstößt, verlieren Sie ein Leben. Wenn Sie alle drei Leben verlieren, führt dies zu einem Game Over für dieses Level.</p>
+            <h3>Q: Wie unterscheiden sich die Schwierigkeitsmodi?</h3>
+            <p>A: Alle Modi verwenden ein 9x9-Raster, aber die Anzahl der anfänglich vorgegebenen Gebäude ändert sich:
+                <ul>
+                    <li><span class="highlight">Einfach:</span> 40 feste Gebäude.</li>
+                    <li><span class="highlight">Normal:</span> 30 feste Gebäude.</li>
+                    <li><span class="highlight">Schwer:</span> 23 feste Gebäude.</li>
+                    <li><span class="highlight">Experte:</span> 16 feste Gebäude.</li>
+                </ul>
+            </p>
+            <h3>Q: Kann ich ohne Internetverbindung spielen?</h3>
+            <p>A: Absolut. Das Spiel ist vollständig offline spielbar, perfekt für lange Flüge oder den täglichen Arbeitsweg.</p>
+            <h3>Q: Ich stecke fest! Wie funktionieren die Hinweise?</h3>
+            <p>A: Tippen Sie auf das <span class="highlight">Hinweis (Hint)</span>-Symbol, um automatisch ein korrektes Gebäude in Ihrem aktuellen Raster auszufüllen. Hinweise sind begrenzt, nutzen Sie sie in den Experten-Leveln also mit Bedacht!</p>
+            <h2>Kontaktieren Sie uns</h2>
+            <div class="contact-box">
+                <p>Wenn Sie einen Fehler gefunden haben oder Vorschläge haben, wenden Sie sich bitte an uns:</p>
+                <ul>
+                    <li><strong>E-Mail-Support:</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>Antwortzeit:</strong> Innerhalb von 24-48 Werktagsstunden</li>
+                </ul>
+            </div>
+            <h2>Hilfreiche Tipps</h2>
+            <ul>
+                <li><strong>Fokusmodus nutzen:</strong> Tippen Sie auf eine beliebige Zelle, um deren Zeile und Spalte hervorzuheben. Dies hilft Ihnen, die Sichtbarkeit zu berechnen, ohne von anderen Gebäuden abgelenkt zu werden.</li>
+                <li><strong>Meistern Sie die „1“ und „9“:</strong> Ein Hinweis von „1“ bedeutet, dass sich das höchste Gebäude (9) direkt am Rand befindet. Ein Hinweis von „9“ bedeutet, dass die Gebäude in perfekter aufsteigender Reihenfolge platziert sind.</li>
+                <li><strong>Notizsystem:</strong> Wechseln Sie in den Notizmodus, um mögliche Höhen zu markieren, bevor Sie sich auf ein dauerhaftes Gebäude festlegen.</li>
+            </ul>
+            <h2>Technische Informationen</h2>
+            <ul>
+                <li><strong>Kompatibilität:</strong> Erfordert iOS 15.1+ oder Android 10.0+</li>
+                <li><strong>Datenschutzerklärung:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Hier einsehen</a></li>
+            </ul>
+        </div>
 
         <footer>
             &copy; 2026 The Grid Skyscrapers. Developed by D.H.N.
         </footer>
     </div>
+
+    <script>
+        function switchLanguage(langCode) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const contents = document.querySelectorAll('.lang-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const clickedBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes("'" + langCode + "'"));
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+                clickedBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            
+            const targetContent = document.getElementById('content-' + langCode);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
+
+        // Auto-detect browser language on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage;
+            if (userLang.startsWith('vi')) switchLanguage('vi');
+            else if (userLang.startsWith('zh-CN')) switchLanguage('zh-CN');
+            else if (userLang.startsWith('zh')) switchLanguage('zh-TW');
+            else if (userLang.startsWith('ko')) switchLanguage('ko');
+            else if (userLang.startsWith('ja')) switchLanguage('ja');
+            else if (userLang.startsWith('ru')) switchLanguage('ru');
+            else if (userLang.startsWith('es')) switchLanguage('es');
+            else if (userLang.startsWith('de')) switchLanguage('de');
+            else switchLanguage('en');
+        });
+    </script>
 </body>
 </html>
