@@ -6,34 +6,46 @@
     <title>Privacy Policy - Neon Busters Hub</title>
     <style>
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
+            --bg: #02040a;
+            --card-bg: #090e1e;
+            --accent: #00f0ff; /* Cyan Neon */
+            --accent-gold: #ffe600; /* Gold Neon */
+            --text-main: #f0f4f8;
+            --text-dim: #8da2bd;
+            --error: #ff007f; /* Pink Neon */
         }
         body {
-            font-family: 'Inter', system-ui, sans-serif;
+            font-family: 'Outfit', 'Inter', system-ui, sans-serif;
             background-color: var(--bg);
             color: var(--text-main);
             line-height: 1.6;
             margin: 0;
             padding: 2rem 1rem;
+            background-image: radial-gradient(circle at top, rgba(0, 240, 255, 0.05), transparent 60%);
         }
         .container {
             max-width: 800px;
             margin: 0 auto;
             background: var(--card-bg);
             padding: 2.5rem 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+            border-radius: 16px;
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
         }
         .back-link {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
             margin-bottom: 1.5rem;
             color: var(--accent);
             text-decoration: none;
             font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+            text-shadow: 0 0 8px var(--accent);
+            transform: translateX(-3px);
         }
         
         /* Horizontal Scroll Segment Control Styles */
@@ -105,10 +117,12 @@
             height: 100%;
             object-fit: contain;
             border-radius: 22%; 
+            border: 2px solid rgba(0, 240, 255, 0.25);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
         }
 
-        h1 { text-align: center; font-size: 2rem; margin: 0; }
-        h2 { color: var(--accent); margin-top: 2rem; font-size: 1.4rem; border-bottom: 1px solid #334155; padding-bottom: 0.25rem; }
+        h1 { text-align: center; font-weight: 900; font-size: 2.2rem; margin: 0; letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        h2 { color: var(--accent-gold); margin-top: 2.5rem; font-size: 1.4rem; letter-spacing: 1.5px; border-bottom: 1.5px dashed rgba(255, 230, 0, 0.2); padding-bottom: 0.35rem; text-shadow: 0 0 8px rgba(255, 230, 0, 0.2); }
         p, li { color: var(--text-dim); font-size: 1rem; }
         .highlight-box {
             background: #0f172a;
