@@ -158,6 +158,7 @@
             <div class="lang-scroll-container">
                 <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
                 <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
                 <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
@@ -204,6 +205,39 @@
             <ul>
                 <li><strong>Compatibility:</strong> Requires iOS 15.1+ or Android 10.0+ / Modern HTML5 web browser</li>
                 <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color: var(--accent);">View here</a></li>
+            </ul>
+        </div>
+
+        <div id="content-fr" class="lang-content">
+            <h1>Centre d'assistance</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Dernière mise à jour : 27 mai 2026</p>
+            <p>Bienvenue sur la page d'assistance de <strong>Neon Busters Hub</strong>. Neon Busters Hub est un portail de jeux d'arcade cyberpunk haut de gamme, hébergeant des titres rétro-futuristes à haute dose d'adrénaline, notamment le jeu de plateforme d'action <strong>Retro Patrol</strong> et le jeu tactique de tower defense de science-fiction <strong>Cyber Defense</strong>. Si vous rencontrez des problèmes techniques ou avez besoin d'aide pour maîtriser nos jeux, vous êtes au bon endroit.</p>
+            <h2>Questions fréquemment posées (FAQ)</h2>
+            <h3>Q : Qu'est-ce que Neon Busters Hub ?</h3>
+            <p>R : Il s'agit d'un catalogue de jeux d'arcade haut de gamme proposant des jeux futuristes et bourrés d'action. Depuis notre hub central, vous pouvez lancer divers titres d'inspiration rétro, personnaliser vos profils, consulter les meilleurs scores et profiter d'un style néon immersif et de pistes audio chiptune rétro.</p>
+            <h3>Q : Comment ma progression dans le jeu est-elle enregistrée ?</h3>
+            <p>R : Le portail enregistre automatiquement votre progression de jeu, vos meilleurs scores, vos niveaux déverrouillés, vos arbres technologiques globaux et vos paramètres localement sur votre appareil (`localStorage`). Vous pouvez quitter l'application à tout moment et cliquer sur le bouton <span class="highlight">Continuer</span> dans le salon de chaque jeu pour reprendre. <span class="warning">Avertissement :</span> L'effacement de l'espace de stockage de votre appareil ou la désinstallation de l'application effacera votre progression enregistrée.</p>
+            <h3>Q : Puis-je jouer au jeu sans connexion Internet ?</h3>
+            <p>R : Absolument ! Tous les jeux principaux du hub sont entièrement jouables hors ligne, ce qui les rend parfaits pour les longs vols ou les trajets quotidiens. Une connexion Internet est uniquement requise pour charger les publicités avec récompense pour les réanimations en jeu ou les multiplicateurs de bonus.</p>
+            <h3>Q : Comment personnaliser les commandes ou les paramètres audio ?</h3>
+            <p>R : Appuyez sur l'icône <span class="highlight">Paramètres</span> depuis le hub ou le menu principal de n'importe quel jeu. Vous pouvez ajuster indépendamment les volumes BGM/SFX, changer la langue de l'interface utilisateur, personnaliser les raccourcis clavier et modifier la taille des boutons virtuels pour un gameplay optimal sur écran tactile.</p>
+            <h2>Contactez-nous</h2>
+            <div class="contact-box">
+                <p>Si vous rencontrez un bug, faites face à des problèmes techniques ou avez des suggestions, veuillez contacter notre Commande Spéciale :</p>
+                <ul>
+                    <li><strong>Assistance par e-mail :</strong> nghiadoan2901@gmail.com</li>
+                    <li><strong>Délai de réponse :</strong> Dans les 24 à 48 heures ouvrables</li>
+                </ul>
+            </div>
+            <h2>Conseils utiles</h2>
+            <ul>
+                <li><strong>Expérience immersive :</strong> Si vous jouez sur mobile, les pavés tactiles virtuels sont entièrement redimensionnables dans les Paramètres. Nous vous recommandons d'ajuster les tailles pour correspondre à votre taille d'écran pour une expérience optimale.</li>
+                <li><strong>Points de contrôle locaux :</strong> Quitter un jeu en cours via le menu de pause préserve le point de contrôle de votre niveau actuel. Cependant, un Game Over officiel effacera le fichier de sauvegarde actif, sauf si vous choisissez de regarder immédiatement une publicité de réanimation.</li>
+            </ul>
+            <h2>Informations techniques</h2>
+            <ul>
+                <li><strong>Compatibilité :</strong> Nécessite iOS 15.1+ or Android 10.0+ / Navigateur Web HTML5 moderne</li>
+                <li><strong>Politique de confidentialité :</strong> <a href="privacy-policy.html" style="color: var(--accent);">Consulter ici</a></li>
             </ul>
         </div>
 
@@ -498,15 +532,17 @@
 
         // Auto-detect browser language on load
         window.addEventListener('DOMContentLoaded', () => {
-            const userLang = navigator.language || navigator.userLanguage;
-            if (userLang.startsWith('vi')) switchLanguage('vi');
-            else if (userLang.startsWith('zh-CN')) switchLanguage('zh-CN');
-            else if (userLang.startsWith('zh')) switchLanguage('zh-TW');
-            else if (userLang.startsWith('ko')) switchLanguage('ko');
-            else if (userLang.startsWith('ja')) switchLanguage('ja');
-            else if (userLang.startsWith('ru')) switchLanguage('ru');
-            else if (userLang.startsWith('es')) switchLanguage('es');
-            else if (userLang.startsWith('de')) switchLanguage('de');
+            const userLang = navigator.language || navigator.userLanguage || '';
+            const lowerLang = userLang.toLowerCase();
+            if (lowerLang.startsWith('vi')) switchLanguage('vi');
+            else if (lowerLang.startsWith('fr')) switchLanguage('fr');
+            else if (lowerLang.startsWith('zh-cn')) switchLanguage('zh-CN');
+            else if (lowerLang.startsWith('zh')) switchLanguage('zh-TW');
+            else if (lowerLang.startsWith('ko')) switchLanguage('ko');
+            else if (lowerLang.startsWith('ja')) switchLanguage('ja');
+            else if (lowerLang.startsWith('ru')) switchLanguage('ru');
+            else if (lowerLang.startsWith('es')) switchLanguage('es');
+            else if (lowerLang.startsWith('de')) switchLanguage('de');
             else switchLanguage('en');
         });
     </script>

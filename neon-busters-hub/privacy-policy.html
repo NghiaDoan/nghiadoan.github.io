@@ -153,6 +153,7 @@
             <div class="lang-scroll-container">
                 <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
                 <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
                 <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
@@ -196,6 +197,35 @@
             <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
             <h2>5. Contact Us</h2>
             <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
+
+        <!-- FRENCH CONTENT -->
+        <div id="content-fr" class="lang-content">
+            <h1>Politique de confidentialité</h1>
+            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Dernière mise à jour : 4 mai 2026</p>
+            <p>Votre vie privée est importante pour nous. <strong>Neon Busters Hub</strong> est conçu comme une application financée par la publicité. Ce service est fourni gratuitement et est destiné à être utilisé tel quel.</p>
+            <div class="highlight-box">
+                <strong>Résumé :</strong> Nous ne collectons personnellement aucune information identifiable. Nous utilisons des services tiers conformes aux normes de l'industrie pour afficher des publicités et assurer la maintenance du jeu.
+            </div>
+            <h2>1. Collecte et utilisation des informations</h2>
+            <p>Nous (le développeur) <strong>NE collectons, ne stockons ni ne partageons</strong> personnellement aucune de vos informations personnelles (telles que votre nom, votre adresse e-mail ou votre numéro de téléphone).</p>
+            <h2>2. Publicités</h2>
+            <p>Pour soutenir le développement continu du jeu, nous affichons des publicités via AdMob. Ces fournisseurs de publicité tiers peuvent collecter des données non personnelles, telles que :</p>
+            <ul>
+                <li>Les identifiants publicitaires de l'appareil (IDFA pour iOS et AAID pour Android).</li>
+                <li>Les informations sur l'appareil (modèle, version du système d'exploitation).</li>
+                <li>Les données de localisation générale (au niveau de la ville ou du pays).</li>
+            </ul>
+            <h2>3. Fournisseurs de services tiers</h2>
+            <p>L'application peut utiliser des bibliothèques des fournisseurs suivants à des fins fonctionnelles :</p>
+            <ul>
+                <li>Google Play Services / Apple App Store</li>
+                <li>Réseaux publicitaires (Google AdMob)</li>
+            </ul>
+            <h2>4. Modifications de cette politique</h2>
+            <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
+            <h2>5. Contactez-nous</h2>
+            <p>Si vous avez des questions ou des suggestions concernant notre politique de confidentialité, n'hésitez pas à nous contacter à : <strong>nghiadoan2901@gmail.com</strong></p>
         </div>
 
         <!-- VIETNAMESE CONTENT -->
@@ -434,7 +464,7 @@
         </footer>
     </div>
 
-    <!-- Active Language Switching Logic -->
+    <!-- Active Language Switching Logic & Auto-detect -->
     <script>
         function switchLanguage(langCode) {
             // Remove active class from all buttons
@@ -460,6 +490,22 @@
                 targetContent.classList.add('active');
             }
         }
+
+        // Auto-detect browser language on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage || '';
+            const lowerLang = userLang.toLowerCase();
+            if (lowerLang.startsWith('vi')) switchLanguage('vi');
+            else if (lowerLang.startsWith('fr')) switchLanguage('fr');
+            else if (lowerLang.startsWith('zh-cn')) switchLanguage('zh-CN');
+            else if (lowerLang.startsWith('zh')) switchLanguage('zh-TW');
+            else if (lowerLang.startsWith('ko')) switchLanguage('ko');
+            else if (lowerLang.startsWith('ja')) switchLanguage('ja');
+            else if (lowerLang.startsWith('ru')) switchLanguage('ru');
+            else if (lowerLang.startsWith('es')) switchLanguage('es');
+            else if (lowerLang.startsWith('de')) switchLanguage('de');
+            else switchLanguage('en');
+        });
     </script>
 </body>
 </html>
