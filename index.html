@@ -3,143 +3,477 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D.H.N | Mobile Developer Portfolio</title>
+    <title>Doan Huu Nghia — Mobile Game Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --bg: #0f172a;
-            --card-bg: #1e293b;
-            --accent: #38bdf8;
-            --text-main: #f8fafc;
-            --text-dim: #94a3b8;
+            --bg:        #0b0f1a;
+            --surface:   #131929;
+            --surface-2: #1a2338;
+            --border:    rgba(255,255,255,0.07);
+            --text:      #e8edf5;
+            --text-dim:  #7a8899;
+            --text-faint:#3d4f65;
+
+            /* Per-game accents */
+            --rs-a: #a78bfa;   /* violet — Rotate & Shadow */
+            --rs-b: #6366f1;
+            --gs-a: #38bdf8;   /* sky blue — Grid Skyscrapers */
+            --gs-b: #0ea5e9;
+            --nb-a: #f472b6;   /* neon pink — Neon Busters */
+            --nb-b: #c026d3;
         }
+
+        html { scroll-behavior: smooth; }
+
         body {
             font-family: 'Inter', system-ui, sans-serif;
-            background-color: var(--bg);
-            color: var(--text-main);
-            margin: 0;
-            line-height: 1.6;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            -webkit-font-smoothing: antialiased;
         }
-        .container { max-width: 900px; margin: 0 auto; padding: 4rem 2rem; }
-        
-        /* Header Section */
-        header { text-align: center; margin-bottom: 5rem; }
-        .profile-title { font-size: 2.5rem; margin-bottom: 0.5rem; color: var(--accent); }
-        .profile-subtitle { font-size: 1.1rem; color: var(--text-dim); }
 
-        /* Apps Section */
-        .section-title {
-            font-size: 1.5rem;
-            border-left: 4px solid var(--accent);
-            padding-left: 1rem;
-            margin-bottom: 2rem;
+        /* ── LAYOUT ── */
+        .container { max-width: 960px; margin: 0 auto; padding: 0 2rem; }
+
+        /* ── AMBIENT BG ── */
+        body::before {
+            content: '';
+            position: fixed; inset: 0;
+            background:
+                radial-gradient(ellipse 60% 50% at 15% 10%, rgba(99,102,241,0.07) 0%, transparent 70%),
+                radial-gradient(ellipse 50% 40% at 85% 80%, rgba(244,114,182,0.05) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
         }
-        .app-card {
-            background: var(--card-bg);
-            border-radius: 1rem;
-            padding: 2rem;
-            display: flex;
+        .container { position: relative; z-index: 1; }
+
+        /* ── HEADER ── */
+        header {
+            padding: 6rem 0 5rem;
+            display: grid;
+            grid-template-columns: 1fr auto;
+            align-items: end;
             gap: 2rem;
-            align-items: center;
-            transition: transform 0.3s;
-            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 5rem;
         }
-        .app-card:hover { transform: translateY(-5px); }
-        .app-icon {
-            width: 150px;
-            height: 150px;
+
+        .header-eyebrow {
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 1rem;
+        }
+
+        .header-name {
+            font-family: 'DM Serif Display', Georgia, serif;
+            font-size: clamp(2.6rem, 6vw, 4rem);
+            line-height: 1.05;
+            color: var(--text);
+            margin-bottom: 1.25rem;
+        }
+
+        .header-name span {
+            font-style: italic;
+            background: linear-gradient(135deg, var(--rs-a), var(--gs-a));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .header-bio {
+            font-size: 1rem;
+            color: var(--text-dim);
+            max-width: 480px;
+            line-height: 1.7;
+        }
+
+        .header-stats {
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+            text-align: right;
             flex-shrink: 0;
+        }
+
+        .stat-item {}
+        .stat-num {
+            font-family: 'DM Serif Display', serif;
+            font-size: 2rem;
+            line-height: 1;
+            color: var(--text);
+        }
+        .stat-label {
+            font-size: 0.7rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-top: 0.2rem;
+        }
+
+        /* ── SECTION TITLE ── */
+        .section-label {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--text-faint);
+            margin-bottom: 2.5rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+
+        /* ── GAME CARDS ── */
+        .games { display: flex; flex-direction: column; gap: 2rem; margin-bottom: 6rem; }
+
+        .game-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: grid;
+            grid-template-columns: 200px 1fr;
+        }
+
+        .game-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.4);
+        }
+
+        /* Mood strip — left accent panel */
+        .game-mood {
+            position: relative;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-weight: bold;
-            font-size: 2rem;
+            padding: 2.5rem 1.5rem;
+            overflow: hidden;
+        }
 
-            img { 
-                width: 100%;
-                height: 100%;
-                object-fit: contain;
-                border-radius: 22%; 
+        .game-card.rs .game-mood { background: linear-gradient(160deg, rgba(167,139,250,0.15), rgba(99,102,241,0.08)); }
+        .game-card.gs .game-mood { background: linear-gradient(160deg, rgba(56,189,248,0.15), rgba(14,165,233,0.08)); }
+        .game-card.nb .game-mood { background: linear-gradient(160deg, rgba(244,114,182,0.18), rgba(192,38,211,0.08)); }
+
+        .game-mood::after {
+            content: '';
+            position: absolute;
+            right: 0; top: 0; bottom: 0;
+            width: 1px;
+            background: var(--border);
+        }
+
+        .game-icon {
+            width: 110px;
+            height: 110px;
+            border-radius: 22%;
+            object-fit: contain;
+            display: block;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+
+        /* Placeholder when no image */
+        .game-icon-placeholder {
+            width: 110px;
+            height: 110px;
+            border-radius: 22%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'DM Serif Display', serif;
+            font-size: 2.5rem;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.4);
+        }
+        .game-card.rs .game-icon-placeholder { background: linear-gradient(135deg, var(--rs-b), var(--rs-a)); }
+        .game-card.gs .game-icon-placeholder { background: linear-gradient(135deg, var(--gs-b), var(--gs-a)); }
+        .game-card.nb .game-icon-placeholder { background: linear-gradient(135deg, var(--nb-b), var(--nb-a)); }
+
+        /* Card body */
+        .game-body { padding: 2rem 2rem 2rem 2rem; display: flex; flex-direction: column; gap: 0.75rem; }
+
+        .game-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .game-tag {
+            font-size: 0.65rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.2rem 0.55rem;
+            border-radius: 999px;
+        }
+
+        .game-card.rs .game-tag { color: var(--rs-a); background: rgba(167,139,250,0.12); }
+        .game-card.gs .game-tag { color: var(--gs-a); background: rgba(56,189,248,0.12); }
+        .game-card.nb .game-tag { color: var(--nb-a); background: rgba(244,114,182,0.12); }
+
+        .platform-badge {
+            font-size: 0.6rem;
+            font-weight: 500;
+            color: var(--text-faint);
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            padding: 0.2rem 0.5rem;
+            border-radius: 4px;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .game-title {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.65rem;
+            line-height: 1.15;
+            color: var(--text);
+        }
+
+        .game-desc {
+            font-size: 0.9rem;
+            color: var(--text-dim);
+            line-height: 1.7;
+            flex-grow: 1;
+        }
+
+        .game-links {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+            margin-top: 0.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            text-decoration: none;
+            font-size: 0.78rem;
+            font-weight: 600;
+            padding: 0.45rem 0.9rem;
+            border-radius: 6px;
+            transition: opacity 0.2s, transform 0.15s;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
+        }
+        .btn:hover { opacity: 0.82; transform: translateY(-1px); }
+
+        .btn-store {
+            color: #0b0f1a;
+        }
+        .game-card.rs .btn-store { background: var(--rs-a); }
+        .game-card.gs .btn-store { background: var(--gs-a); }
+        .game-card.nb .btn-store { background: var(--nb-a); }
+
+        .btn-ghost {
+            border: 1px solid var(--border);
+            color: var(--text-dim);
+            background: transparent;
+        }
+        .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
+
+        .btn-icon { font-size: 0.85rem; }
+
+        /* ── FOOTER ── */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 0;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        footer p {
+            font-size: 0.8rem;
+            color: var(--text-faint);
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.25rem;
+        }
+
+        .footer-links a {
+            font-size: 0.78rem;
+            color: var(--text-faint);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text-dim); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 680px) {
+            header {
+                grid-template-columns: 1fr;
+                padding: 4rem 0 3.5rem;
+            }
+            .header-stats {
+                flex-direction: row;
+                text-align: left;
+                gap: 2rem;
+            }
+            .game-card {
+                grid-template-columns: 1fr;
+            }
+            .game-mood {
+                padding: 2rem;
+                justify-content: flex-start;
+            }
+            .game-mood::after { display: none; }
+            footer {
+                flex-direction: column;
+                align-items: flex-start;
             }
         }
-        .app-info h3 { margin: 0 0 0.5rem 0; font-size: 1.8rem; }
-        .app-info p { color: var(--text-dim); margin-bottom: 1.5rem; }
-        
-        .links { display: flex; gap: 1rem; flex-wrap: wrap; }
-        .link-btn {
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 600;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            transition: 0.2s;
-        }
-        .primary { background: var(--accent); color: var(--bg); }
-        .secondary { border: 1px solid var(--accent); color: var(--accent); }
-        .link-btn:hover { opacity: 0.8; }
 
-        footer { text-align: center; margin-top: 6rem; color: var(--text-dim); font-size: 0.9rem; }
+        /* ── REDUCED MOTION ── */
+        @media (prefers-reduced-motion: reduce) {
+            .game-card { transition: none; }
+            .btn { transition: none; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <div class="profile-title">D.H.N</div>
-            <div class="profile-subtitle">Professional Mobile Developer specialized in React Native & Ionic</div>
-        </header>
+<div class="container">
 
-        <h2 class="section-title">Developed Projects</h2>
-        
-        <div class="app-card">
-            <div class="app-icon">
-                <img src="./assets/images/RotateShadow_Logo.png" alt="Rotate & Shadow Icon">
+    <!-- HEADER -->
+    <header>
+        <div>
+            <p class="header-eyebrow">Independent Mobile Game Developer</p>
+            <h1 class="header-name">Doan Huu <span>Nghia</span></h1>
+            <p class="header-bio">
+                I design and build mobile games from the ground up — crafting the mechanics, visuals, and experience solo. Every project on this page is a product I conceived, developed, and shipped independently.
+            </p>
+        </div>
+        <div class="header-stats">
+            <div class="stat-item">
+                <div class="stat-num">3</div>
+                <div class="stat-label">Published Games</div>
             </div>
-            <div class="app-info">
-                <h3>Rotate & Shadow</h3>
-                <p>A meditative 3D puzzle game featuring over many levels. Use spatial reasoning to rotate objects and match their shadows to target silhouettes.</p>
-                <div class="links">
-                    <a href="https://apps.apple.com/us/app/rotate-shadow-zen-puzzle/id6762373381" class="link-btn primary" target="_blank">App Store</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.dhn.rotateandshadow" class="link-btn primary" target="_blank">Google Play</a>
-                    <a href="./rotate-shadow/privacy-policy.html" class="link-btn secondary">Privacy Policy</a>
-                    <a href="./rotate-shadow/support.html" class="link-btn secondary">Support</a>
+            <div class="stat-item">
+                <div class="stat-num">2</div>
+                <div class="stat-label">Platforms</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- GAMES -->
+    <p class="section-label">Published Projects</p>
+    <div class="games">
+
+        <!-- Rotate & Shadow -->
+        <div class="game-card rs">
+            <div class="game-mood">
+                <img class="game-icon" src="./assets/images/RotateShadow_Logo.png" alt="Rotate & Shadow icon"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-icon-placeholder" style="display:none;">R&S</div>
+            </div>
+            <div class="game-body">
+                <div class="game-meta">
+                    <span class="game-tag">Puzzle · Zen</span>
+                    <span class="platform-badge">iOS</span>
+                    <span class="platform-badge">Android</span>
+                </div>
+                <h2 class="game-title">Rotate & Shadow: Zen Puzzle</h2>
+                <p class="game-desc">
+                    A meditative 3D puzzle experience. Manipulate abstract objects in space until their cast shadow crystallizes into a recognizable silhouette. Features ever-expanding levels across Easy, Normal, and Hard modes — no timers, no stress, just spatial reasoning and ambient zen sound.
+                </p>
+                <div class="game-links">
+                    <a href="https://apps.apple.com/us/app/rotate-shadow-zen-puzzle/id6762373381" class="btn btn-store" target="_blank" rel="noopener">
+                        <span class="btn-icon">⬇</span> App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.dhn.rotateandshadow" class="btn btn-store" target="_blank" rel="noopener">
+                        <span class="btn-icon">⬇</span> Google Play
+                    </a>
+                    <a href="./rotate-shadow/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
+                    <a href="./rotate-shadow/support.html" class="btn btn-ghost">Support</a>
                 </div>
             </div>
         </div>
 
-        <div class="app-card">
-            <div class="app-icon">
-                <img src="./assets/images/TheGridSkyscrapers_Logo.png" alt="The Grid Skyscrapers Icon">
+        <!-- The Grid Skyscrapers -->
+        <div class="game-card gs">
+            <div class="game-mood">
+                <img class="game-icon" src="./assets/images/TheGridSkyscrapers_Logo.png" alt="The Grid Skyscrapers icon"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-icon-placeholder" style="display:none;">GS</div>
             </div>
-            <div class="app-info">
-                <h3>The Grid Skyscrapers</h3>
-                <p>A city-building simulation game where you design and manage your own urban landscape with unique architectural challenges.</p>
-                <div class="links">
-                    <a href="https://apps.apple.com/us/app/the-grid-skylines/id6765679575" class="link-btn primary" target="_blank">App Store</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.dhn.thegridskylines" class="link-btn primary" target="_blank">Google Play</a>
-                    <a href="./the-grid-skyscrapers/privacy-policy.html" class="link-btn secondary">Privacy Policy</a>
-                    <a href="./the-grid-skyscrapers/support.html" class="link-btn secondary">Support</a>
+            <div class="game-body">
+                <div class="game-meta">
+                    <span class="game-tag">Puzzle · Logic</span>
+                    <span class="platform-badge">iOS</span>
+                    <span class="platform-badge">Android</span>
+                </div>
+                <h2 class="game-title">The Grid Skyscrapers: Puzzle</h2>
+                <p class="game-desc">
+                    A logic puzzle fusing Sudoku with urban architecture. Fill a 9×9 grid where each number is a building height — but edge clues reveal only how many skyscrapers are visible from each vantage point, since taller structures block shorter ones behind them. Four difficulty tiers from relaxed to expert, with a 3-lives system that makes every placement count.
+                </p>
+                <div class="game-links">
+                    <a href="https://apps.apple.com/us/app/the-grid-skyscrapers-puzzle/id6765679575" class="btn btn-store" target="_blank" rel="noopener">
+                        <span class="btn-icon">⬇</span> App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.dhn.thegridskylines" class="btn btn-store" target="_blank" rel="noopener">
+                        <span class="btn-icon">⬇</span> Google Play
+                    </a>
+                    <a href="./the-grid-skyscrapers/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
+                    <a href="./the-grid-skyscrapers/support.html" class="btn btn-ghost">Support</a>
                 </div>
             </div>
         </div>
 
-        <div class="app-card">
-            <div class="app-icon">
-                <img src="./assets/images/NeonBustersHub_Logo.png" alt="Neon Busters Hub Icon">
+        <!-- Neon Busters Hub -->
+        <div class="game-card nb">
+            <div class="game-mood">
+                <img class="game-icon" src="./assets/images/NeonBustersHub_Logo.png" alt="Neon Busters Hub icon"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-icon-placeholder" style="display:none;">NB</div>
             </div>
-            <div class="app-info">
-                <h3>Neon Busters Hub</h3>
-                <p>The Ultimate Premium Cyberpunk Arcade Portal! Step into a beautiful, dark futuristic metropolis lit by vibrant neon glows and styled with a luxurious frosted Glassmorphism UI. Explore a growing library of unique minigames, ranging from high-octane side-scrolling action to intense real-time tactical defense!</p>
-                <div class="links">
-                    <a href="https://apps.apple.com/us/app/neon-busters-hub/id6772156702" class="link-btn primary" target="_blank">App Store</a>
-                    <a href="https://play.google.com/store/apps/details?id=com.dhn.neonbusters.hub" class="link-btn primary" target="_blank">Google Play</a>
-                    <a href="./neon-busters-hub/privacy-policy.html" class="link-btn secondary">Privacy Policy</a>
-                    <a href="./neon-busters-hub/support.html" class="link-btn secondary">Support</a>
+            <div class="game-body">
+                <div class="game-meta">
+                    <span class="game-tag">Arcade · Action</span>
+                    <span class="platform-badge">iOS</span>
+                    <span class="platform-badge">Android</span>
+                </div>
+                <h2 class="game-title">Neon Busters Hub: Arcade</h2>
+                <p class="game-desc">
+                    A premium cyberpunk arcade portal set in a neon-lit futuristic metropolis. An ever-growing library of minigames — from side-scrolling action to real-time tactical defense — unified by a luxurious frosted Glassmorphism UI. Built with custom particle physics, hit-freeze combat feedback, and locked 60 FPS performance.
+                </p>
+                <div class="game-links">
+                    <a href="https://apps.apple.com/us/app/neon-busters-hub-arcade/id6772156702" class="btn btn-store" target="_blank" rel="noopener">
+                        <span class="btn-icon">⬇</span> App Store
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.dhn.neonbusters.hub" class="btn btn-store" target="_blank" rel="noopener">
+                        <span class="btn-icon">⬇</span> Google Play
+                    </a>
+                    <a href="./neon-busters-hub/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
+                    <a href="./neon-busters-hub/support.html" class="btn btn-ghost">Support</a>
                 </div>
             </div>
         </div>
 
-        <footer>
-            <p>&copy; 2026 D.H.N. Designed for a minimalist workspace setup.</p>
-        </footer>
-    </div>
+    </div><!-- /games -->
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Doan Huu Nghia. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="https://nghiadoan.github.io/" target="_blank" rel="noopener">Developer Site</a>
+        </div>
+    </footer>
+
+</div>
 </body>
 </html>
