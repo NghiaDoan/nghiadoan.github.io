@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Blokyra</title>
+    <style>
+        :root {
+            --bg: #02040a;
+            --card-bg: #090e1e;
+            --accent: #00f0ff; /* Cyan Neon */
+            --accent-gold: #ffe600; /* Gold Neon */
+            --text-main: #f0f4f8;
+            --text-dim: #8da2bd;
+            --error: #ff007f; /* Pink Neon */
+        }
+        body {
+            font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem 1rem;
+            background-image: radial-gradient(circle at top, rgba(0, 240, 255, 0.05), transparent 60%);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 0 35px rgba(0, 240, 255, 0.15), inset 0 0 15px rgba(0, 240, 255, 0.05);
+            border: 1px solid rgba(0, 240, 255, 0.2);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            font-size: 0.95rem;
+        }
+        .back-link:hover {
+            opacity: 0.8;
+            text-shadow: 0 0 8px var(--accent);
+            transform: translateX(-3px);
+        }
+        
+        /* Horizontal Scroll Segment Control */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding-bottom: 0.75rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 0.5rem;
+            padding-bottom: 0.5rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--accent) #090e1e;
+            -webkit-overflow-scrolling: touch;
+        }
+        .lang-scroll-container::-webkit-scrollbar {
+            height: 4px;
+        }
+        .lang-scroll-container::-webkit-scrollbar-track {
+            background: #090e1e;
+        }
+        .lang-scroll-container::-webkit-scrollbar-thumb {
+            background-color: rgba(0, 240, 255, 0.2);
+            border-radius: 2px;
+        }
+        .lang-btn {
+            background: rgba(255, 255, 255, 0.02);
+            color: var(--text-dim);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 0.5rem 1.1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.85rem;
+            font-weight: bold;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-main);
+            box-shadow: 0 0 8px rgba(0, 240, 255, 0.25);
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #02040a;
+            border-color: var(--accent);
+            font-weight: bold;
+            box-shadow: 0 0 12px rgba(0, 240, 255, 0.4);
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .app-icon img { 
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%; 
+            border: 2px solid rgba(0, 240, 255, 0.25);
+            box-shadow: 0 0 15px rgba(0, 240, 255, 0.15);
+        }
+
+        h1 { text-align: center; font-weight: 900; font-size: 2.2rem; margin: 0; letter-spacing: 2px; color: #fff; text-shadow: 0 0 10px rgba(0, 240, 255, 0.3); }
+        h2 { color: var(--accent-gold); margin-top: 2.5rem; font-size: 1.4rem; letter-spacing: 1.5px; border-bottom: 1.5px dashed rgba(255, 230, 0, 0.2); padding-bottom: 0.35rem; text-shadow: 0 0 8px rgba(255, 230, 0, 0.2); }
+        h3 { color: var(--accent); margin-top: 1.75rem; font-size: 1.15rem; border-left: 3px solid var(--accent); padding-left: 12px; font-weight: bold; text-shadow: 0 0 5px rgba(0, 240, 255, 0.25); }
+        p, li { color: var(--text-dim); font-size: 0.95rem; }
+        .contact-box {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--accent);
+            border: 1px solid rgba(0, 240, 255, 0.1);
+            border-left: 4px solid var(--accent);
+        }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.6rem; }
+        .highlight { color: var(--accent); font-weight: 600; text-shadow: 0 0 5px rgba(0, 240, 255, 0.15); }
+        .warning { color: var(--error); font-weight: 600; text-shadow: 0 0 5px rgba(255, 0, 127, 0.15); }
+        footer { text-align: center; margin-top: 4.5rem; color: #536b8c; font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.05); padding-top: 1.5rem; font-weight: 500; }
+        
+        .lang-content {
+            display: none;
+        }
+        .lang-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- <a href="../index.html" class="back-link">&larr; Back to Home</a> -->
+        
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
+                <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
+                <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ru')">Русский</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
+                <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+            </div>
+        </div>
+        
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/NeonBustersHub_Logo.png" onerror="this.src='src/assets/images/NeonBustersHub_Logo.png'; this.onerror=null;" alt="Blokyra Logo">
+            </div>
+        </div>
+ 
+        <div id="content-en" class="lang-content active">
+            <h1>Support Center</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Latest Update: May 27, 2026</p>
+            <p>Welcome to the <strong>Blokyra</strong> support page. Blokyra is a premium cyberpunk arcade gaming portal, hosting high-octane retro-futuristic titles including the action-packed platformer <strong>Retro Patrol</strong> and the tactical sci-fi tower defense game <strong>Cyber Defense</strong>. If you encounter any technical issues or need help mastering our games, you are in the right place.</p>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <h3>Q: What is Blokyra?</h3>
+            <p>A: It is an premium arcade game catalog featuring futuristic, high-action games. From our central hub, you can launch various retro-inspired titles, customize your profiles, review high scores, and enjoy immersive neon styling and retro chiptune audio tracks.</p>
+            <h3>Q: How is my game progress saved?</h3>
+            <p>A: The portal automatically saves your game progress, high scores, unlocked stages, global tech trees, and settings locally on your device (`localStorage`). You can exit the app at any time and click the <span class="highlight">Continue</span> button in each game lobby to resume. <span class="warning">Warning:</span> Clearing your device storage or uninstalling the app will erase your saved progress.</p>
+            <h3>Q: Can I play the game without an internet connection?</h3>
+            <p>A: Absolutely! All core games inside the hub are fully playable offline, making it perfect for long flights or commutes. An internet connection is only required to load rewarded ads for in-game revives or bonus multipliers.</p>
+            <h3>Q: How do I customize controls or audio settings?</h3>
+            <p>A: Tap the <span class="highlight">Settings</span> icon from the hub or any game's main menu. You can independently adjust BGM/SFX volumes, switch UI languages, customize key bindings for keyboards, and toggle virtual button sizes for optimal touch screen gameplay.</p>
+            <h2>Contact Us</h2>
+            <div class="contact-box">
+                <p>If you encounter a bug, face any technical issues, or have suggestions, please reach out to our Special Command:</p>
+                <ul>
+                    <li><strong>Email Support:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>Response Time:</strong> Within 24-48 business hours</li>
+                </ul>
+            </div>
+            <h2>Helpful Tips</h2>
+            <ul>
+                <li><strong>Immersive Experience:</strong> If you are playing on mobile, virtual touch pads are fully scalable in Settings. We recommend adjusting sizes to match your screen size for the best experience.</li>
+                <li><strong>Local Checkpoints:</strong> Exiting a live game via the pause menu preserves your current stage checkpoint. However, an official Game Over will clear the active save file unless you choose to watch an ad-revive immediately.</li>
+            </ul>
+            <h2>Technical Information</h2>
+            <ul>
+                <li><strong>Compatibility:</strong> Requires iOS 15.1+ or Android 10.0+ / Modern HTML5 web browser</li>
+                <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color: var(--accent);">View here</a></li>
+            </ul>
+        </div>
+
+        <div id="content-fr" class="lang-content">
+            <h1>Centre d'assistance</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Dernière mise à jour : 27 mai 2026</p>
+            <p>Bienvenue sur la page d'assistance de <strong>Blokyra</strong>. Blokyra est un portail de jeux d'arcade cyberpunk haut de gamme, hébergeant des titres rétro-futuristes à haute dose d'adrénaline, notamment le jeu de plateforme d'action <strong>Retro Patrol</strong> et le jeu tactique de tower defense de science-fiction <strong>Cyber Defense</strong>. Si vous rencontrez des problèmes techniques ou avez besoin d'aide pour maîtriser nos jeux, vous êtes au bon endroit.</p>
+            <h2>Questions fréquemment posées (FAQ)</h2>
+            <h3>Q : Qu'est-ce que Blokyra ?</h3>
+            <p>R : Il s'agit d'un catalogue de jeux d'arcade haut de gamme proposant des jeux futuristes et bourrés d'action. Depuis notre hub central, vous pouvez lancer divers titres d'inspiration rétro, personnaliser vos profils, consulter les meilleurs scores et profiter d'un style néon immersif et de pistes audio chiptune rétro.</p>
+            <h3>Q : Comment ma progression dans le jeu est-elle enregistrée ?</h3>
+            <p>R : Le portail enregistre automatiquement votre progression de jeu, vos meilleurs scores, vos niveaux déverrouillés, vos arbres technologiques globaux et vos paramètres localement sur votre appareil (`localStorage`). Vous pouvez quitter l'application à tout moment et cliquer sur le bouton <span class="highlight">Continuer</span> dans le salon de chaque jeu pour reprendre. <span class="warning">Avertissement :</span> L'effacement de l'espace de stockage de votre appareil ou la désinstallation de l'application effacera votre progression enregistrée.</p>
+            <h3>Q : Puis-je jouer au jeu sans connexion Internet ?</h3>
+            <p>R : Absolument ! Tous les jeux principaux du hub sont entièrement jouables hors ligne, ce qui les rend parfaits pour les longs vols ou les trajets quotidiens. Une connexion Internet est uniquement requise pour charger les publicités avec récompense pour les réanimations en jeu ou les multiplicateurs de bonus.</p>
+            <h3>Q : Comment personnaliser les commandes ou les paramètres audio ?</h3>
+            <p>R : Appuyez sur l'icône <span class="highlight">Paramètres</span> depuis le hub ou le menu principal de n'importe quel jeu. Vous pouvez ajuster indépendamment les volumes BGM/SFX, changer la langue de l'interface utilisateur, personnaliser les raccourcis clavier et modifier la taille des boutons virtuels pour un gameplay optimal sur écran tactile.</p>
+            <h2>Contactez-nous</h2>
+            <div class="contact-box">
+                <p>Si vous rencontrez un bug, faites face à des problèmes techniques ou avez des suggestions, veuillez contacter notre Commande Spéciale :</p>
+                <ul>
+                    <li><strong>Assistance par e-mail :</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>Délai de réponse :</strong> Dans les 24 à 48 heures ouvrables</li>
+                </ul>
+            </div>
+            <h2>Conseils utiles</h2>
+            <ul>
+                <li><strong>Expérience immersive :</strong> Si vous jouez sur mobile, les pavés tactiles virtuels sont entièrement redimensionnables dans les Paramètres. Nous vous recommandons d'ajuster les tailles pour correspondre à votre taille d'écran pour une expérience optimale.</li>
+                <li><strong>Points de contrôle locaux :</strong> Quitter un jeu en cours via le menu de pause préserve le point de contrôle de votre niveau actuel. Cependant, un Game Over officiel effacera le fichier de sauvegarde actif, sauf si vous choisissez de regarder immédiatement une publicité de réanimation.</li>
+            </ul>
+            <h2>Informations techniques</h2>
+            <ul>
+                <li><strong>Compatibilité :</strong> Nécessite iOS 15.1+ or Android 10.0+ / Navigateur Web HTML5 moderne</li>
+                <li><strong>Politique de confidentialité :</strong> <a href="privacy-policy.html" style="color: var(--accent);">Consulter ici</a></li>
+            </ul>
+        </div>
+
+        <div id="content-vi" class="lang-content">
+            <h1>Trung Tâm Hỗ Trợ</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Cập nhật mới nhất: Ngày 27 tháng 5 năm 2026</p>
+            <p>Chào mừng bạn đến với trang hỗ trợ của <strong>Blokyra</strong>. Blokyra là cổng trò chơi điện tử (arcade) phong cách Cyberpunk cao cấp, tích hợp các tựa game hành động viễn tưởng cổ điển đầy kịch tính như game đi cảnh bắn súng <strong>Retro Patrol</strong> và game thủ thành chiến thuật <strong>Cyber Defense</strong>. Nếu bạn gặp bất kỳ sự cố kỹ thuật nào hoặc cần trợ giúp để chinh phục các màn chơi, bạn đã đến đúng nơi.</p>
+            <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+            <h3>Q: Blokyra là gì?</h3>
+            <p>A: Đây là một cổng game tổng hợp các trò chơi điện tử hành động phong cách viễn tưởng Cyberpunk. Từ sảnh chính (hub), bạn có thể lựa chọn chơi các minigame khác nhau, thiết lập cấu hình, theo dõi điểm số kỷ lục, và tận hưởng đồ họa neon rực rỡ cùng âm thanh nhạc nền chiptune hoài niệm.</p>
+            <h3>Q: Tiến trình chơi game của tôi được lưu như thế nào?</h3>
+            <p>A: Cổng game tự động lưu trữ tiến trình mở khóa màn chơi, điểm số kỷ lục, cây công nghệ và thiết lập cài đặt của bạn cục bộ trên bộ nhớ thiết bị (`localStorage`). Bạn có thể thoát trò chơi bất kỳ lúc nào và bấm nút <span class="highlight">Tiếp Tục</span> ở sảnh chờ của mỗi trò chơi để khôi phục tiến trình. <span class="warning">Lưu ý:</span> Việc xóa dữ liệu duyệt web/ứng dụng hoặc gỡ cài đặt sẽ làm mất toàn bộ tiến trình đã lưu.</p>
+            <h3>Q: Tôi có thể chơi khi không có kết nối Internet không?</h3>
+            <p>A: Hoàn toàn được! Tất cả các trò chơi trong cổng game đều hỗ trợ chơi ngoại tuyến (offline) đầy đủ, cực kỳ lý tưởng cho các chuyến bay dài hoặc khi đi tàu xe. Kết nối Internet chỉ cần thiết khi bạn muốn xem quảng cáo để nhận thưởng nhân đôi hoặc hồi sinh nhân vật.</p>
+            <h3>Q: Làm cách nào để tùy chỉnh phím điều khiển hoặc âm thanh?</h3>
+            <p>A: Nhấn vào biểu tượng <span class="highlight">Cài Đặt</span> ở sảnh chính hoặc trong menu tạm dừng của trò chơi. Bạn có thể tự do điều chỉnh âm lượng BGM/SFX, thay đổi ngôn ngữ, gán phím tùy ý cho bàn phím hoặc tùy chỉnh kích cỡ phím ảo để có trải nghiệm chơi trên màn hình cảm ứng tốt nhất.</p>
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-box">
+                <p>Nếu bạn phát hiện lỗi (bug), gặp sự cố kỹ thuật hoặc có ý kiến đóng góp, vui lòng liên hệ Ban Chỉ Huy:</p>
+                <ul>
+                    <li><strong>Email Hỗ trợ:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>Thời gian phản hồi:</strong> Trong vòng 24-48 giờ làm việc</li>
+                </ul>
+            </div>
+            <h2>Mẹo Chơi Hữu Ích</h2>
+            <ul>
+                <li><strong>Tối ưu hóa phím ảo:</strong> Nếu chơi trên thiết bị di động, bạn hãy vào Cài đặt để tùy chỉnh kích cỡ cụm phím hành động lớn/nhỏ sao cho thoải mái nhất với tay của mình.</li>
+                <li><strong>Cơ chế lưu Checkpoint:</strong> Thoát game từ menu Pause sẽ lưu giữ vị trí và thông số hiện tại. Tuy nhiên, nếu bị Game Over chính thức, lưu game sẽ bị xóa trừ khi bạn chọn xem quảng cáo hồi sinh ngay lập tức.</li>
+            </ul>
+            <h2>Thông Tin Kỹ Thuật</h2>
+            <ul>
+                <li><strong>Tương thích:</strong> Yêu cầu iOS 15.1+ hoặc Android 10.0+ / Trình duyệt web HTML5 hiện đại</li>
+                <li><strong>Chính sách bảo mật:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Xem tại đây</a></li>
+            </ul>
+        </div>
+
+        <div id="content-zh-CN" class="lang-content">
+            <h1>技术支持中心</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">最后更新：2026年5月27日</p>
+            <p>欢迎来到 <strong>Blokyra</strong> 技术支持页面。Blokyra 是一个高端的赛博朋克街机游戏门户，汇集了包括横版射击动作游戏 <strong>Retro Patrol</strong> 以及战术科幻塔防游戏 <strong>Cyber Defense</strong> 在内的多款高能复古未来风游戏。如果您遇到任何技术问题或需要解谜与战斗技巧，您来对地方了。</p>
+            <h2>常见问题解答 (FAQ)</h2>
+            <h3>Q: 什么是 Blokyra？</h3>
+            <p>A: 这是一个高品质的赛博朋克风格街机游戏中心。从主大厅开始，您可以启动不同的复古街机小游戏、配置游戏设置、查看全角色积分记录，并沉浸在绚丽的霓虹光效与复古电子Chiptune音乐中。</p>
+            <h3>Q: 游戏进度是如何保存的？</h3>
+            <p>A: 本游戏门户会自动将您的解锁关卡、最高得分、全局科技树和游戏配置以本地存储（`localStorage`）的形式保存在您的设备上。您可以随时退出游戏，并在游戏大厅点击 <span class="highlight">继续战斗</span> 按钮无缝恢复进度。<span class="warning">警告：</span>清除设备缓存或卸载应用将导致您的所有存档进度丢失。</p>
+            <h3>Q: 可以在没有网络连接的情况下游玩吗？</h3>
+            <p>A: 完全可以！中心内所有的核心游戏均支持完全离线单机游玩，非常适合长途飞行或通勤途中。仅在您需要观看激励广告以获得免费重生或翻倍积分奖励时，才需要网络连接。</p>
+            <h3>Q: 如何修改操作按键或声音设置？</h3>
+            <p>A: 点击主大厅或游戏暂停菜单中的 <span class="highlight">设置</span> 图标。您可以独立调节背景音乐与音效音量、切换界面语言、为键盘重新配置映射按键，或调整移动端虚拟按键的大小以获得最佳的触屏手感。</p>
+            <h2>联系我们</h2>
+            <div class="contact-box">
+                <p>如果您在游戏内发现了Bug、面临任何技术困难或有改进意见，请随时与特别指挥部联系：</p>
+                <ul>
+                    <li><strong>邮件支持：</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>回复时间：</strong> 24-48个工作日小时内</li>
+                </ul>
+            </div>
+            <h2>实用小贴士</h2>
+            <ul>
+                <li><strong>触屏操控优化：</strong> 如果您在手机上游玩，可以在设置中将虚拟按键大小调整为大（1.5倍），以获得最舒适的持握和操作体验。</li>
+                <li><strong>关卡存档机制：</strong> 在关卡中通过暂停菜单退出将完美保存您的当前位置和状态。但如果是正式游戏结束（Game Over），存档将被清除，除非您选择立即观看广告重生。</li>
+            </ul>
+            <h2>技术信息</h2>
+            <ul>
+                <li><strong>兼容性：</strong> 需要 iOS 15.1+ 或 Android 10.0+ / 现代 HTML5 网页浏览器</li>
+                <li><strong>隐私政策：</strong> <a href="privacy-policy.html" style="color: var(--accent);">点击此处查看</a></li>
+            </ul>
+        </div>
+
+        <div id="content-zh-TW" class="lang-content">
+            <h1>技術支援中心</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">最後更新：2026年5月27日</p>
+            <p>歡迎來到 <strong>Blokyra</strong> 技術支援頁面。Blokyra 是一個高端的賽博朋克街機遊戲門戶，匯集了包括橫版射擊動作遊戲 <strong>Retro Patrol</strong> 以及戰術科幻塔防遊戲 <strong>Cyber Defense</strong> 在內的多款高能復古未來風遊戲。如果您遇到任何技術問題或需要戰鬥技巧，您來對地方了。</p>
+            <h2>常見問題解答 (FAQ)</h2>
+            <h3>Q: 如何遊玩 Blokyra？</h3>
+            <p>A: 這是一個高品質的賽博朋克風格街機遊戲中心。從主大廳開始，您可以啟動不同的復古街機小遊戲、配置遊戲設置、查看全角色積分記錄，並沉浸在絢麗的霓虹光效與復古電子Chiptune音樂中。</p>
+            <h3>Q: 遊戲進度是如何保存的？</h3>
+            <p>A: 本遊戲門戶會自動將您的解鎖關卡、最高得分、全局科技樹和遊戲配置以本地存儲（`localStorage`）的形式保存在您的設備上。您可以隨時退出遊戲，並在遊戲大廳點擊 <span class="highlight">繼續戰鬥</span> 按鈕無縫恢復進度。<span class="warning">警告：</span>清除設備快取或解除安裝應用程式將導致您的所有存檔進度丟失。</p>
+            <h3>Q: 可以在沒有網路連接的情況下遊玩嗎？</h3>
+            <p>A: 完全可以！中心內所有的核心遊戲均支援完全離線單機遊玩，非常適合長途飛行或通勤途中。僅在您需要觀看激勵廣告以獲得免費重生或翻倍積分獎勵時，才需要網路連接。</p>
+            <h3>Q: 如何修改操作按鍵或聲音設置？</h3>
+            <p>A: 點擊主大廳或遊戲暫停功能表中的 <span class="highlight">設置</span> 圖標。您可以獨立調節背景音樂與音效音量、切換介面語言、為鍵盤重新配置映射按鍵，或調整移動端虛擬按鍵的大小以獲得最佳的觸屏手感。</p>
+            <h2>聯絡我們</h2>
+            <div class="contact-box">
+                <p>如果您在遊戲內發現了Bug、面臨任何技術困難或有改進意見，請隨時與特別指揮部聯絡：</p>
+                <ul>
+                    <li><strong>郵件支援：</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>回覆時間：</strong> 24-48個工作日小時內</li>
+                </ul>
+            </div>
+            <h2>實用小貼士</h2>
+            <ul>
+                <li><strong>觸屏操控優化：</strong> 如果您在手機上遊玩，可以在設置中將虛擬按鍵大小調整為大（1.5倍），以獲得最舒適的持握和操作體驗。</li>
+                <li><strong>關卡存檔機制：</strong> 在關卡中通過暫停功能表退出將完美保存您的當前位置和狀態。但如果是正式遊戲結束（Game Over），存檔將被清除，除非您選擇立即觀看廣告重生。</li>
+            </ul>
+            <h2>技術資訊</h2>
+            <ul>
+                <li><strong>相容性：</strong> 需要 iOS 15.1+ 或 Android 10.0+ / 現代 HTML5 網頁瀏覽器</li>
+                <li><strong>隱私政策：</strong> <a href="privacy-policy.html" style="color: var(--accent);">點擊此處查看</a></li>
+            </ul>
+        </div>
+
+        <div id="content-ko" class="lang-content">
+            <h1>고객 지원 센터</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">최종 업데이트: 2026년 5월 27일</p>
+            <p><strong>Blokyra</strong> 지원 페이지에 오신 것을 환영합니다. Blokyra는 고성능 사이버펑크 아케이드 게임 포털로, 액션성이 가득한 플랫폼러 <strong>Retro Patrol</strong>과 전략적인 SF 타워 디펜스 게임 <strong>Cyber Defense</strong>를 포함한 다채로운 레트로 미래형 게임들을 제공합니다. 기술적인 문제가 발생했거나 게임을 마스터하는 데 도움이 필요하시다면 올바른 장소를 찾아오셨습니다.</p>
+            <h2>자주 묻는 질문 (FAQ)</h2>
+            <h3>Q: Blokyra는 무엇인가요?</h3>
+            <p>A: 화려하고 박진감 넘치는 사이버펑크 스타일 아케이드 게임 모음집입니다. 중앙 허브에서 다양한 레트로 스타일의 미니게임들을 실행하고, 게임을 설정하며, 최고 점수를 확인하고, 화려한 네온 비주얼과 신나는 8비트 칩튠 사운드 트랙을 즐기실 수 있습니다.</p>
+            <h3>Q: 게임 진행 상황은 어떻게 저장되나요?</h3>
+            <p>A: 포털은 기기 내 저장 공간(`localStorage`)을 활용하여 잠금 해제된 스테이지, 최고 기록 점수, 글로벌 테크 트리 및 설정을 자동으로 안전하게 저장합니다. 언제든지 앱을 종료하셔도 각 게임 로비에서 <span class="highlight">계속하기</span> 버튼을 눌러 바로 이어하실 수 있습니다. <span class="warning">주의:</span> 브라우저/앱 데이터를 삭제하거나 앱을 삭제하면 저장된 게임 진행 상황이 모두 소실됩니다.</p>
+            <h3>Q: 인터넷 연결 없이도 플레이할 수 있나요?</h3>
+            <p>A: 물론입니다! 허브 내의 모든 핵심 게임들은 완전히 오프라인 상태에서도 플레이가 가능하므로 장거리 비행이나 지하철 출퇴근 시간에도 아주 적합합니다. 인터넷 연결은 인게임 무료 부활이나 보상 배율을 획득하기 위한 보상형 광고를 시청할 때만 필요합니다.</p>
+            <h3>Q: 컨트롤러나 오디오 설정을 변경하려면 어떻게 해야 하나요?</h3>
+            <p>A: 중앙 허브나 인게임 일시정지 메뉴에서 <span class="highlight">설정</span> 아이콘을 누르세요. 배경음악(BGM) 및 효과음(SFX) 볼륨을 개별 조정하거나, 시스템 언어를 변경하고, 키보드 단축키를 맞춤 설정하거나, 모바일용 가상 버튼의 크기를 편리하게 조정할 수 있습니다.</p>
+            <h2>문의하기</h2>
+            <div class="contact-box">
+                <p>게임 중 버그를 발견하셨거나 기술적인 문제, 혹은 제안 사항이 있으시면 언제든지 특별 명령팀에 문의해 주세요:</p>
+                <ul>
+                    <li><strong>이메일 지원:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>답변 시간:</strong> 영업일 기준 24~48시간 이내</li>
+                </ul>
+            </div>
+            <h2>유용한 팁</h2>
+            <ul>
+                <li><strong>모바일 조작 최적화:</strong> 모바일 기기에서 플레이할 때 손 크기에 맞춰 가상 터치패드의 크기를 크게(1.5배) 조정하면 훨씬 편안하게 정밀 조작을 하실 수 있습니다.</li>
+                <li><strong>세이브포인트 메커니즘:</strong> 플레이 중 일시정지 메뉴를 통해 메인으로 나가면 현재 상태와 정확한 좌표가 저장됩니다. 다만 완전히 게임 오버가 되면 광고를 시청하여 즉시 부활하지 않는 이상 세이브 데이터가 초기화됩니다.</li>
+            </ul>
+            <h2>기술 정보</h2>
+            <ul>
+                <li><strong>호환성:</strong> iOS 15.1+ 또는 Android 10.0+ / 현대적인 HTML5 웹 브라우저 요구</li>
+                <li><strong>개인정보 처리방침:</strong> <a href="privacy-policy.html" style="color: var(--accent);">여기서 확인</a></li>
+            </ul>
+        </div>
+
+        <div id="content-ja" class="lang-content">
+            <h1>サポートセンター</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">最終更新日：2026年5月27日</p>
+            <p><strong>Blokyra</strong> サポートページへようこそ。Blokyra は、プレミアムなサイバーパンク・アーケードゲームポータルです。アクション満載の横スクロール・アクションシューティング <strong>Retro Patrol</strong> や、戦略的なSFタワーディフェンス <strong>Cyber Defense</strong> など、高エネルギーなレトロフューチャー作品を多数配信しています。技術的な問題が発生した場合や、ゲームの操作に困ったときはこちらをご確認ください。</p>
+            <h2>よくある質問 (FAQ)</h2>
+            <h3>Q: Blokyra とは何ですか？</h3>
+            <p>A: サイバーパンクスタイルをテーマにした高品質なアケードゲームコレクションです。中央ロビーから多様なレトロ風ミニゲームを起動したり、ゲーム構成を設定したり、最高スコアを記録したりすることができ、美しいネオンビジュアルと懐かしいチップチューン音楽に浸ることができます。</p>
+            <h3>Q: ゲームの進行状況はどのように保存されますか？</h3>
+            <p>A: 当ポータルは、解放されたステージ、ハイスコア記録、グローバルテックツリー、および環境設定をお使いのデバイスのローカルストレージ（`localStorage`）に保存します。いつでもアプリを終了でき、各ゲームのロビーで <span class="highlight">ミッション継続</span> をクリックすればロードして再開できます。<span class="warning">警告：</span>デバイスのデータ消去やアプリのアンインストールを行うと、すべてのセーブデータが失われますのでご注意ください。</p>
+            <h3>Q: インターネット接続がなくてもプレイできますか？</h3>
+            <p>A: はい、もちろんです！ハブ内のすべてのゲームは完全にオフラインでプレイ可能なため、長時間のフライトや電車の移動時間にも最適です。インターネット接続は、動画広告を表示するときのみ必要となります。</p>
+            <h3>Q: 操作ボタンやオーディオ設定を変更するには？</h3>
+            <p>A: ロビーまたは一時停止メニューの <span class="highlight">設定</span> アイコンをクリックします。BGMや効果音（SFX）の音量の調整、言語の変更、キーボード用キーマッピングのカスタマイズ、タッチパネル用の仮想ボタンサイズの変更が可能です。</p>
+            <h2>お問い合わせ</h2>
+            <div class="contact-box">
+                <p>バグの報告や技術的なサポート、ご意見などがございましたら、特別司令部までお気軽にご連絡ください：</p>
+                <ul>
+                    <li><strong>メールサポート:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>返信時間:</strong> 24〜48営業時間以内</li>
+                </ul>
+            </div>
+            <h2>役立つヒント</h2>
+            <ul>
+                <li><strong>モバイル操作の最適化:</strong> スマホでプレイする場合は、設定で仮想タッチパッドのサイズを「大 (1.5倍)」に調整することをお勧めします。操作性が格段に向上します。</li>
+                <li><strong>セーブの仕組み:</strong> プレイ中にポーズメニューから終了した場合、現在の詳細な座標と状態が完璧に保存されます。ただし、ゲームオーバー画面で広告を見て復活しなかった場合、セーブは完全にリセットされます。</li>
+            </ul>
+            <h2>技術情報</h2>
+            <ul>
+                <li><strong>互換性:</strong> iOS 15.1+ または Android 10.0+ / モダンな HTML5 ウェブブラウザが必要</li>
+                <li><strong>プライバシーポリシー:</strong> <a href="privacy-policy.html" style="color: var(--accent);">こちらから確認</a></li>
+            </ul>
+        </div>
+
+        <div id="content-ru" class="lang-content">
+            <h1>Центр поддержки</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Последнее обновление: 27 мая 2026 г.</p>
+            <p>Добро пожаловать на страницу поддержки игрового портала <strong>Blokyra</strong>. Blokyra — это премиальный портал аркадных игр в стиле киберпанк, на котором представлены динамичный экшен-платформер <strong>Retro Patrol</strong> и тактическая научно-фантастическая игра в жанре Tower Defense <strong>Cyber Defense</strong>. Если вы столкнулись с техническими проблемами или вам нужна помощь, вы попали по адресу.</p>
+            <h2>Часто задаваемые вопросы (FAQ)</h2>
+            <h3>Q: Что такое Blokyra?</h3>
+            <p>A: Это премиальный каталог аркадных игр с футуристическими и высокооктановыми проектами. Из центрального лобби вы можете запускать различные мини-игры, настраивать параметры, просматривать рекорды, наслаждаться неоновым нео-оформлением и ностальгической 8-битной чиптьюн-музыкой.</p>
+            <h3>Q: Как сохраняется игровой прогресс?</h3>
+            <p>A: Портал автоматически сохраняет ваши пройденные этапы, рекорды очков, глобальные деревья технологий и настройки локально на вашем устройстве (`localStorage`). Вы можете закрыть игру в любое время и нажать кнопку <span class="highlight">Продолжить</span> в лобби игры для возобновления сессии. <span class="warning">Внимание:</span> очистка кэша браузера/приложения или удаление игры приведет к полной утрате сохраненного прогресса.</p>
+            <h3>Q: Можно ли играть без подключения к интернету?</h3>
+            <p>A: Абсолютно! Все ключевые игры внутри портала полностью поддерживают автономный режим (офлайн), что идеально подходит для перелетов или поездок на работу. Подключение к сети требуется только для загрузки рекламы с вознаграждением для мгновенного возрождения или умножения заработанных очков.</p>
+            <h3>Q: Как изменить настройки управления или звука?</h3>
+            <p>A: Нажмите на иконку <span class="highlight">Настройки</span> в главном меню или в меню паузы. Вы можете независимо регулировать громкость музыки (BGM) и эффектов (SFX), переключать языки интерфейса, переназначать клавиши клавиатуры и изменять размер виртуальных кнопок для удобства игры на сенсорном экране.</p>
+            <h2>Обратная связь</h2>
+            <div class="contact-box">
+                <p>Если вы обнаружили программную ошибку (баг), столкнулись с технической сложностью или хотите поделиться идеями, пожалуйста, свяжитесь с Командованием Специальных Операций:</p>
+                <ul>
+                    <li><strong>Поддержка по почте:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>Время ответа:</strong> В течение 24-48 рабочих часов</li>
+                </ul>
+            </div>
+            <h2>Полезные советы</h2>
+            <ul>
+                <li><strong>Удобство сенсорного экрана:</strong> Если вы играете на телефоне, настройте размер виртуального джойстика и кнопок в меню Настроек под размер ваших рук для максимальной точности.</li>
+                <li><strong>Контрольные точки (Checkpoints):</strong> Выход из активной игры через меню паузы сохраняет ваши точные координаты на уровне. В случае же поражения (Game Over) данные будут стерты, если вы не выберете мгновенное Ad-возрождение.</li>
+            </ul>
+            <h2>Техническая информация</h2>
+            <ul>
+                <li><strong>Совместимость:</strong> Требуется iOS 15.1+ или Android 10.0+ / Современный веб-браузер HTML5</li>
+                <li><strong>Политика конфиденциальности:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Посмотреть здесь</a></li>
+            </ul>
+        </div>
+
+        <div id="content-es" class="lang-content">
+            <h1>Centro de Soporte</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Última actualización: 27 de mayo de 2026</p>
+            <p>Bienvenido a la página de soporte de <strong>Blokyra</strong>. Nos dedicamos a ofrecer la experiencia de acertijos lógicos más desafiante y satisfactoria en dispositivos móviles. Si encuentras algún problema técnico o necesitas ayuda para dominar el horizonte urbano, estás en el lugar correcto.</p>
+            <h2>Preguntas Frecuentes (FAQ)</h2>
+            <h3>Q: ¿Qué es Blokyra?</h3>
+            <p>A: Es un catálogo de juegos arcade premium con un estilo futurista y dinámico. Desde la interfaz del menú principal, puedes iniciar varios minijuegos de inspiración retro, configurar tus perfiles, revisar tus puntuaciones máximas y disfrutar de un increíble diseño de luces neon y pistas musicales de sintetizadores chiptune.</p>
+            <h3>Q: ¿Cómo se guarda el progreso de mi juego?</h3>
+            <p>A: El portal guarda automáticamente tus niveles superados, puntuaciones altas, árboles de tecnología global y configuraciones localmente en tu dispositivo (`localStorage`). Puedes salir del juego en cualquier momento y hacer clic en el botón <span class="highlight">Continuar</span> en el lobby del juego correspondiente para reanudar la partida. <span class="warning">Advertencia:</span> borrar los datos del navegador/aplicación o desinstalar la app eliminará todo el progreso guardado.</p>
+            <h3>Q: ¿Puedo jugar al juego sin conexión a Internet?</h3>
+            <p>A: ¡Totalmente! Todos los juegos del portal son completamente jugables sin conexión (offline), ideal para vuelos largos o trayectos diarios. Solo se requiere conexión a Internet para cargar los anuncios con recompensa que te permiten revivir en la misma posición o duplicar tus puntos.</p>
+            <h3>Q: ¿Cómo personalizo los controles o el sonido?</h3>
+            <p>A: Toca el icono de <span class="highlight">Ajustes</span> en el hub o en el menú de pausa de cualquier juego. Puedes ajustar de forma independiente los volúmenes de BGM/SFX, cambiar el idioma, remapear las teclas del teclado y ajustar el tamaño de los botones virtuales para pantallas táctiles.</p>
+            <h2>Contáctenos</h2>
+            <div class="contact-box">
+                <p>Si has encontrado algún error, tienes problemas técnicos o quieres enviarnos tus sugerencias, por favor ponte en contacto con nuestro Comando Especial:</p>
+                <ul>
+                    <li><strong>Soporte por Correo:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>Tiempo de respuesta:</strong> Dentro de 24-48 horas laborables</li>
+                </ul>
+            </div>
+            <h2>Consejos Útiles</h2>
+            <ul>
+                <li><strong>Control de Pantalla Táctil:</strong> Si juegas en un móvil, los botones virtuales son totalmente ajustables en tamaño desde el menú de Ajustes para tu comodidad.</li>
+                <li><strong>Puntos de control (Checkpoints):</strong> Salir de una partida activa a través del menú de pausa conserva tus coordenadas y tu estado exacto en el nivel. Sin embargo, un Game Over oficial borrará los datos a menos que utilices una reactivación por publicidad.</li>
+            </ul>
+            <h2>Información Técnica</h2>
+            <ul>
+                <li><strong>Compatibilidad:</strong> Requiere iOS 15.1+ o Android 10.0+ / Navegador web HTML5 moderno</li>
+                <li><strong>Política de Privacidad:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Ver aquí</a></li>
+            </ul>
+        </div>
+
+        <div id="content-de" class="lang-content">
+            <h1>Support-Center</h1>
+            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Letzte Aktualisierung: 27. Mai 2026</p>
+            <p>Willkommen auf der Support-Seite von <strong>Blokyra</strong>. Wir sind bestrebt, das anspruchsvollste und zugleich lohnendste Logikrätsel-Erlebnis auf dem Handy zu bieten. Wenn Sie auf technische Probleme stoßen oder Hilfe beim Meistern der Skyline benötigen, sind Sie hier genau richtig.</p>
+            <h2>Häufig gestellte Fragen (FAQ)</h2>
+            <h3>Q: Was ist Blokyra?</h3>
+            <p>A: Es ist ein erstklassiges Arcade-Spieleportal mit futuristischen und actionreichen Minispielen. Von der Hauptlobby aus können Sie verschiedene retro-inspirierte Titel starten, Ihre Einstellungen anpassen, Highscores einsehen und das faszinierende Neon-Design mit nostalgischer Chiptune-Musik genießen.</p>
+            <h3>Q: Wie wird mein Spielfortschritt gespeichert?</h3>
+            <p>A: Das Portal speichert Ihren Spielfortschritt, Ihre Highscores, freigeschaltete Stufen, globalen Technologiebäume und Einstellungen automatisch lokal auf Ihrem Gerät (`localStorage`). Sie können die App jederzeit schließen und im jeweiligen Spielelobby auf <span class="highlight">Fortsetzen</span> klicken, um genau dort fortzufahren, wo Sie aufgehört haben. <span class="warning">Warnung:</span> Das Löschen Ihrer Browser- oder App-Daten löscht auch Ihren gesamten gespeicherten Fortschritt.</p>
+            <h3>Q: Kann ich ohne Internetverbindung spielen?</h3>
+            <p>A: Absolut! Alle Hauptspiele innerhalb des Hubs sind vollständig offline spielbar – perfekt für lange Flüge oder das tägliche Pendeln. Eine Internetverbindung wird nur benötigt, um belohnte Werbung für sofortige Wiederbelebungen oder Bonus-Multiplikatoren zu laden.</p>
+            <h3>Q: Wie kann ich die Steuerung oder die Audio-Einstellungen anpassen?</h3>
+            <p>A: Tippen Sie im Hub oder im Pausenmenü eines Spiels auf das <span class="highlight">Einstellungen</span>-Symbol. Sie können die BGM- und SFX-Lautstärke unabhängig voneinander regeln, die Systemsprache ändern, Tastenbelegungen für Tastaturen anpassen und die Größe der virtuellen Tasten für Touchscreens kalibrieren.</p>
+            <h2>Kontaktieren Sie uns</h2>
+            <div class="contact-box">
+                <p>Wenn Sie einen Fehler gefunden haben oder Vorschläge haben, wenden Sie sich bitte an uns:</p>
+                <ul>
+                    <li><strong>E-Mail-Support:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
+                    <li><strong>Antwortzeit:</strong> Innerhalb von 24-48 Werktagsstunden</li>
+                </ul>
+            </div>
+            <h2>Hilfreiche Tipps</h2>
+            <ul>
+                <li><strong>Mobile Steuerung optimieren:</strong> Auf Mobilgeräten können Sie die Größe der virtuellen Tasten in den Einstellungen auf bis zu 1,5-fach vergrößern, um eine komfortable und präzise Steuerung zu gewährleisten.</li>
+                <li><strong>Checkpoint-System:</strong> Das Beenden eines aktiven Spiels über das Pausenmenü speichert Ihre exakten Koordinaten im Level. Ein echtes Game Over löscht jedoch die Sitzung, es sei denn, Sie nutzen eine sofortige Werbe-Wiederbelebung.</li>
+            </ul>
+            <h2>Technische Informationen</h2>
+            <ul>
+                <li><strong>Kompatibilität:</strong> Erfordert iOS 15.1+ oder Android 10.0+ / Moderner HTML5-Webbrowser</li>
+                <li><strong>Datenschutzerklärung:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Hier einsehen</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            &copy; 2026 Blokyra. All Rights Reserved. Developed by D.H.N.
+        </footer>
+    </div>
+
+    <script>
+        function switchLanguage(langCode) {
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            const contents = document.querySelectorAll('.lang-content');
+            contents.forEach(content => content.classList.remove('active'));
+            
+            const clickedBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes("'" + langCode + "'"));
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+                clickedBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+            
+            const targetContent = document.getElementById('content-' + langCode);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+        }
+
+        // Auto-detect browser language on load
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage || '';
+            const lowerLang = userLang.toLowerCase();
+            if (lowerLang.startsWith('vi')) switchLanguage('vi');
+            else if (lowerLang.startsWith('fr')) switchLanguage('fr');
+            else if (lowerLang.startsWith('zh-cn')) switchLanguage('zh-CN');
+            else if (lowerLang.startsWith('zh')) switchLanguage('zh-TW');
+            else if (lowerLang.startsWith('ko')) switchLanguage('ko');
+            else if (lowerLang.startsWith('ja')) switchLanguage('ja');
+            else if (lowerLang.startsWith('ru')) switchLanguage('ru');
+            else if (lowerLang.startsWith('es')) switchLanguage('es');
+            else if (lowerLang.startsWith('de')) switchLanguage('de');
+            else switchLanguage('en');
+        });
+    </script>
+</body>
+</html>
