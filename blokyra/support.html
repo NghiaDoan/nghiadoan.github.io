@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - Blokyra</title>
+    <title>Support - Blokyra: Block Puzzle Arcade</title>
     <style>
         :root {
             --bg: #02040a;
@@ -152,364 +152,318 @@
 </head>
 <body>
     <div class="container">
-        <!-- <a href="../index.html" class="back-link">&larr; Back to Home</a> -->
-        
+
         <div class="lang-selector-wrapper">
-            <div class="lang-scroll-container">
+            <div class="lang-scroll-container" aria-label="Language">
                 <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
                 <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
-                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
-                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
                 <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
                 <button class="lang-btn" onclick="switchLanguage('ru')">Русский</button>
-                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
                 <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
             </div>
         </div>
-        
+
+
         <div class="header">
             <div class="app-icon">
-                <img src="../assets/images/Blokyra_Logo.png" onerror="this.src='src/assets/images/Blokyra_Logo.png'; this.onerror=null;" alt="Blokyra Logo">
+                <img src="../assets/images/Blokyra_Logo.png"
+                     onerror="this.src='assets/images/Blokyra_Logo.png'; this.onerror=null;"
+                     alt="Blokyra Logo">
             </div>
-        </div>
- 
-        <div id="content-en" class="lang-content active">
-            <h1>Support Center</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Latest Update: May 27, 2026</p>
-            <p>Welcome to the <strong>Blokyra</strong> support page. Blokyra is a premium cyberpunk arcade gaming portal, hosting high-octane retro-futuristic titles including the action-packed platformer <strong>Retro Patrol</strong> and the tactical sci-fi tower defense game <strong>Cyber Defense</strong>. If you encounter any technical issues or need help mastering our games, you are in the right place.</p>
-            <h2>Frequently Asked Questions (FAQ)</h2>
-            <h3>Q: What is Blokyra?</h3>
-            <p>A: It is an premium arcade game catalog featuring futuristic, high-action games. From our central hub, you can launch various retro-inspired titles, customize your profiles, review high scores, and enjoy immersive neon styling and retro chiptune audio tracks.</p>
-            <h3>Q: How is my game progress saved?</h3>
-            <p>A: The portal automatically saves your game progress, high scores, unlocked stages, global tech trees, and settings locally on your device (`localStorage`). You can exit the app at any time and click the <span class="highlight">Continue</span> button in each game lobby to resume. <span class="warning">Warning:</span> Clearing your device storage or uninstalling the app will erase your saved progress.</p>
-            <h3>Q: Can I play the game without an internet connection?</h3>
-            <p>A: Absolutely! All core games inside the hub are fully playable offline, making it perfect for long flights or commutes. An internet connection is only required to load rewarded ads for in-game revives or bonus multipliers.</p>
-            <h3>Q: How do I customize controls or audio settings?</h3>
-            <p>A: Tap the <span class="highlight">Settings</span> icon from the hub or any game's main menu. You can independently adjust BGM/SFX volumes, switch UI languages, customize key bindings for keyboards, and toggle virtual button sizes for optimal touch screen gameplay.</p>
-            <h2>Contact Us</h2>
-            <div class="contact-box">
-                <p>If you encounter a bug, face any technical issues, or have suggestions, please reach out to our Special Command:</p>
-                <ul>
-                    <li><strong>Email Support:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>Response Time:</strong> Within 24-48 business hours</li>
-                </ul>
-            </div>
-            <h2>Helpful Tips</h2>
-            <ul>
-                <li><strong>Immersive Experience:</strong> If you are playing on mobile, virtual touch pads are fully scalable in Settings. We recommend adjusting sizes to match your screen size for the best experience.</li>
-                <li><strong>Local Checkpoints:</strong> Exiting a live game via the pause menu preserves your current stage checkpoint. However, an official Game Over will clear the active save file unless you choose to watch an ad-revive immediately.</li>
-            </ul>
-            <h2>Technical Information</h2>
-            <ul>
-                <li><strong>Compatibility:</strong> Requires iOS 15.1+ or Android 10.0+ / Modern HTML5 web browser</li>
-                <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color: var(--accent);">View here</a></li>
-            </ul>
         </div>
 
-        <div id="content-fr" class="lang-content">
-            <h1>Centre d'assistance</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Dernière mise à jour : 27 mai 2026</p>
-            <p>Bienvenue sur la page d'assistance de <strong>Blokyra</strong>. Blokyra est un portail de jeux d'arcade cyberpunk haut de gamme, hébergeant des titres rétro-futuristes à haute dose d'adrénaline, notamment le jeu de plateforme d'action <strong>Retro Patrol</strong> et le jeu tactique de tower defense de science-fiction <strong>Cyber Defense</strong>. Si vous rencontrez des problèmes techniques ou avez besoin d'aide pour maîtriser nos jeux, vous êtes au bon endroit.</p>
-            <h2>Questions fréquemment posées (FAQ)</h2>
-            <h3>Q : Qu'est-ce que Blokyra ?</h3>
-            <p>R : Il s'agit d'un catalogue de jeux d'arcade haut de gamme proposant des jeux futuristes et bourrés d'action. Depuis notre hub central, vous pouvez lancer divers titres d'inspiration rétro, personnaliser vos profils, consulter les meilleurs scores et profiter d'un style néon immersif et de pistes audio chiptune rétro.</p>
-            <h3>Q : Comment ma progression dans le jeu est-elle enregistrée ?</h3>
-            <p>R : Le portail enregistre automatiquement votre progression de jeu, vos meilleurs scores, vos niveaux déverrouillés, vos arbres technologiques globaux et vos paramètres localement sur votre appareil (`localStorage`). Vous pouvez quitter l'application à tout moment et cliquer sur le bouton <span class="highlight">Continuer</span> dans le salon de chaque jeu pour reprendre. <span class="warning">Avertissement :</span> L'effacement de l'espace de stockage de votre appareil ou la désinstallation de l'application effacera votre progression enregistrée.</p>
-            <h3>Q : Puis-je jouer au jeu sans connexion Internet ?</h3>
-            <p>R : Absolument ! Tous les jeux principaux du hub sont entièrement jouables hors ligne, ce qui les rend parfaits pour les longs vols ou les trajets quotidiens. Une connexion Internet est uniquement requise pour charger les publicités avec récompense pour les réanimations en jeu ou les multiplicateurs de bonus.</p>
-            <h3>Q : Comment personnaliser les commandes ou les paramètres audio ?</h3>
-            <p>R : Appuyez sur l'icône <span class="highlight">Paramètres</span> depuis le hub ou le menu principal de n'importe quel jeu. Vous pouvez ajuster indépendamment les volumes BGM/SFX, changer la langue de l'interface utilisateur, personnaliser les raccourcis clavier et modifier la taille des boutons virtuels pour un gameplay optimal sur écran tactile.</p>
-            <h2>Contactez-nous</h2>
-            <div class="contact-box">
-                <p>Si vous rencontrez un bug, faites face à des problèmes techniques ou avez des suggestions, veuillez contacter notre Commande Spéciale :</p>
-                <ul>
-                    <li><strong>Assistance par e-mail :</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>Délai de réponse :</strong> Dans les 24 à 48 heures ouvrables</li>
-                </ul>
-            </div>
-            <h2>Conseils utiles</h2>
-            <ul>
-                <li><strong>Expérience immersive :</strong> Si vous jouez sur mobile, les pavés tactiles virtuels sont entièrement redimensionnables dans les Paramètres. Nous vous recommandons d'ajuster les tailles pour correspondre à votre taille d'écran pour une expérience optimale.</li>
-                <li><strong>Points de contrôle locaux :</strong> Quitter un jeu en cours via le menu de pause préserve le point de contrôle de votre niveau actuel. Cependant, un Game Over officiel effacera le fichier de sauvegarde actif, sauf si vous choisissez de regarder immédiatement une publicité de réanimation.</li>
-            </ul>
-            <h2>Informations techniques</h2>
-            <ul>
-                <li><strong>Compatibilité :</strong> Nécessite iOS 15.1+ or Android 10.0+ / Navigateur Web HTML5 moderne</li>
-                <li><strong>Politique de confidentialité :</strong> <a href="privacy-policy.html" style="color: var(--accent);">Consulter ici</a></li>
-            </ul>
+        <div id="content-en" class="lang-content active" lang="en">
+<h1>Support Center</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">Latest Update: September 4, 2026</p>
+<p>Welcome to the support page for <strong>Blokyra: Block Puzzle Arcade</strong>, a mobile block-puzzle arcade for iOS and Android. Blokyra is designed to grow over time with additional puzzle experiences and gameplay content.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>Q: What is Blokyra?</h3>
+<p>A: Blokyra is a score-focused block-puzzle arcade that brings different puzzle experiences together in one app. Each game mode has its own rules and strategy, while sharing the same Home, Settings, save, audio, ads, and purchase systems.</p>
+<h3>Q: How is my progress saved?</h3>
+<p>A: Blokyra stores supported game progress, resumable runs, best scores, language, and audio settings locally on your device. Clearing app data or uninstalling the app may remove this local data.</p>
+<h3>Q: Can I play offline?</h3>
+<p>A: Core gameplay does not require a constant internet connection. Internet access is needed for Google AdMob advertisements and may also be required to purchase or restore <strong>Remove Ads</strong> through the App Store or Google Play.</p>
+<h3>Q: How does Rescue work?</h3>
+<p>A: When Rescue is available for a game, it can be used at most once per run. Without Remove Ads, an eligible Rescue requires a rewarded advertisement and is granted only after the reward is confirmed. With Remove Ads active, an eligible Rescue can be granted without showing the rewarded ad.</p>
+<h3>Q: Why might I see a full-screen ad when I Quit?</h3>
+<p>A: If Remove Ads is not active, an interstitial ad may be shown after an eligible Quit action. Blokyra enforces a minimum interval of seven minutes between successful interstitial displays. If the ad is unavailable or fails to load/show, Quit continues normally.</p>
+<h3>Q: What does Remove Ads do?</h3>
+<p>A: Remove Ads is a one-time, non-consumable purchase. It removes the rewarded-ad requirement for eligible Rescue actions and skips the Quit interstitial placements covered by the entitlement. If you previously purchased it with the same store account, use <span class="highlight">Restore Purchases</span> in Settings.</p>
+<h3>Q: Where can I change language or audio?</h3>
+<p>A: Open <span class="highlight">Settings</span> from the Home screen. You can select a supported language, adjust BGM and SFX volume independently, or use the global Mute toggle.</p>
+<h3>Q: What happens if a saved run cannot be resumed?</h3>
+<p>A: Blokyra does not silently repair or reroll an invalid saved run. The app can show a resume-failure message and let you go back or start a new game instead.</p>
+<h2>Contact Support</h2>
+<div class="contact-box">
+<ul>
+<li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li>
+<li><strong>Please include:</strong> platform (iOS/Android), app version, the game mode you were playing, and a short description of the issue. Screenshots are helpful when available.</li>
+</ul>
+</div>
+<h2>Technical Information</h2>
+<ul>
+<li><strong>Platforms:</strong> iOS and Android. Please refer to the App Store / Google Play listing for the current minimum OS requirement.</li>
+<li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color:var(--accent);">View Privacy Policy</a></li>
+</ul>
         </div>
 
-        <div id="content-vi" class="lang-content">
-            <h1>Trung Tâm Hỗ Trợ</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Cập nhật mới nhất: Ngày 27 tháng 5 năm 2026</p>
-            <p>Chào mừng bạn đến với trang hỗ trợ của <strong>Blokyra</strong>. Blokyra là cổng trò chơi điện tử (arcade) phong cách Cyberpunk cao cấp, tích hợp các tựa game hành động viễn tưởng cổ điển đầy kịch tính như game đi cảnh bắn súng <strong>Retro Patrol</strong> và game thủ thành chiến thuật <strong>Cyber Defense</strong>. Nếu bạn gặp bất kỳ sự cố kỹ thuật nào hoặc cần trợ giúp để chinh phục các màn chơi, bạn đã đến đúng nơi.</p>
-            <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
-            <h3>Q: Blokyra là gì?</h3>
-            <p>A: Đây là một cổng game tổng hợp các trò chơi điện tử hành động phong cách viễn tưởng Cyberpunk. Từ sảnh chính (hub), bạn có thể lựa chọn chơi các minigame khác nhau, thiết lập cấu hình, theo dõi điểm số kỷ lục, và tận hưởng đồ họa neon rực rỡ cùng âm thanh nhạc nền chiptune hoài niệm.</p>
-            <h3>Q: Tiến trình chơi game của tôi được lưu như thế nào?</h3>
-            <p>A: Cổng game tự động lưu trữ tiến trình mở khóa màn chơi, điểm số kỷ lục, cây công nghệ và thiết lập cài đặt của bạn cục bộ trên bộ nhớ thiết bị (`localStorage`). Bạn có thể thoát trò chơi bất kỳ lúc nào và bấm nút <span class="highlight">Tiếp Tục</span> ở sảnh chờ của mỗi trò chơi để khôi phục tiến trình. <span class="warning">Lưu ý:</span> Việc xóa dữ liệu duyệt web/ứng dụng hoặc gỡ cài đặt sẽ làm mất toàn bộ tiến trình đã lưu.</p>
-            <h3>Q: Tôi có thể chơi khi không có kết nối Internet không?</h3>
-            <p>A: Hoàn toàn được! Tất cả các trò chơi trong cổng game đều hỗ trợ chơi ngoại tuyến (offline) đầy đủ, cực kỳ lý tưởng cho các chuyến bay dài hoặc khi đi tàu xe. Kết nối Internet chỉ cần thiết khi bạn muốn xem quảng cáo để nhận thưởng nhân đôi hoặc hồi sinh nhân vật.</p>
-            <h3>Q: Làm cách nào để tùy chỉnh phím điều khiển hoặc âm thanh?</h3>
-            <p>A: Nhấn vào biểu tượng <span class="highlight">Cài Đặt</span> ở sảnh chính hoặc trong menu tạm dừng của trò chơi. Bạn có thể tự do điều chỉnh âm lượng BGM/SFX, thay đổi ngôn ngữ, gán phím tùy ý cho bàn phím hoặc tùy chỉnh kích cỡ phím ảo để có trải nghiệm chơi trên màn hình cảm ứng tốt nhất.</p>
-            <h2>Liên Hệ Với Chúng Tôi</h2>
-            <div class="contact-box">
-                <p>Nếu bạn phát hiện lỗi (bug), gặp sự cố kỹ thuật hoặc có ý kiến đóng góp, vui lòng liên hệ Ban Chỉ Huy:</p>
-                <ul>
-                    <li><strong>Email Hỗ trợ:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>Thời gian phản hồi:</strong> Trong vòng 24-48 giờ làm việc</li>
-                </ul>
-            </div>
-            <h2>Mẹo Chơi Hữu Ích</h2>
-            <ul>
-                <li><strong>Tối ưu hóa phím ảo:</strong> Nếu chơi trên thiết bị di động, bạn hãy vào Cài đặt để tùy chỉnh kích cỡ cụm phím hành động lớn/nhỏ sao cho thoải mái nhất với tay của mình.</li>
-                <li><strong>Cơ chế lưu Checkpoint:</strong> Thoát game từ menu Pause sẽ lưu giữ vị trí và thông số hiện tại. Tuy nhiên, nếu bị Game Over chính thức, lưu game sẽ bị xóa trừ khi bạn chọn xem quảng cáo hồi sinh ngay lập tức.</li>
-            </ul>
-            <h2>Thông Tin Kỹ Thuật</h2>
-            <ul>
-                <li><strong>Tương thích:</strong> Yêu cầu iOS 15.1+ hoặc Android 10.0+ / Trình duyệt web HTML5 hiện đại</li>
-                <li><strong>Chính sách bảo mật:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Xem tại đây</a></li>
-            </ul>
+        <div id="content-vi" class="lang-content" lang="vi">
+<h1>Trung Tâm Hỗ Trợ</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">Cập nhật mới nhất: Ngày 4 tháng 9 năm 2026</p>
+<p>Chào mừng bạn đến với trang hỗ trợ của <strong>Blokyra: Block Puzzle Arcade</strong>, một ứng dụng puzzle arcade xếp khối dành cho iOS và Android. Blokyra được thiết kế để có thể tiếp tục mở rộng thêm nội dung và trải nghiệm chơi trong các bản cập nhật sau.</p>
+<h2>Câu Hỏi Thường Gặp</h2>
+<h3>Q: Blokyra là gì?</h3>
+<p>A: Blokyra là một game puzzle arcade tập trung vào điểm số, tập hợp nhiều trải nghiệm xếp khối trong cùng một ứng dụng. Mỗi chế độ chơi có luật và chiến thuật riêng, nhưng dùng chung Home, Settings, save, audio, quảng cáo và hệ thống mua hàng của Blokyra.</p>
+<h3>Q: Tiến trình của tôi được lưu như thế nào?</h3>
+<p>A: Blokyra lưu cục bộ trên thiết bị các tiến trình được hỗ trợ, lượt chơi có thể tiếp tục, Best Score, ngôn ngữ và cài đặt âm thanh. Xóa dữ liệu ứng dụng hoặc gỡ cài đặt có thể làm mất các dữ liệu cục bộ này.</p>
+<h3>Q: Tôi có thể chơi offline không?</h3>
+<p>A: Gameplay cốt lõi không cần kết nối Internet liên tục. Internet cần thiết cho quảng cáo Google AdMob và có thể cần khi mua hoặc khôi phục <strong>Remove Ads</strong> qua App Store hoặc Google Play.</p>
+<h3>Q: Rescue hoạt động như thế nào?</h3>
+<p>A: Khi một chế độ chơi hỗ trợ Rescue, mỗi run chỉ được dùng tối đa một lần. Nếu chưa sở hữu Remove Ads, Rescue đủ điều kiện yêu cầu rewarded ad và chỉ được cấp sau khi reward được xác nhận. Khi Remove Ads đang active, Rescue đủ điều kiện có thể được cấp mà không cần xem rewarded ad.</p>
+<h3>Q: Tại sao đôi khi có quảng cáo toàn màn hình khi tôi Quit?</h3>
+<p>A: Nếu Remove Ads chưa active, Blokyra có thể hiển thị interstitial sau một thao tác Quit đủ điều kiện. Khoảng cách tối thiểu giữa hai lần interstitial thực sự hiển thị là bảy phút. Nếu quảng cáo không sẵn sàng hoặc load/show thất bại, thao tác Quit vẫn tiếp tục bình thường.</p>
+<h3>Q: Remove Ads có tác dụng gì?</h3>
+<p>A: Remove Ads là sản phẩm mua một lần, không tiêu hao. Sản phẩm này bỏ yêu cầu rewarded ad cho các Rescue đủ điều kiện và bỏ các quảng cáo interstitial khi Quit thuộc phạm vi entitlement. Nếu đã mua trước đó bằng cùng tài khoản cửa hàng, hãy dùng <span class="highlight">Restore Purchases</span> trong Settings.</p>
+<h3>Q: Tôi thay đổi ngôn ngữ hoặc âm thanh ở đâu?</h3>
+<p>A: Mở <span class="highlight">Settings</span> từ Home. Bạn có thể chọn ngôn ngữ được hỗ trợ, điều chỉnh âm lượng BGM và SFX độc lập hoặc bật Mute toàn cục.</p>
+<h3>Q: Nếu save không thể resume thì sao?</h3>
+<p>A: Blokyra không âm thầm sửa hoặc reroll một save không hợp lệ. Ứng dụng có thể hiển thị thông báo không thể resume và cho phép bạn quay lại hoặc bắt đầu New Game.</p>
+<h2>Liên Hệ Hỗ Trợ</h2>
+<div class="contact-box">
+<ul>
+<li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li>
+<li><strong>Nên cung cấp:</strong> nền tảng iOS/Android, phiên bản app, chế độ game đang chơi và mô tả ngắn sự cố. Ảnh chụp màn hình sẽ rất hữu ích nếu có.</li>
+</ul>
+</div>
+<h2>Thông Tin Kỹ Thuật</h2>
+<ul>
+<li><strong>Nền tảng:</strong> iOS và Android. Vui lòng xem App Store / Google Play để biết yêu cầu phiên bản hệ điều hành tối thiểu hiện tại.</li>
+<li><strong>Chính sách bảo mật:</strong> <a href="privacy-policy.html" style="color:var(--accent);">Xem Chính Sách Bảo Mật</a></li>
+</ul>
         </div>
 
-        <div id="content-zh-CN" class="lang-content">
-            <h1>技术支持中心</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">最后更新：2026年5月27日</p>
-            <p>欢迎来到 <strong>Blokyra</strong> 技术支持页面。Blokyra 是一个高端的赛博朋克街机游戏门户，汇集了包括横版射击动作游戏 <strong>Retro Patrol</strong> 以及战术科幻塔防游戏 <strong>Cyber Defense</strong> 在内的多款高能复古未来风游戏。如果您遇到任何技术问题或需要解谜与战斗技巧，您来对地方了。</p>
-            <h2>常见问题解答 (FAQ)</h2>
-            <h3>Q: 什么是 Blokyra？</h3>
-            <p>A: 这是一个高品质的赛博朋克风格街机游戏中心。从主大厅开始，您可以启动不同的复古街机小游戏、配置游戏设置、查看全角色积分记录，并沉浸在绚丽的霓虹光效与复古电子Chiptune音乐中。</p>
-            <h3>Q: 游戏进度是如何保存的？</h3>
-            <p>A: 本游戏门户会自动将您的解锁关卡、最高得分、全局科技树和游戏配置以本地存储（`localStorage`）的形式保存在您的设备上。您可以随时退出游戏，并在游戏大厅点击 <span class="highlight">继续战斗</span> 按钮无缝恢复进度。<span class="warning">警告：</span>清除设备缓存或卸载应用将导致您的所有存档进度丢失。</p>
-            <h3>Q: 可以在没有网络连接的情况下游玩吗？</h3>
-            <p>A: 完全可以！中心内所有的核心游戏均支持完全离线单机游玩，非常适合长途飞行或通勤途中。仅在您需要观看激励广告以获得免费重生或翻倍积分奖励时，才需要网络连接。</p>
-            <h3>Q: 如何修改操作按键或声音设置？</h3>
-            <p>A: 点击主大厅或游戏暂停菜单中的 <span class="highlight">设置</span> 图标。您可以独立调节背景音乐与音效音量、切换界面语言、为键盘重新配置映射按键，或调整移动端虚拟按键的大小以获得最佳的触屏手感。</p>
-            <h2>联系我们</h2>
-            <div class="contact-box">
-                <p>如果您在游戏内发现了Bug、面临任何技术困难或有改进意见，请随时与特别指挥部联系：</p>
-                <ul>
-                    <li><strong>邮件支持：</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>回复时间：</strong> 24-48个工作日小时内</li>
-                </ul>
-            </div>
-            <h2>实用小贴士</h2>
-            <ul>
-                <li><strong>触屏操控优化：</strong> 如果您在手机上游玩，可以在设置中将虚拟按键大小调整为大（1.5倍），以获得最舒适的持握和操作体验。</li>
-                <li><strong>关卡存档机制：</strong> 在关卡中通过暂停菜单退出将完美保存您的当前位置和状态。但如果是正式游戏结束（Game Over），存档将被清除，除非您选择立即观看广告重生。</li>
-            </ul>
-            <h2>技术信息</h2>
-            <ul>
-                <li><strong>兼容性：</strong> 需要 iOS 15.1+ 或 Android 10.0+ / 现代 HTML5 网页浏览器</li>
-                <li><strong>隐私政策：</strong> <a href="privacy-policy.html" style="color: var(--accent);">点击此处查看</a></li>
-            </ul>
+        <div id="content-zh-CN" class="lang-content" lang="zh-CN">
+<h1>技术支持中心</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">最后更新：2026年9月4日</p>
+<p>欢迎来到 <strong>Blokyra: Block Puzzle Arcade</strong> 支持页面。Blokyra 是一款适用于 iOS 和 Android 的移动方块益智街机应用，并可在后续更新中持续扩展游戏内容。</p>
+<h2>常见问题</h2>
+<h3>Q: Blokyra 是什么？</h3>
+<p>A: Blokyra 是一款以得分和策略为核心的方块益智街机应用，将不同的拼图体验整合在同一个应用中。各游戏模式可以有不同规则，但共享 Home、Settings、存档、音频、广告和购买系统。</p>
+<h3>Q: 游戏进度如何保存？</h3>
+<p>A: 支持的游戏进度、可继续的游戏状态、最高分、语言和音频设置会保存在设备本地。清除应用数据或卸载应用可能会删除这些本地内容。</p>
+<h3>Q: 可以离线玩吗？</h3>
+<p>A: 核心游戏不需要持续联网。Google AdMob 广告以及通过 App Store / Google Play 购买或恢复 <strong>Remove Ads</strong> 时需要网络。</p>
+<h3>Q: Rescue 如何运作？</h3>
+<p>A: 在支持 Rescue 的游戏中，每局最多使用一次。没有 Remove Ads 时，需要完成激励广告并确认奖励后才能获得 Rescue；拥有 Remove Ads 时，符合条件的 Rescue 可无需观看奖励广告。</p>
+<h3>Q: 为什么 Quit 时可能出现全屏广告？</h3>
+<p>A: 未启用 Remove Ads 时，符合条件的 Quit 后可能显示插屏广告。两次实际成功展示之间至少间隔七分钟。广告不可用或加载/展示失败时不会阻止退出。</p>
+<h3>Q: Remove Ads 有什么作用？</h3>
+<p>A: 这是一次性、非消耗型购买，可取消符合条件 Rescue 的激励广告要求，并跳过 entitlement 覆盖的 Quit 插屏广告。已购买用户可在 Settings 中使用 <span class="highlight">Restore Purchases</span>。</p>
+<h3>Q: 在哪里调整语言和声音？</h3>
+<p>A: 从 Home 打开 <span class="highlight">Settings</span>，可选择支持的语言、分别调节 BGM/SFX 音量或开启全局 Mute。</p>
+<h3>Q: 存档无法继续怎么办？</h3>
+<p>A: Blokyra 不会静默修复或重新随机生成无效存档。应用会提示无法恢复，并允许返回或开始 New Game。</p>
+<h2>联系支持</h2>
+<div class="contact-box"><ul><li><strong>邮箱：</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>请尽量附上 iOS/Android、应用版本、当时的游戏模式、问题描述和可用截图。</li></ul></div>
+<h2>技术信息</h2>
+<ul><li><strong>平台：</strong> iOS 和 Android。当前最低系统要求请查看 App Store / Google Play 页面。</li><li><strong>隐私政策：</strong> <a href="privacy-policy.html" style="color:var(--accent);">查看隐私政策</a></li></ul>
         </div>
 
-        <div id="content-zh-TW" class="lang-content">
-            <h1>技術支援中心</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">最後更新：2026年5月27日</p>
-            <p>歡迎來到 <strong>Blokyra</strong> 技術支援頁面。Blokyra 是一個高端的賽博朋克街機遊戲門戶，匯集了包括橫版射擊動作遊戲 <strong>Retro Patrol</strong> 以及戰術科幻塔防遊戲 <strong>Cyber Defense</strong> 在內的多款高能復古未來風遊戲。如果您遇到任何技術問題或需要戰鬥技巧，您來對地方了。</p>
-            <h2>常見問題解答 (FAQ)</h2>
-            <h3>Q: 如何遊玩 Blokyra？</h3>
-            <p>A: 這是一個高品質的賽博朋克風格街機遊戲中心。從主大廳開始，您可以啟動不同的復古街機小遊戲、配置遊戲設置、查看全角色積分記錄，並沉浸在絢麗的霓虹光效與復古電子Chiptune音樂中。</p>
-            <h3>Q: 遊戲進度是如何保存的？</h3>
-            <p>A: 本遊戲門戶會自動將您的解鎖關卡、最高得分、全局科技樹和遊戲配置以本地存儲（`localStorage`）的形式保存在您的設備上。您可以隨時退出遊戲，並在遊戲大廳點擊 <span class="highlight">繼續戰鬥</span> 按鈕無縫恢復進度。<span class="warning">警告：</span>清除設備快取或解除安裝應用程式將導致您的所有存檔進度丟失。</p>
-            <h3>Q: 可以在沒有網路連接的情況下遊玩嗎？</h3>
-            <p>A: 完全可以！中心內所有的核心遊戲均支援完全離線單機遊玩，非常適合長途飛行或通勤途中。僅在您需要觀看激勵廣告以獲得免費重生或翻倍積分獎勵時，才需要網路連接。</p>
-            <h3>Q: 如何修改操作按鍵或聲音設置？</h3>
-            <p>A: 點擊主大廳或遊戲暫停功能表中的 <span class="highlight">設置</span> 圖標。您可以獨立調節背景音樂與音效音量、切換介面語言、為鍵盤重新配置映射按鍵，或調整移動端虛擬按鍵的大小以獲得最佳的觸屏手感。</p>
-            <h2>聯絡我們</h2>
-            <div class="contact-box">
-                <p>如果您在遊戲內發現了Bug、面臨任何技術困難或有改進意見，請隨時與特別指揮部聯絡：</p>
-                <ul>
-                    <li><strong>郵件支援：</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>回覆時間：</strong> 24-48個工作日小時內</li>
-                </ul>
-            </div>
-            <h2>實用小貼士</h2>
-            <ul>
-                <li><strong>觸屏操控優化：</strong> 如果您在手機上遊玩，可以在設置中將虛擬按鍵大小調整為大（1.5倍），以獲得最舒適的持握和操作體驗。</li>
-                <li><strong>關卡存檔機制：</strong> 在關卡中通過暫停功能表退出將完美保存您的當前位置和狀態。但如果是正式遊戲結束（Game Over），存檔將被清除，除非您選擇立即觀看廣告重生。</li>
-            </ul>
-            <h2>技術資訊</h2>
-            <ul>
-                <li><strong>相容性：</strong> 需要 iOS 15.1+ 或 Android 10.0+ / 現代 HTML5 網頁瀏覽器</li>
-                <li><strong>隱私政策：</strong> <a href="privacy-policy.html" style="color: var(--accent);">點擊此處查看</a></li>
-            </ul>
+        <div id="content-zh-TW" class="lang-content" lang="zh-TW">
+<h1>技術支援中心</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">最後更新：2026年9月4日</p>
+<p>歡迎來到 <strong>Blokyra: Block Puzzle Arcade</strong> 支援頁面。Blokyra 是一款適用於 iOS 與 Android 的行動方塊益智街機應用程式，遊戲內容可在後續更新中持續擴充。</p>
+<h2>常見問題</h2>
+<h3>Q: Blokyra 是什麼？</h3>
+<p>A: Blokyra 是一款以分數與策略為核心的方塊益智街機，將不同的拼圖體驗整合在同一個應用程式中。各遊戲模式可以有不同規則，但共用 Home、Settings、存檔、音訊、廣告和購買系統。</p>
+<h3>Q: 進度如何保存？</h3>
+<p>A: 支援的遊戲進度、可繼續的遊戲狀態、最高分、語言和音訊設定會保存在本機。清除資料或解除安裝可能會刪除這些內容。</p>
+<h3>Q: 可以離線玩嗎？</h3>
+<p>A: 核心遊戲不需持續連線。Google AdMob 廣告，以及透過 App Store / Google Play 購買或回復 <strong>Remove Ads</strong> 時需要網路。</p>
+<h3>Q: Rescue 如何運作？</h3>
+<p>A: 在支援 Rescue 的遊戲中，每局最多使用一次。沒有 Remove Ads 時需完成獎勵廣告並確認 reward；有 Remove Ads 時，符合條件的 Rescue 可不需觀看獎勵廣告。</p>
+<h3>Q: 為什麼 Quit 時可能看到全螢幕廣告？</h3>
+<p>A: 未啟用 Remove Ads 時，符合條件的 Quit 後可能顯示插頁廣告。兩次實際成功顯示之間至少相隔七分鐘。廣告不可用或失敗時不會阻止退出。</p>
+<h3>Q: Remove Ads 有什麼作用？</h3>
+<p>A: 這是一次性、非消耗型購買，可移除符合條件 Rescue 的獎勵廣告要求，並略過 entitlement 涵蓋的 Quit 插頁廣告。已購買者可在 Settings 使用 <span class="highlight">Restore Purchases</span>。</p>
+<h3>Q: 在哪裡調整語言與聲音？</h3>
+<p>A: 從 Home 打開 <span class="highlight">Settings</span>，可選擇支援的語言、分別調整 BGM/SFX 音量或使用全域 Mute。</p>
+<h3>Q: 存檔無法繼續怎麼辦？</h3>
+<p>A: Blokyra 不會靜默修復或重新隨機產生無效存檔。應用程式會提示無法恢復，並讓您返回或開始 New Game。</p>
+<h2>聯絡支援</h2>
+<div class="contact-box"><ul><li><strong>電子郵件：</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>建議附上 iOS/Android、App 版本、當時的遊戲模式、問題說明和可用的螢幕截圖。</li></ul></div>
+<h2>技術資訊</h2>
+<ul><li><strong>平台：</strong> iOS 與 Android。最低系統需求請以 App Store / Google Play 頁面為準。</li><li><strong>隱私政策：</strong> <a href="privacy-policy.html" style="color:var(--accent);">查看隱私政策</a></li></ul>
         </div>
 
-        <div id="content-ko" class="lang-content">
-            <h1>고객 지원 센터</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">최종 업데이트: 2026년 5월 27일</p>
-            <p><strong>Blokyra</strong> 지원 페이지에 오신 것을 환영합니다. Blokyra는 고성능 사이버펑크 아케이드 게임 포털로, 액션성이 가득한 플랫폼러 <strong>Retro Patrol</strong>과 전략적인 SF 타워 디펜스 게임 <strong>Cyber Defense</strong>를 포함한 다채로운 레트로 미래형 게임들을 제공합니다. 기술적인 문제가 발생했거나 게임을 마스터하는 데 도움이 필요하시다면 올바른 장소를 찾아오셨습니다.</p>
-            <h2>자주 묻는 질문 (FAQ)</h2>
-            <h3>Q: Blokyra는 무엇인가요?</h3>
-            <p>A: 화려하고 박진감 넘치는 사이버펑크 스타일 아케이드 게임 모음집입니다. 중앙 허브에서 다양한 레트로 스타일의 미니게임들을 실행하고, 게임을 설정하며, 최고 점수를 확인하고, 화려한 네온 비주얼과 신나는 8비트 칩튠 사운드 트랙을 즐기실 수 있습니다.</p>
-            <h3>Q: 게임 진행 상황은 어떻게 저장되나요?</h3>
-            <p>A: 포털은 기기 내 저장 공간(`localStorage`)을 활용하여 잠금 해제된 스테이지, 최고 기록 점수, 글로벌 테크 트리 및 설정을 자동으로 안전하게 저장합니다. 언제든지 앱을 종료하셔도 각 게임 로비에서 <span class="highlight">계속하기</span> 버튼을 눌러 바로 이어하실 수 있습니다. <span class="warning">주의:</span> 브라우저/앱 데이터를 삭제하거나 앱을 삭제하면 저장된 게임 진행 상황이 모두 소실됩니다.</p>
-            <h3>Q: 인터넷 연결 없이도 플레이할 수 있나요?</h3>
-            <p>A: 물론입니다! 허브 내의 모든 핵심 게임들은 완전히 오프라인 상태에서도 플레이가 가능하므로 장거리 비행이나 지하철 출퇴근 시간에도 아주 적합합니다. 인터넷 연결은 인게임 무료 부활이나 보상 배율을 획득하기 위한 보상형 광고를 시청할 때만 필요합니다.</p>
-            <h3>Q: 컨트롤러나 오디오 설정을 변경하려면 어떻게 해야 하나요?</h3>
-            <p>A: 중앙 허브나 인게임 일시정지 메뉴에서 <span class="highlight">설정</span> 아이콘을 누르세요. 배경음악(BGM) 및 효과음(SFX) 볼륨을 개별 조정하거나, 시스템 언어를 변경하고, 키보드 단축키를 맞춤 설정하거나, 모바일용 가상 버튼의 크기를 편리하게 조정할 수 있습니다.</p>
-            <h2>문의하기</h2>
-            <div class="contact-box">
-                <p>게임 중 버그를 발견하셨거나 기술적인 문제, 혹은 제안 사항이 있으시면 언제든지 특별 명령팀에 문의해 주세요:</p>
-                <ul>
-                    <li><strong>이메일 지원:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>답변 시간:</strong> 영업일 기준 24~48시간 이내</li>
-                </ul>
-            </div>
-            <h2>유용한 팁</h2>
-            <ul>
-                <li><strong>모바일 조작 최적화:</strong> 모바일 기기에서 플레이할 때 손 크기에 맞춰 가상 터치패드의 크기를 크게(1.5배) 조정하면 훨씬 편안하게 정밀 조작을 하실 수 있습니다.</li>
-                <li><strong>세이브포인트 메커니즘:</strong> 플레이 중 일시정지 메뉴를 통해 메인으로 나가면 현재 상태와 정확한 좌표가 저장됩니다. 다만 완전히 게임 오버가 되면 광고를 시청하여 즉시 부활하지 않는 이상 세이브 데이터가 초기화됩니다.</li>
-            </ul>
-            <h2>기술 정보</h2>
-            <ul>
-                <li><strong>호환성:</strong> iOS 15.1+ 또는 Android 10.0+ / 현대적인 HTML5 웹 브라우저 요구</li>
-                <li><strong>개인정보 처리방침:</strong> <a href="privacy-policy.html" style="color: var(--accent);">여기서 확인</a></li>
-            </ul>
+        <div id="content-ja" class="lang-content" lang="ja">
+<h1>サポートセンター</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">最終更新日：2026年9月4日</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> のサポートページです。Blokyra は iOS / Android 向けのモバイル・ブロックパズルアーケードで、今後のアップデートでゲーム内容が拡張される場合があります。</p>
+<h2>よくある質問</h2>
+<h3>Q: Blokyra とは？</h3>
+<p>A: スコアと戦略を重視するさまざまなブロックパズル体験を1つのアプリにまとめたゲームです。ゲームモードごとに異なるルールを持てますが、Home、Settings、セーブ、オーディオ、広告、購入システムは共通です。</p>
+<h3>Q: 進行状況はどう保存されますか？</h3>
+<p>A: 対応するゲーム進行、再開可能なラン、ベストスコア、言語、オーディオ設定は端末内に保存されます。アプリデータ削除やアンインストールで消える場合があります。</p>
+<h3>Q: オフラインで遊べますか？</h3>
+<p>A: 基本ゲームプレイは常時接続を必要としません。Google AdMob 広告や App Store / Google Play での <strong>Remove Ads</strong> 購入・復元にはネット接続が必要です。</p>
+<h3>Q: Rescue とは？</h3>
+<p>A: Rescue 対応ゲームでは1ランにつき最大1回です。Remove Ads がない場合は reward が確認されたリワード広告が必要で、Remove Ads が有効なら対象の Rescue は広告なしで利用できます。</p>
+<h3>Q: Quit 時に全画面広告が出ることがあるのはなぜ？</h3>
+<p>A: Remove Ads がない場合、対象の Quit 後にインタースティシャル広告が表示される場合があります。実際の表示間隔は最低7分です。広告が利用できない/失敗した場合でも Quit は続行されます。</p>
+<h3>Q: Remove Ads の内容は？</h3>
+<p>A: 一度購入する非消耗型商品です。対象の Rescue でリワード広告を不要にし、対象の Quit インタースティシャルをスキップします。以前購入済みなら Settings の <span class="highlight">Restore Purchases</span> を使用してください。</p>
+<h3>Q: 言語と音量はどこで変更できますか？</h3>
+<p>A: Home から <span class="highlight">Settings</span> を開き、対応言語、BGM/SFX 音量、全体 Mute を変更できます。</p>
+<h3>Q: セーブを再開できない場合は？</h3>
+<p>A: 無効なセーブを自動修復・再抽選することはありません。再開失敗画面から戻るか New Game を開始できます。</p>
+<h2>お問い合わせ</h2>
+<div class="contact-box"><ul><li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>iOS/Android、アプリバージョン、プレイ中のゲームモード、症状、可能ならスクリーンショットをお知らせください。</li></ul></div>
+<h2>技術情報</h2>
+<ul><li><strong>対応：</strong> iOS / Android。現在の最低OS要件は App Store / Google Play をご確認ください。</li><li><strong>プライバシーポリシー：</strong> <a href="privacy-policy.html" style="color:var(--accent);">表示</a></li></ul>
         </div>
 
-        <div id="content-ja" class="lang-content">
-            <h1>サポートセンター</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">最終更新日：2026年5月27日</p>
-            <p><strong>Blokyra</strong> サポートページへようこそ。Blokyra は、プレミアムなサイバーパンク・アーケードゲームポータルです。アクション満載の横スクロール・アクションシューティング <strong>Retro Patrol</strong> や、戦略的なSFタワーディフェンス <strong>Cyber Defense</strong> など、高エネルギーなレトロフューチャー作品を多数配信しています。技術的な問題が発生した場合や、ゲームの操作に困ったときはこちらをご確認ください。</p>
-            <h2>よくある質問 (FAQ)</h2>
-            <h3>Q: Blokyra とは何ですか？</h3>
-            <p>A: サイバーパンクスタイルをテーマにした高品質なアケードゲームコレクションです。中央ロビーから多様なレトロ風ミニゲームを起動したり、ゲーム構成を設定したり、最高スコアを記録したりすることができ、美しいネオンビジュアルと懐かしいチップチューン音楽に浸ることができます。</p>
-            <h3>Q: ゲームの進行状況はどのように保存されますか？</h3>
-            <p>A: 当ポータルは、解放されたステージ、ハイスコア記録、グローバルテックツリー、および環境設定をお使いのデバイスのローカルストレージ（`localStorage`）に保存します。いつでもアプリを終了でき、各ゲームのロビーで <span class="highlight">ミッション継続</span> をクリックすればロードして再開できます。<span class="warning">警告：</span>デバイスのデータ消去やアプリのアンインストールを行うと、すべてのセーブデータが失われますのでご注意ください。</p>
-            <h3>Q: インターネット接続がなくてもプレイできますか？</h3>
-            <p>A: はい、もちろんです！ハブ内のすべてのゲームは完全にオフラインでプレイ可能なため、長時間のフライトや電車の移動時間にも最適です。インターネット接続は、動画広告を表示するときのみ必要となります。</p>
-            <h3>Q: 操作ボタンやオーディオ設定を変更するには？</h3>
-            <p>A: ロビーまたは一時停止メニューの <span class="highlight">設定</span> アイコンをクリックします。BGMや効果音（SFX）の音量の調整、言語の変更、キーボード用キーマッピングのカスタマイズ、タッチパネル用の仮想ボタンサイズの変更が可能です。</p>
-            <h2>お問い合わせ</h2>
-            <div class="contact-box">
-                <p>バグの報告や技術的なサポート、ご意見などがございましたら、特別司令部までお気軽にご連絡ください：</p>
-                <ul>
-                    <li><strong>メールサポート:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>返信時間:</strong> 24〜48営業時間以内</li>
-                </ul>
-            </div>
-            <h2>役立つヒント</h2>
-            <ul>
-                <li><strong>モバイル操作の最適化:</strong> スマホでプレイする場合は、設定で仮想タッチパッドのサイズを「大 (1.5倍)」に調整することをお勧めします。操作性が格段に向上します。</li>
-                <li><strong>セーブの仕組み:</strong> プレイ中にポーズメニューから終了した場合、現在の詳細な座標と状態が完璧に保存されます。ただし、ゲームオーバー画面で広告を見て復活しなかった場合、セーブは完全にリセットされます。</li>
-            </ul>
-            <h2>技術情報</h2>
-            <ul>
-                <li><strong>互換性:</strong> iOS 15.1+ または Android 10.0+ / モダンな HTML5 ウェブブラウザが必要</li>
-                <li><strong>プライバシーポリシー:</strong> <a href="privacy-policy.html" style="color: var(--accent);">こちらから確認</a></li>
-            </ul>
+        <div id="content-ko" class="lang-content" lang="ko">
+<h1>고객 지원 센터</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">최종 업데이트: 2026년 9월 4일</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> 지원 페이지입니다. Blokyra는 iOS와 Android용 모바일 블록 퍼즐 아케이드이며 향후 업데이트를 통해 게임 콘텐츠가 확장될 수 있습니다.</p>
+<h2>자주 묻는 질문</h2>
+<h3>Q: Blokyra는 무엇인가요?</h3>
+<p>A: 점수와 전략 중심의 다양한 블록 퍼즐 경험을 하나의 앱에 모은 게임입니다. 각 게임 모드는 서로 다른 규칙을 가질 수 있지만 Home, Settings, 저장, 오디오, 광고 및 구매 시스템은 공통으로 사용합니다.</p>
+<h3>Q: 진행 상황은 어떻게 저장되나요?</h3>
+<p>A: 지원되는 게임 진행, 재개 가능한 런, 최고 점수, 언어와 오디오 설정은 기기에 로컬 저장됩니다. 앱 데이터 삭제나 앱 제거 시 사라질 수 있습니다.</p>
+<h3>Q: 오프라인 플레이가 가능한가요?</h3>
+<p>A: 핵심 게임은 항상 인터넷에 연결될 필요가 없습니다. Google AdMob 광고와 App Store / Google Play의 <strong>Remove Ads</strong> 구매/복원에는 인터넷이 필요합니다.</p>
+<h3>Q: Rescue는 어떻게 동작하나요?</h3>
+<p>A: Rescue를 지원하는 게임에서는 각 런에서 최대 한 번 사용할 수 있습니다. Remove Ads가 없으면 reward가 확인된 보상형 광고가 필요하고, Remove Ads가 활성화되면 해당 Rescue는 광고 없이 사용할 수 있습니다.</p>
+<h3>Q: Quit할 때 전면 광고가 나오는 이유는?</h3>
+<p>A: Remove Ads가 없으면 조건을 만족한 Quit 뒤에 전면 광고가 표시될 수 있습니다. 실제 전면 광고 표시 간 최소 간격은 7분입니다. 광고가 없거나 실패해도 Quit은 계속 진행됩니다.</p>
+<h3>Q: Remove Ads는 무엇을 제공하나요?</h3>
+<p>A: 일회성 비소모성 구매입니다. 대상 Rescue의 보상형 광고 요구와 해당 Quit 전면 광고를 제거합니다. 이전에 구매했다면 Settings의 <span class="highlight">Restore Purchases</span>를 사용하세요.</p>
+<h3>Q: 언어/오디오는 어디서 바꾸나요?</h3>
+<p>A: Home의 <span class="highlight">Settings</span>에서 지원 언어, BGM/SFX 볼륨과 전체 Mute를 설정할 수 있습니다.</p>
+<h3>Q: 저장된 런을 재개할 수 없다면?</h3>
+<p>A: Blokyra는 잘못된 저장을 조용히 수리하거나 다시 랜덤 생성하지 않습니다. 재개 실패 화면에서 돌아가거나 New Game을 시작할 수 있습니다.</p>
+<h2>지원 문의</h2>
+<div class="contact-box"><ul><li><strong>이메일:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>iOS/Android, 앱 버전, 플레이 중이던 게임 모드, 문제 설명과 가능하면 스크린샷을 함께 보내 주세요.</li></ul></div>
+<h2>기술 정보</h2>
+<ul><li><strong>플랫폼:</strong> iOS / Android. 현재 최소 OS 요구사항은 App Store / Google Play에서 확인해 주세요.</li><li><strong>개인정보 처리방침:</strong> <a href="privacy-policy.html" style="color:var(--accent);">보기</a></li></ul>
         </div>
 
-        <div id="content-ru" class="lang-content">
-            <h1>Центр поддержки</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Последнее обновление: 27 мая 2026 г.</p>
-            <p>Добро пожаловать на страницу поддержки игрового портала <strong>Blokyra</strong>. Blokyra — это премиальный портал аркадных игр в стиле киберпанк, на котором представлены динамичный экшен-платформер <strong>Retro Patrol</strong> и тактическая научно-фантастическая игра в жанре Tower Defense <strong>Cyber Defense</strong>. Если вы столкнулись с техническими проблемами или вам нужна помощь, вы попали по адресу.</p>
-            <h2>Часто задаваемые вопросы (FAQ)</h2>
-            <h3>Q: Что такое Blokyra?</h3>
-            <p>A: Это премиальный каталог аркадных игр с футуристическими и высокооктановыми проектами. Из центрального лобби вы можете запускать различные мини-игры, настраивать параметры, просматривать рекорды, наслаждаться неоновым нео-оформлением и ностальгической 8-битной чиптьюн-музыкой.</p>
-            <h3>Q: Как сохраняется игровой прогресс?</h3>
-            <p>A: Портал автоматически сохраняет ваши пройденные этапы, рекорды очков, глобальные деревья технологий и настройки локально на вашем устройстве (`localStorage`). Вы можете закрыть игру в любое время и нажать кнопку <span class="highlight">Продолжить</span> в лобби игры для возобновления сессии. <span class="warning">Внимание:</span> очистка кэша браузера/приложения или удаление игры приведет к полной утрате сохраненного прогресса.</p>
-            <h3>Q: Можно ли играть без подключения к интернету?</h3>
-            <p>A: Абсолютно! Все ключевые игры внутри портала полностью поддерживают автономный режим (офлайн), что идеально подходит для перелетов или поездок на работу. Подключение к сети требуется только для загрузки рекламы с вознаграждением для мгновенного возрождения или умножения заработанных очков.</p>
-            <h3>Q: Как изменить настройки управления или звука?</h3>
-            <p>A: Нажмите на иконку <span class="highlight">Настройки</span> в главном меню или в меню паузы. Вы можете независимо регулировать громкость музыки (BGM) и эффектов (SFX), переключать языки интерфейса, переназначать клавиши клавиатуры и изменять размер виртуальных кнопок для удобства игры на сенсорном экране.</p>
-            <h2>Обратная связь</h2>
-            <div class="contact-box">
-                <p>Если вы обнаружили программную ошибку (баг), столкнулись с технической сложностью или хотите поделиться идеями, пожалуйста, свяжитесь с Командованием Специальных Операций:</p>
-                <ul>
-                    <li><strong>Поддержка по почте:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>Время ответа:</strong> В течение 24-48 рабочих часов</li>
-                </ul>
-            </div>
-            <h2>Полезные советы</h2>
-            <ul>
-                <li><strong>Удобство сенсорного экрана:</strong> Если вы играете на телефоне, настройте размер виртуального джойстика и кнопок в меню Настроек под размер ваших рук для максимальной точности.</li>
-                <li><strong>Контрольные точки (Checkpoints):</strong> Выход из активной игры через меню паузы сохраняет ваши точные координаты на уровне. В случае же поражения (Game Over) данные будут стерты, если вы не выберете мгновенное Ad-возрождение.</li>
-            </ul>
-            <h2>Техническая информация</h2>
-            <ul>
-                <li><strong>Совместимость:</strong> Требуется iOS 15.1+ или Android 10.0+ / Современный веб-браузер HTML5</li>
-                <li><strong>Политика конфиденциальности:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Посмотреть здесь</a></li>
-            </ul>
+        <div id="content-fr" class="lang-content" lang="fr">
+<h1>Centre d'assistance</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">Dernière mise à jour : 4 septembre 2026</p>
+<p>Bienvenue sur l'assistance de <strong>Blokyra: Block Puzzle Arcade</strong>, un arcade mobile de puzzles de blocs pour iOS et Android. Le contenu du jeu pourra continuer à s'enrichir au fil des futures mises à jour.</p>
+<h2>FAQ</h2>
+<h3>Q : Qu'est-ce que Blokyra ?</h3>
+<p>R : Blokyra rassemble dans une même application différentes expériences de puzzles de blocs axées sur le score et la stratégie. Chaque mode de jeu peut avoir ses propres règles tout en partageant Home, Settings, sauvegarde, audio, publicité et achats.</p>
+<h3>Q : Comment ma progression est-elle sauvegardée ?</h3>
+<p>R : La progression prise en charge, les parties reprenables, les meilleurs scores, la langue et les réglages audio sont stockés localement. Effacer les données ou désinstaller l'app peut les supprimer.</p>
+<h3>Q : Puis-je jouer hors ligne ?</h3>
+<p>R : Le gameplay principal ne nécessite pas de connexion permanente. Internet est requis pour Google AdMob ainsi que pour acheter/restaurer <strong>Remove Ads</strong> via l'App Store ou Google Play.</p>
+<h3>Q : Comment fonctionne Rescue ?</h3>
+<p>R : Dans les jeux qui prennent Rescue en charge, son utilisation est limitée à une fois maximum par partie. Sans Remove Ads, une publicité récompensée confirmée est nécessaire. Avec Remove Ads actif, un Rescue éligible peut être accordé sans publicité récompensée.</p>
+<h3>Q : Pourquoi une publicité plein écran peut-elle apparaître au Quit ?</h3>
+<p>R : Sans Remove Ads, un interstitiel peut être affiché après un Quit éligible, avec au moins sept minutes entre deux affichages réussis. Une indisponibilité ou une erreur de publicité n'empêche pas de quitter.</p>
+<h3>Q : Que fait Remove Ads ?</h3>
+<p>R : C'est un achat unique non consommable qui retire l'exigence de publicité récompensée pour les Rescue éligibles et ignore les interstitiels Quit concernés. Utilisez <span class="highlight">Restore Purchases</span> dans Settings si vous l'avez déjà acheté.</p>
+<h3>Q : Où changer la langue et l'audio ?</h3>
+<p>R : Dans <span class="highlight">Settings</span> depuis Home : langue prise en charge, volume BGM/SFX et Mute global.</p>
+<h3>Q : Que faire si une sauvegarde ne peut pas reprendre ?</h3>
+<p>R : Blokyra ne répare ni ne reroll silencieusement une sauvegarde invalide. Vous pouvez revenir en arrière ou démarrer un New Game.</p>
+<h2>Contacter l'assistance</h2>
+<div class="contact-box"><ul><li><strong>Email :</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>Indiquez si possible iOS/Android, la version de l'app, le mode de jeu concerné, le problème et une capture d'écran.</li></ul></div>
+<h2>Informations techniques</h2>
+<ul><li><strong>Plateformes :</strong> iOS et Android. Consultez l'App Store / Google Play pour la version minimale actuelle.</li><li><strong>Confidentialité :</strong> <a href="privacy-policy.html" style="color:var(--accent);">Voir la politique</a></li></ul>
         </div>
 
-        <div id="content-es" class="lang-content">
-            <h1>Centro de Soporte</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Última actualización: 27 de mayo de 2026</p>
-            <p>Bienvenido a la página de soporte de <strong>Blokyra</strong>. Nos dedicamos a ofrecer la experiencia de acertijos lógicos más desafiante y satisfactoria en dispositivos móviles. Si encuentras algún problema técnico o necesitas ayuda para dominar el horizonte urbano, estás en el lugar correcto.</p>
-            <h2>Preguntas Frecuentes (FAQ)</h2>
-            <h3>Q: ¿Qué es Blokyra?</h3>
-            <p>A: Es un catálogo de juegos arcade premium con un estilo futurista y dinámico. Desde la interfaz del menú principal, puedes iniciar varios minijuegos de inspiración retro, configurar tus perfiles, revisar tus puntuaciones máximas y disfrutar de un increíble diseño de luces neon y pistas musicales de sintetizadores chiptune.</p>
-            <h3>Q: ¿Cómo se guarda el progreso de mi juego?</h3>
-            <p>A: El portal guarda automáticamente tus niveles superados, puntuaciones altas, árboles de tecnología global y configuraciones localmente en tu dispositivo (`localStorage`). Puedes salir del juego en cualquier momento y hacer clic en el botón <span class="highlight">Continuar</span> en el lobby del juego correspondiente para reanudar la partida. <span class="warning">Advertencia:</span> borrar los datos del navegador/aplicación o desinstalar la app eliminará todo el progreso guardado.</p>
-            <h3>Q: ¿Puedo jugar al juego sin conexión a Internet?</h3>
-            <p>A: ¡Totalmente! Todos los juegos del portal son completamente jugables sin conexión (offline), ideal para vuelos largos o trayectos diarios. Solo se requiere conexión a Internet para cargar los anuncios con recompensa que te permiten revivir en la misma posición o duplicar tus puntos.</p>
-            <h3>Q: ¿Cómo personalizo los controles o el sonido?</h3>
-            <p>A: Toca el icono de <span class="highlight">Ajustes</span> en el hub o en el menú de pausa de cualquier juego. Puedes ajustar de forma independiente los volúmenes de BGM/SFX, cambiar el idioma, remapear las teclas del teclado y ajustar el tamaño de los botones virtuales para pantallas táctiles.</p>
-            <h2>Contáctenos</h2>
-            <div class="contact-box">
-                <p>Si has encontrado algún error, tienes problemas técnicos o quieres enviarnos tus sugerencias, por favor ponte en contacto con nuestro Comando Especial:</p>
-                <ul>
-                    <li><strong>Soporte por Correo:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>Tiempo de respuesta:</strong> Dentro de 24-48 horas laborables</li>
-                </ul>
-            </div>
-            <h2>Consejos Útiles</h2>
-            <ul>
-                <li><strong>Control de Pantalla Táctil:</strong> Si juegas en un móvil, los botones virtuales son totalmente ajustables en tamaño desde el menú de Ajustes para tu comodidad.</li>
-                <li><strong>Puntos de control (Checkpoints):</strong> Salir de una partida activa a través del menú de pausa conserva tus coordenadas y tu estado exacto en el nivel. Sin embargo, un Game Over oficial borrará los datos a menos que utilices una reactivación por publicidad.</li>
-            </ul>
-            <h2>Información Técnica</h2>
-            <ul>
-                <li><strong>Compatibilidad:</strong> Requiere iOS 15.1+ o Android 10.0+ / Navegador web HTML5 moderno</li>
-                <li><strong>Política de Privacidad:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Ver aquí</a></li>
-            </ul>
+        <div id="content-ru" class="lang-content" lang="ru">
+<h1>Центр поддержки</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">Последнее обновление: 4 сентября 2026 г.</p>
+<p>Это страница поддержки <strong>Blokyra: Block Puzzle Arcade</strong> — мобильной аркады с блоковыми головоломками для iOS и Android. Игровой контент может расширяться в будущих обновлениях.</p>
+<h2>Частые вопросы</h2>
+<h3>Q: Что такое Blokyra?</h3>
+<p>A: Blokyra объединяет в одном приложении разные головоломки на очки и стратегию. Игровые режимы могут иметь разные правила, но используют общие Home, Settings, сохранения, аудио, рекламу и покупки.</p>
+<h3>Q: Как сохраняется прогресс?</h3>
+<p>A: Поддерживаемый прогресс, продолжаемые партии, рекорды, язык и аудио-настройки хранятся локально. Очистка данных или удаление приложения может стереть их.</p>
+<h3>Q: Можно играть офлайн?</h3>
+<p>A: Основной игровой процесс не требует постоянного интернета. Сеть нужна для Google AdMob и покупки/восстановления <strong>Remove Ads</strong> через App Store или Google Play.</p>
+<h3>Q: Как работает Rescue?</h3>
+<p>A: В режимах, поддерживающих Rescue, его можно использовать не более одного раза за партию. Без Remove Ads требуется подтвержденная rewarded-реклама. При активном Remove Ads подходящий Rescue может быть доступен без rewarded-рекламы.</p>
+<h3>Q: Почему при Quit иногда показывается полноэкранная реклама?</h3>
+<p>A: Без Remove Ads после подходящего Quit может быть interstitial-реклама. Между успешными показами минимум семь минут. Ошибка или недоступность рекламы не блокирует выход.</p>
+<h3>Q: Что делает Remove Ads?</h3>
+<p>A: Разовая нерасходуемая покупка: убирает rewarded-рекламу для подходящего Rescue и соответствующие Quit interstitial. Для уже купленного товара используйте <span class="highlight">Restore Purchases</span>.</p>
+<h3>Q: Где менять язык и звук?</h3>
+<p>A: В <span class="highlight">Settings</span> на Home можно выбрать поддерживаемый язык, BGM/SFX и общий Mute.</p>
+<h3>Q: Что если сохранение нельзя продолжить?</h3>
+<p>A: Blokyra не чинит и не перегенерирует такое сохранение незаметно. Можно вернуться или начать New Game.</p>
+<h2>Связаться с поддержкой</h2>
+<div class="contact-box"><ul><li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>Укажите iOS/Android, версию приложения, игровой режим, описание проблемы и скриншот, если возможно.</li></ul></div>
+<h2>Техническая информация</h2>
+<ul><li><strong>Платформы:</strong> iOS и Android. Актуальные минимальные требования смотрите в App Store / Google Play.</li><li><strong>Конфиденциальность:</strong> <a href="privacy-policy.html" style="color:var(--accent);">Открыть политику</a></li></ul>
         </div>
 
-        <div id="content-de" class="lang-content">
-            <h1>Support-Center</h1>
-            <p style="text-align: center; color: #536b8c; font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold;">Letzte Aktualisierung: 27. Mai 2026</p>
-            <p>Willkommen auf der Support-Seite von <strong>Blokyra</strong>. Wir sind bestrebt, das anspruchsvollste und zugleich lohnendste Logikrätsel-Erlebnis auf dem Handy zu bieten. Wenn Sie auf technische Probleme stoßen oder Hilfe beim Meistern der Skyline benötigen, sind Sie hier genau richtig.</p>
-            <h2>Häufig gestellte Fragen (FAQ)</h2>
-            <h3>Q: Was ist Blokyra?</h3>
-            <p>A: Es ist ein erstklassiges Arcade-Spieleportal mit futuristischen und actionreichen Minispielen. Von der Hauptlobby aus können Sie verschiedene retro-inspirierte Titel starten, Ihre Einstellungen anpassen, Highscores einsehen und das faszinierende Neon-Design mit nostalgischer Chiptune-Musik genießen.</p>
-            <h3>Q: Wie wird mein Spielfortschritt gespeichert?</h3>
-            <p>A: Das Portal speichert Ihren Spielfortschritt, Ihre Highscores, freigeschaltete Stufen, globalen Technologiebäume und Einstellungen automatisch lokal auf Ihrem Gerät (`localStorage`). Sie können die App jederzeit schließen und im jeweiligen Spielelobby auf <span class="highlight">Fortsetzen</span> klicken, um genau dort fortzufahren, wo Sie aufgehört haben. <span class="warning">Warnung:</span> Das Löschen Ihrer Browser- oder App-Daten löscht auch Ihren gesamten gespeicherten Fortschritt.</p>
-            <h3>Q: Kann ich ohne Internetverbindung spielen?</h3>
-            <p>A: Absolut! Alle Hauptspiele innerhalb des Hubs sind vollständig offline spielbar – perfekt für lange Flüge oder das tägliche Pendeln. Eine Internetverbindung wird nur benötigt, um belohnte Werbung für sofortige Wiederbelebungen oder Bonus-Multiplikatoren zu laden.</p>
-            <h3>Q: Wie kann ich die Steuerung oder die Audio-Einstellungen anpassen?</h3>
-            <p>A: Tippen Sie im Hub oder im Pausenmenü eines Spiels auf das <span class="highlight">Einstellungen</span>-Symbol. Sie können die BGM- und SFX-Lautstärke unabhängig voneinander regeln, die Systemsprache ändern, Tastenbelegungen für Tastaturen anpassen und die Größe der virtuellen Tasten für Touchscreens kalibrieren.</p>
-            <h2>Kontaktieren Sie uns</h2>
-            <div class="contact-box">
-                <p>Wenn Sie einen Fehler gefunden haben oder Vorschläge haben, wenden Sie sich bitte an uns:</p>
-                <ul>
-                    <li><strong>E-Mail-Support:</strong> <span class="highlight">neonbusters.hub@gmail.com</span></li>
-                    <li><strong>Antwortzeit:</strong> Innerhalb von 24-48 Werktagsstunden</li>
-                </ul>
-            </div>
-            <h2>Hilfreiche Tipps</h2>
-            <ul>
-                <li><strong>Mobile Steuerung optimieren:</strong> Auf Mobilgeräten können Sie die Größe der virtuellen Tasten in den Einstellungen auf bis zu 1,5-fach vergrößern, um eine komfortable und präzise Steuerung zu gewährleisten.</li>
-                <li><strong>Checkpoint-System:</strong> Das Beenden eines aktiven Spiels über das Pausenmenü speichert Ihre exakten Koordinaten im Level. Ein echtes Game Over löscht jedoch die Sitzung, es sei denn, Sie nutzen eine sofortige Werbe-Wiederbelebung.</li>
-            </ul>
-            <h2>Technische Informationen</h2>
-            <ul>
-                <li><strong>Kompatibilität:</strong> Erfordert iOS 15.1+ oder Android 10.0+ / Moderner HTML5-Webbrowser</li>
-                <li><strong>Datenschutzerklärung:</strong> <a href="privacy-policy.html" style="color: var(--accent);">Hier einsehen</a></li>
-            </ul>
+        <div id="content-de" class="lang-content" lang="de">
+<h1>Support-Center</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">Letzte Aktualisierung: 4. September 2026</p>
+<p>Willkommen beim Support für <strong>Blokyra: Block Puzzle Arcade</strong>, eine mobile Block-Puzzle-Arcade für iOS und Android. Der Spielumfang kann in zukünftigen Updates weiter ausgebaut werden.</p>
+<h2>Häufige Fragen</h2>
+<h3>Q: Was ist Blokyra?</h3>
+<p>A: Blokyra vereint verschiedene punkt- und strategiebasierte Block-Puzzles in einer App. Spielmodi können eigene Regeln haben, teilen aber Home, Settings, Speicher-, Audio-, Werbe- und Kaufsysteme.</p>
+<h3>Q: Wie wird Fortschritt gespeichert?</h3>
+<p>A: Unterstützter Fortschritt, fortsetzbare Runs, Bestwerte, Sprache und Audioeinstellungen werden lokal gespeichert. Löschen von App-Daten oder Deinstallation kann diese Daten entfernen.</p>
+<h3>Q: Kann ich offline spielen?</h3>
+<p>A: Das Kernspiel braucht keine permanente Verbindung. Internet wird für Google AdMob und für Kauf/Wiederherstellung von <strong>Remove Ads</strong> über App Store oder Google Play benötigt.</p>
+<h3>Q: Wie funktioniert Rescue?</h3>
+<p>A: In Spielen mit Rescue ist die Nutzung auf höchstens einmal pro Run beschränkt. Ohne Remove Ads ist eine bestätigte Rewarded Ad erforderlich. Mit aktivem Remove Ads kann ein berechtigter Rescue ohne Rewarded Ad genutzt werden.</p>
+<h3>Q: Warum kann beim Quit eine Vollbildanzeige erscheinen?</h3>
+<p>A: Ohne Remove Ads kann nach einem berechtigten Quit ein Interstitial erscheinen. Zwischen erfolgreichen Anzeigen liegen mindestens sieben Minuten. Fehler oder Nichtverfügbarkeit blockieren das Verlassen nicht.</p>
+<h3>Q: Was bewirkt Remove Ads?</h3>
+<p>A: Ein einmaliger, nicht verbrauchbarer Kauf. Er entfernt die Rewarded-Ad-Anforderung für berechtigte Rescue-Aktionen und überspringt die abgedeckten Quit-Interstitials. Bereits gekauft? Verwenden Sie <span class="highlight">Restore Purchases</span>.</p>
+<h3>Q: Wo ändere ich Sprache und Audio?</h3>
+<p>A: In <span class="highlight">Settings</span> von Home: unterstützte Sprache, BGM-/SFX-Lautstärke und globales Mute.</p>
+<h3>Q: Was passiert bei einer nicht fortsetzbaren Speicherung?</h3>
+<p>A: Blokyra repariert oder würfelt ungültige Speicherstände nicht stillschweigend neu. Sie können zurückgehen oder New Game starten.</p>
+<h2>Support kontaktieren</h2>
+<div class="contact-box"><ul><li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>Bitte nennen Sie iOS/Android, App-Version, betroffenen Spielmodus, Fehlerbeschreibung und wenn möglich einen Screenshot.</li></ul></div>
+<h2>Technische Informationen</h2>
+<ul><li><strong>Plattformen:</strong> iOS und Android. Aktuelle Mindestanforderungen stehen im App Store / Google Play.</li><li><strong>Datenschutz:</strong> <a href="privacy-policy.html" style="color:var(--accent);">Datenschutzerklärung anzeigen</a></li></ul>
         </div>
 
-        <footer>
-            &copy; 2026 Blokyra. All Rights Reserved. Developed by D.H.N.
-        </footer>
+        <div id="content-es" class="lang-content" lang="es">
+<h1>Centro de Soporte</h1>
+<p style="text-align:center;color:#536b8c;font-size:.9rem;margin-top:.5rem;font-weight:bold;">Última actualización: 4 de septiembre de 2026</p>
+<p>Bienvenido al soporte de <strong>Blokyra: Block Puzzle Arcade</strong>, un arcade móvil de puzles de bloques para iOS y Android. El contenido del juego puede seguir ampliándose en futuras actualizaciones.</p>
+<h2>Preguntas frecuentes</h2>
+<h3>Q: ¿Qué es Blokyra?</h3>
+<p>A: Blokyra reúne en una sola app distintas experiencias de puzles de bloques centradas en puntuación y estrategia. Cada modo puede tener sus propias reglas y compartir Home, Settings, guardado, audio, publicidad y compras.</p>
+<h3>Q: ¿Cómo se guarda el progreso?</h3>
+<p>A: El progreso compatible, las partidas reanudables, mejores puntuaciones, idioma y audio se guardan localmente. Borrar los datos o desinstalar puede eliminarlos.</p>
+<h3>Q: ¿Puedo jugar sin conexión?</h3>
+<p>A: El juego principal no necesita conexión constante. Internet es necesario para Google AdMob y para comprar/restaurar <strong>Remove Ads</strong> en App Store o Google Play.</p>
+<h3>Q: ¿Cómo funciona Rescue?</h3>
+<p>A: En los juegos que admiten Rescue, puede usarse como máximo una vez por partida. Sin Remove Ads se necesita un anuncio recompensado confirmado. Con Remove Ads activo, un Rescue elegible puede utilizarse sin ese anuncio.</p>
+<h3>Q: ¿Por qué puede aparecer un anuncio a pantalla completa al salir?</h3>
+<p>A: Sin Remove Ads, después de un Quit elegible puede aparecer un intersticial. Deben pasar al menos siete minutos entre dos visualizaciones exitosas. Si el anuncio falla o no está disponible, Quit continúa.</p>
+<h3>Q: ¿Qué hace Remove Ads?</h3>
+<p>A: Es una compra única no consumible. Elimina el requisito de anuncio recompensado para Rescue elegibles y omite los intersticiales Quit cubiertos. Si ya lo compraste, usa <span class="highlight">Restore Purchases</span> en Settings.</p>
+<h3>Q: ¿Dónde cambio idioma y audio?</h3>
+<p>A: En <span class="highlight">Settings</span> desde Home puedes elegir un idioma compatible, volumen BGM/SFX y Mute global.</p>
+<h3>Q: ¿Qué pasa si una partida guardada no puede reanudarse?</h3>
+<p>A: Blokyra no repara ni vuelve a generar silenciosamente un guardado inválido. Puedes volver atrás o empezar New Game.</p>
+<h2>Contactar con soporte</h2>
+<div class="contact-box"><ul><li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li><li>Incluye iOS/Android, versión de la app, modo de juego afectado, descripción del problema y una captura si es posible.</li></ul></div>
+<h2>Información técnica</h2>
+<ul><li><strong>Plataformas:</strong> iOS y Android. Consulta App Store / Google Play para los requisitos mínimos actuales.</li><li><strong>Privacidad:</strong> <a href="privacy-policy.html" style="color:var(--accent);">Ver política</a></li></ul>
+        </div>
+        <footer>© 2026 Blokyra. All rights reserved.</footer>
     </div>
-
     <script>
         function switchLanguage(langCode) {
             const buttons = document.querySelectorAll('.lang-btn');

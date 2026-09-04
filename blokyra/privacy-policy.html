@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Privacy Policy - Blokyra</title>
+    <title>Privacy Policy - Blokyra: Block Puzzle Arcade</title>
     <style>
         :root {
             --bg: #02040a;
@@ -146,325 +146,318 @@
 </head>
 <body>
     <div class="container">
-        <!-- <a href="../index.html" class="back-link">&larr; Back to Home</a> -->
-        
-        <!-- Segment Control Component for Multi-language (Above Logo) -->
+
         <div class="lang-selector-wrapper">
-            <div class="lang-scroll-container">
+            <div class="lang-scroll-container" aria-label="Language">
                 <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
                 <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
-                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-CN')">简体中文</button>
                 <button class="lang-btn" onclick="switchLanguage('zh-TW')">繁體中文</button>
-                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
                 <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+                <button class="lang-btn" onclick="switchLanguage('fr')">Français</button>
                 <button class="lang-btn" onclick="switchLanguage('ru')">Русский</button>
-                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
                 <button class="lang-btn" onclick="switchLanguage('de')">Deutsch</button>
+                <button class="lang-btn" onclick="switchLanguage('es')">Español</button>
             </div>
         </div>
-        
+
+
         <div class="header">
             <div class="app-icon">
-                <img src="../assets/images/Blokyra_Logo.png" alt="Blokyra Logo">
+                <img src="../assets/images/Blokyra_Logo.png"
+                     onerror="this.src='assets/images/Blokyra_Logo.png'; this.onerror=null;"
+                     alt="Blokyra Logo">
             </div>
         </div>
 
-        <!-- ENGLISH CONTENT -->
-        <div id="content-en" class="lang-content active">
-            <h1>Privacy Policy</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Latest Update: May 4, 2026</p>
-            <p>Your privacy is important to us. <strong>Blokyra</strong> is built as an Ad-Supported app. This service is provided at no cost and is intended for use as is.</p>
-            <div class="highlight-box">
-                <strong>Summary:</strong> We do not personally collect any identifiable information. We use industry-standard third-party services to show advertisements and maintain the game.
-            </div>
-            <h2>1. Information Collection and Use</h2>
-            <p>We (the developer) <strong>DO NOT</strong> personally collect, store, or share any of your personal information (such as your name, email address, or phone number).</p>
-            <h2>2. Advertisements</h2>
-            <p>To support the ongoing development of the game, we display advertisements via AdMob. These third-party ad providers may collect non-personal data, such as:</p>
-            <ul>
-                <li>Device advertising identifiers (IDFA for iOS and AAID for Android).</li>
-                <li>Device information (model, operating system version).</li>
-                <li>General location data (city or country level).</li>
-            </ul>
-            <h2>3. Third-Party Service Providers</h2>
-            <p>The app may use libraries from the following providers for functional purposes:</p>
-            <ul>
-                <li>Google Play Services / Apple App Store</li>
-                <li>Ad Networks (Google AdMob)</li>
-            </ul>
-            <h2>4. Changes to This Policy</h2>
-            <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-            <h2>5. Contact Us</h2>
-            <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at: <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-en" class="lang-content active" lang="en">
+<h1>Privacy Policy</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">Latest Update: September 4, 2026</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> is a mobile block-puzzle arcade for iOS and Android. The app may expand with additional game experiences over time. The app does not require a user account, and the developer does not ask you to submit your name, phone number, postal address, or other direct personal identifiers in order to play.</p>
+<div class="highlight-box"><strong>Summary:</strong> Gameplay progress and settings are stored locally on your device. Google AdMob may process data to provide advertisements, and Apple App Store / Google Play handle purchases and restoration. Blokyra does not currently provide account-based cloud save.</div>
+<h2>1. Data Stored Locally on Your Device</h2>
+<p>Blokyra stores information needed to operate the game locally on your device, including:</p>
+<ul>
+<li>Language preference, BGM volume, SFX volume, and mute setting.</li>
+<li>Current resumable run state for supported games.</li>
+<li>Scores, best scores, rescue usage, and other deterministic gameplay state required to resume correctly.</li>
+<li>Local entitlement/cache information for the Remove Ads purchase and the timestamp used to enforce interstitial-ad frequency limits.</li>
+</ul>
+<p>This local gameplay/save data is not uploaded to a Blokyra account or cloud-save service because the app currently does not provide one. Clearing app data or uninstalling the app may remove locally stored progress and settings.</p>
+<h2>2. Advertising and Consent</h2>
+<p>Blokyra uses <strong>Google AdMob</strong> for rewarded advertisements used by the Rescue feature and for interstitial advertisements that may be shown after an eligible Quit action.</p>
+<p>Depending on your platform, region, consent choices, and device settings, Google and its advertising partners may process information such as:</p>
+<ul>
+<li>Advertising identifiers where permitted (for example IDFA on iOS or AAID on Android).</li>
+<li>IP address, device/app information, operating-system information, diagnostics, and advertising interaction data.</li>
+<li>Approximate location inferred from network information.</li>
+</ul>
+<p>Where required, the app may present privacy/consent choices before requesting ads. On iOS, App Tracking Transparency permission may also be requested when applicable. Refusing tracking permission does not prevent core gameplay, although advertising may be less personalized.</p>
+<p>If the <strong>Remove Ads</strong> entitlement is active, Blokyra skips the rewarded-ad requirement for Rescue and does not intentionally show the Quit interstitial placements covered by that entitlement.</p>
+<h2>3. In-App Purchases</h2>
+<p>Blokyra offers a one-time, non-consumable <strong>Remove Ads</strong> purchase. Purchases and restores are processed by Apple App Store or Google Play. The developer does not receive your full payment-card details.</p>
+<p>The app may store a local entitlement cache for faster UI behavior, but the corresponding app store remains the authority for purchase ownership and restoration.</p>
+<h2>4. Third-Party Services</h2>
+<p>Blokyra may use the following third-party services:</p>
+<ul>
+<li>Google AdMob and Google consent/privacy services for advertising.</li>
+<li>Apple App Store / StoreKit for iOS purchases and restoration.</li>
+<li>Google Play / Play Billing for Android purchases and restoration.</li>
+</ul>
+<p>These providers process data under their own terms and privacy policies.</p>
+<h2>5. Data Retention and Security</h2>
+<p>Local game data generally remains on your device until it is overwritten, cleared, or removed with the app. Data processed by third-party providers is retained according to their own policies. We use reasonable measures to keep app data limited to what is needed for gameplay, settings, ads, and purchases, but no electronic storage method can be guaranteed to be completely secure.</p>
+<h2>6. Changes to This Policy</h2>
+<p>We may update this Privacy Policy when app features, SDKs, legal requirements, or store requirements change. Updates become effective when the revised policy is posted on this page.</p>
+<h2>7. Contact Us</h2>
+<p>If you have questions about this Privacy Policy, contact: <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- FRENCH CONTENT -->
-        <div id="content-fr" class="lang-content">
-            <h1>Politique de confidentialité</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Dernière mise à jour : 4 mai 2026</p>
-            <p>Votre vie privée est importante pour nous. <strong>Blokyra</strong> est conçu comme une application financée par la publicité. Ce service est fourni gratuitement et est destiné à être utilisé tel quel.</p>
-            <div class="highlight-box">
-                <strong>Résumé :</strong> Nous ne collectons personnellement aucune information identifiable. Nous utilisons des services tiers conformes aux normes de l'industrie pour afficher des publicités et assurer la maintenance du jeu.
-            </div>
-            <h2>1. Collecte et utilisation des informations</h2>
-            <p>Nous (le développeur) <strong>NE collectons, ne stockons ni ne partageons</strong> personnellement aucune de vos informations personnelles (telles que votre nom, votre adresse e-mail ou votre numéro de téléphone).</p>
-            <h2>2. Publicités</h2>
-            <p>Pour soutenir le développement continu du jeu, nous affichons des publicités via AdMob. Ces fournisseurs de publicité tiers peuvent collecter des données non personnelles, telles que :</p>
-            <ul>
-                <li>Les identifiants publicitaires de l'appareil (IDFA pour iOS et AAID pour Android).</li>
-                <li>Les informations sur l'appareil (modèle, version du système d'exploitation).</li>
-                <li>Les données de localisation générale (au niveau de la ville ou du pays).</li>
-            </ul>
-            <h2>3. Fournisseurs de services tiers</h2>
-            <p>L'application peut utiliser des bibliothèques des fournisseurs suivants à des fins fonctionnelles :</p>
-            <ul>
-                <li>Google Play Services / Apple App Store</li>
-                <li>Réseaux publicitaires (Google AdMob)</li>
-            </ul>
-            <h2>4. Modifications de cette politique</h2>
-            <p>We may update our Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.</p>
-            <h2>5. Contactez-nous</h2>
-            <p>Si vous avez des questions ou des suggestions concernant notre politique de confidentialité, n'hésitez pas à nous contacter à : <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-vi" class="lang-content" lang="vi">
+<h1>Chính Sách Bảo Mật</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">Cập nhật mới nhất: Ngày 4 tháng 9 năm 2026</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> là một ứng dụng puzzle arcade xếp khối dành cho iOS và Android. Nội dung game có thể tiếp tục được mở rộng trong các bản cập nhật sau. Ứng dụng không yêu cầu tạo tài khoản và nhà phát triển không yêu cầu bạn cung cấp tên, số điện thoại, địa chỉ hoặc các thông tin định danh trực tiếp khác để chơi.</p>
+<div class="highlight-box"><strong>Tóm tắt:</strong> Tiến trình chơi và cài đặt được lưu cục bộ trên thiết bị. Google AdMob có thể xử lý dữ liệu để cung cấp quảng cáo; Apple App Store và Google Play xử lý giao dịch mua/khôi phục. Blokyra hiện không có hệ thống tài khoản hoặc cloud save.</div>
+<h2>1. Dữ Liệu Được Lưu Cục Bộ</h2>
+<p>Blokyra lưu trên thiết bị các dữ liệu cần thiết để trò chơi hoạt động, bao gồm:</p>
+<ul>
+<li>Ngôn ngữ, âm lượng BGM, âm lượng SFX và trạng thái Mute.</li>
+<li>Trạng thái lượt chơi đang có thể tiếp tục của các game được hỗ trợ.</li>
+<li>Điểm hiện tại, điểm cao nhất, trạng thái đã dùng Rescue và các dữ liệu gameplay xác định cần thiết để resume chính xác.</li>
+<li>Cache entitlement của Remove Ads và mốc thời gian dùng để kiểm soát tần suất quảng cáo interstitial.</li>
+</ul>
+<p>Các dữ liệu save/gameplay này không được tải lên tài khoản Blokyra hay dịch vụ cloud save vì ứng dụng hiện không cung cấp các dịch vụ đó. Xóa dữ liệu ứng dụng hoặc gỡ cài đặt có thể làm mất tiến trình và cài đặt đã lưu cục bộ.</p>
+<h2>2. Quảng Cáo và Sự Đồng Ý</h2>
+<p>Blokyra sử dụng <strong>Google AdMob</strong> cho quảng cáo rewarded của tính năng Rescue và quảng cáo interstitial có thể xuất hiện sau một thao tác Quit đủ điều kiện.</p>
+<p>Tùy nền tảng, khu vực, lựa chọn quyền riêng tư và cài đặt thiết bị, Google cùng các đối tác quảng cáo có thể xử lý:</p>
+<ul>
+<li>Định danh quảng cáo khi được phép, ví dụ IDFA trên iOS hoặc AAID trên Android.</li>
+<li>Địa chỉ IP, thông tin thiết bị/ứng dụng, phiên bản hệ điều hành, dữ liệu chẩn đoán và tương tác quảng cáo.</li>
+<li>Vị trí gần đúng được suy ra từ thông tin mạng.</li>
+</ul>
+<p>Khi pháp luật hoặc nền tảng yêu cầu, ứng dụng có thể hiển thị lựa chọn quyền riêng tư/đồng ý trước khi yêu cầu quảng cáo. Trên iOS, ứng dụng cũng có thể yêu cầu quyền App Tracking Transparency khi áp dụng. Từ chối tracking không ngăn bạn chơi game cốt lõi, nhưng quảng cáo có thể ít được cá nhân hóa hơn.</p>
+<p>Khi entitlement <strong>Remove Ads</strong> đang hoạt động, Blokyra bỏ yêu cầu xem rewarded ad cho Rescue và không chủ động hiển thị các quảng cáo interstitial khi Quit thuộc phạm vi entitlement này.</p>
+<h2>3. Mua Hàng Trong Ứng Dụng</h2>
+<p>Blokyra cung cấp sản phẩm <strong>Remove Ads</strong> dạng mua một lần, không tiêu hao. Giao dịch mua và khôi phục được xử lý bởi Apple App Store hoặc Google Play. Nhà phát triển không nhận thông tin đầy đủ về thẻ thanh toán của bạn.</p>
+<p>Ứng dụng có thể lưu cache entitlement cục bộ để UI phản hồi nhanh hơn, nhưng cửa hàng tương ứng vẫn là nguồn xác nhận chính thức về quyền sở hữu giao dịch.</p>
+<h2>4. Dịch Vụ Bên Thứ Ba</h2>
+<ul>
+<li>Google AdMob và dịch vụ đồng ý/quyền riêng tư của Google cho quảng cáo.</li>
+<li>Apple App Store / StoreKit cho mua hàng và khôi phục trên iOS.</li>
+<li>Google Play / Play Billing cho mua hàng và khôi phục trên Android.</li>
+</ul>
+<p>Các nhà cung cấp này xử lý dữ liệu theo điều khoản và chính sách bảo mật riêng của họ.</p>
+<h2>5. Lưu Giữ Dữ Liệu và Bảo Mật</h2>
+<p>Dữ liệu game cục bộ thường tồn tại trên thiết bị cho đến khi bị ghi đè, bị xóa hoặc ứng dụng bị gỡ. Dữ liệu do bên thứ ba xử lý được lưu giữ theo chính sách của họ. Chúng tôi cố gắng giới hạn dữ liệu ở mức cần thiết cho gameplay, cài đặt, quảng cáo và mua hàng, nhưng không có phương thức lưu trữ điện tử nào có thể được bảo đảm an toàn tuyệt đối.</p>
+<h2>6. Thay Đổi Chính Sách</h2>
+<p>Chúng tôi có thể cập nhật Chính Sách Bảo Mật khi tính năng, SDK, yêu cầu pháp lý hoặc yêu cầu của cửa hàng thay đổi. Bản cập nhật có hiệu lực khi được đăng trên trang này.</p>
+<h2>7. Liên Hệ</h2>
+<p>Nếu có câu hỏi về Chính Sách Bảo Mật, vui lòng liên hệ: <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- VIETNAMESE CONTENT -->
-        <div id="content-vi" class="lang-content">
-            <h1>Chính Sách Bảo Mật</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Cập nhật mới nhất: Ngày 4 tháng 5 năm 2026</p>
-            <p>Quyền riêng tư của bạn rất quan trọng với chúng tôi. <strong>Blokyra</strong> được xây dựng như một ứng dụng Hỗ trợ Quảng cáo. Dịch vụ này được cung cấp hoàn toàn miễn phí và được thiết kế để sử dụng nguyên bản.</p>
-            <div class="highlight-box">
-                <strong>Tóm tắt:</strong> Chúng tôi không cá nhân thu thập bất kỳ thông tin nhận dạng nào của bạn. Chúng tôi sử dụng các dịch vụ bên thứ ba đạt tiêu chuẩn ngành để hiển thị quảng cáo và duy trì trò chơi.
-            </div>
-            <h2>1. Thu thập và Sử dụng Thông tin</h2>
-            <p>Chúng tôi (nhà phát triển) <strong>KHÔNG</strong> tự mình thu thập, lưu trữ hoặc chia sẻ bất kỳ thông tin cá nhân nào của bạn (chẳng hạn như tên, địa chỉ email hoặc số điện thoại).</p>
-            <h2>2. Quảng cáo</h2>
-            <p>Để hỗ trợ quá trình phát triển liên tục của trò chơi, chúng tôi hiển thị quảng cáo thông qua AdMob. Các nhà cung cấp quảng cáo bên thứ ba này có thể thu thập dữ liệu phi cá nhân, chẳng hạn như:</p>
-            <ul>
-                <li>Định danh quảng cáo của thiết bị (IDFA cho iOS và AAID cho Android).</li>
-                <li>Thông tin thiết bị (mẫu máy, phiên bản hệ điều hành).</li>
-                <li>Dữ liệu vị trí tổng quát (ở cấp độ thành phố hoặc quốc gia).</li>
-            </ul>
-            <h2>3. Nhà cung cấp Dịch vụ Bên thứ ba</h2>
-            <p>Ứng dụng có thể sử dụng các thư viện từ các nhà cung cấp sau vì mục đích chức năng:</p>
-            <ul>
-                <li>Dịch vụ Google Play / Apple App Store</li>
-                <li>Mạng quảng cáo (Google AdMob)</li>
-            </ul>
-            <h2>4. Thay đổi đối với Chính sách này</h2>
-            <p>Chúng tôi có thể cập nhật Chính sách Bảo mật của mình theo thời gian. Bạn nên định kỳ xem lại trang này để nắm bắt mọi thay đổi. Các thay đổi đối với Chính sách Bảo mật này có hiệu lực ngay khi chúng được đăng trên trang này.</p>
-            <h2>5. Liên hệ với Chúng tôi</h2>
-            <p>Nếu bạn có bất kỳ câu hỏi hoặc góp ý nào về Chính sách Bảo mật của chúng tôi, đừng ngần ngại liên hệ tại: <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-zh-CN" class="lang-content" lang="zh-CN">
+<h1>隐私政策</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">最后更新：2026年9月4日</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> 是一款适用于 iOS 和 Android 的移动方块益智街机应用，游戏内容可能会在后续更新中继续扩展。游戏无需创建账户，开发者不会为了让您游玩而要求提交姓名、电话号码、住址或其他直接身份信息。</p>
+<div class="highlight-box"><strong>摘要：</strong> 游戏进度和设置保存在您的设备本地。Google AdMob 可能为广告投放处理数据；Apple App Store 和 Google Play 负责购买与恢复。Blokyra 目前不提供账户式云存档。</div>
+<h2>1. 设备本地数据</h2>
+<p>Blokyra 会在设备本地保存运行游戏所需的数据，包括语言、BGM/SFX 音量、静音设置、可继续的游戏状态、当前/最高分、Rescue 使用状态、Remove Ads 本地 entitlement 缓存以及用于限制插屏广告频率的时间戳。</p>
+<p>这些本地存档不会上传到 Blokyra 账户或云存档服务。清除应用数据或卸载应用可能会删除本地进度和设置。</p>
+<h2>2. 广告与同意</h2>
+<p>Blokyra 使用 <strong>Google AdMob</strong> 提供 Rescue 的激励广告，以及在符合条件的 Quit 操作后可能出现的插屏广告。</p>
+<p>根据平台、地区、同意选择和设备设置，Google 及其广告合作伙伴可能处理广告标识符（如允许使用的 IDFA/AAID）、IP 地址、设备与应用信息、系统版本、诊断数据、广告互动数据以及由网络信息推断的大致位置。</p>
+<p>在需要时，应用会先展示隐私/同意选项。iOS 上在适用情况下也可能请求 App Tracking Transparency 权限。拒绝跟踪不会影响核心游戏，但广告可能减少个性化。</p>
+<p>当 <strong>Remove Ads</strong> entitlement 生效时，Rescue 不再要求激励广告，并且不会主动展示该 entitlement 覆盖的 Quit 插屏广告。</p>
+<h2>3. 应用内购买</h2>
+<p>Blokyra 提供一次性、非消耗型的 <strong>Remove Ads</strong> 购买。付款和恢复由 Apple App Store 或 Google Play 处理，开发者不会收到您的完整支付卡信息。应用可保存本地 entitlement 缓存，但商店仍是购买所有权的最终依据。</p>
+<h2>4. 第三方服务</h2>
+<ul><li>Google AdMob 及 Google 隐私/同意服务。</li><li>Apple App Store / StoreKit。</li><li>Google Play / Play Billing。</li></ul>
+<p>这些服务按照其各自的条款和隐私政策处理数据。</p>
+<h2>5. 数据保留与安全</h2>
+<p>本地游戏数据通常会保留到被覆盖、清除或应用被卸载。第三方数据的保留期限由各提供商政策决定。任何电子存储方式都无法保证绝对安全。</p>
+<h2>6. 政策变更</h2>
+<p>当应用功能、SDK、法律或商店要求变化时，我们可能更新本政策。新版本自发布到本页面时生效。</p>
+<h2>7. 联系我们</h2>
+<p>如有隐私相关问题，请联系：<a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- SIMPLIFIED CHINESE CONTENT -->
-        <div id="content-zh-CN" class="lang-content">
-            <h1>隐私政策</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最后更新：2026年5月4日</p>
-            <p>您的隐私对我们至关重要。<strong>Blokyra</strong> 是一款内置广告的免费应用。本服务由开发者免费提供，并按原样使用。</p>
-            <div class="highlight-box">
-                <strong>摘要：</strong> 我们个人不会收集任何可识别个人身份的信息。我们使用符合行业标准的第三方服务来展示广告并维护游戏运行。
-            </div>
-            <h2>1. 信息收集与使用</h2>
-            <p>我们（开发者）<strong>绝不会</strong>个人收集、存储或共享您的任何个人信息（如您的姓名、电子邮件地址或电话号码）。</p>
-            <h2>2. 广告展示</h2>
-            <p>为了支持游戏的持续开发与运营，我们通过 AdMob 展示广告。这些第三方广告提供商可能会收集非个人数据，例如：</p>
-            <ul>
-                <li>设备广告标识符（iOS 的 IDFA 和 Android 的 AAID）。</li>
-                <li>设备信息（设备型号、操作系统版本）。</li>
-                <li>大致地理位置数据（城市或国家级别）。</li>
-            </ul>
-            <h2>3. 第三方服务提供商</h2>
-            <p>本应用可能会出于功能需要使用以下提供商的库：</p>
-            <ul>
-                <li>Google Play 服务 / Apple App Store</li>
-                <li>广告网络（Google AdMob）</li>
-            </ul>
-            <h2>4. 本政策的修订</h2>
-            <p>我们可能会不时更新隐私政策。建议您定期查看此页面以了解任何更改。本隐私政策的修订自在此页面上发布之日起立即生效。</p>
-            <h2>5. 联系我们</h2>
-            <p>如果您对我们的隐私政策有任何疑问或建议，欢迎随时联系我们：<strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-zh-TW" class="lang-content" lang="zh-TW">
+<h1>隱私政策</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">最後更新：2026年9月4日</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> 是一款適用於 iOS 與 Android 的行動方塊益智街機應用程式，遊戲內容可能會在後續更新中持續擴充。遊戲不需要建立帳戶，開發者不會為了讓您遊玩而要求提供姓名、電話、地址或其他直接身分資訊。</p>
+<div class="highlight-box"><strong>摘要：</strong> 遊戲進度與設定儲存在您的裝置本機。Google AdMob 可能為廣告投放處理資料；Apple App Store 與 Google Play 負責購買與回復。Blokyra 目前不提供帳戶式雲端存檔。</div>
+<h2>1. 裝置本機資料</h2>
+<p>Blokyra 會在裝置本機保存語言、BGM/SFX 音量、靜音設定、可繼續的遊戲狀態、目前/最高分、Rescue 使用狀態、Remove Ads 本機 entitlement 快取，以及限制插頁廣告頻率所需的時間戳。</p>
+<p>這些本機存檔不會上傳至 Blokyra 帳戶或雲端存檔服務。清除應用程式資料或解除安裝可能會刪除本機進度與設定。</p>
+<h2>2. 廣告與同意</h2>
+<p>Blokyra 使用 <strong>Google AdMob</strong> 提供 Rescue 的獎勵廣告，以及在符合條件的 Quit 操作後可能出現的插頁廣告。</p>
+<p>依平台、地區、同意選擇與裝置設定，Google 與廣告合作夥伴可能處理廣告識別碼（例如允許使用時的 IDFA/AAID）、IP 位址、裝置/應用資訊、作業系統版本、診斷與廣告互動資料，以及由網路資訊推定的大致位置。</p>
+<p>在需要時，應用程式會先顯示隱私/同意選項。iOS 在適用情況下也可能要求 App Tracking Transparency 權限。拒絕追蹤不會影響核心遊戲，但廣告可能較少個人化。</p>
+<p>當 <strong>Remove Ads</strong> entitlement 生效時，Rescue 不再要求獎勵廣告，且不會主動顯示該 entitlement 涵蓋的 Quit 插頁廣告。</p>
+<h2>3. App 內購買</h2>
+<p>Blokyra 提供一次性、非消耗型的 <strong>Remove Ads</strong> 購買。付款與回復由 Apple App Store 或 Google Play 處理，開發者不會收到您的完整付款卡資料。應用程式可保存本機 entitlement 快取，但商店仍是購買所有權的最終依據。</p>
+<h2>4. 第三方服務</h2>
+<ul><li>Google AdMob 與 Google 隱私/同意服務。</li><li>Apple App Store / StoreKit。</li><li>Google Play / Play Billing。</li></ul>
+<h2>5. 資料保留與安全</h2>
+<p>本機遊戲資料通常會保留到被覆寫、清除或應用程式被解除安裝。第三方資料依各自政策保存。任何電子儲存方式都無法保證絕對安全。</p>
+<h2>6. 政策變更</h2>
+<p>當功能、SDK、法律或商店要求變更時，我們可能更新本政策。新版自發布於本頁面時生效。</p>
+<h2>7. 聯絡我們</h2>
+<p>如有隱私問題，請聯絡：<a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- TRADITIONAL CHINESE CONTENT -->
-        <div id="content-zh-TW" class="lang-content">
-            <h1>隱私政策</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最後更新：2026年5月4日</p>
-            <p>您的隱私對我們至關重要。<strong>Blokyra</strong> 是一款內置廣告的免費應用程式。本服務由開發者免費提供，並按原樣使用。</p>
-            <div class="highlight-box">
-                <strong>摘要：</strong> 我們個人不會收集任何可識別個人身分的資訊。我們使用符合行業標準的第三方服務來展示廣告並維持遊戲運行。</div >
-            <h2>1. 資訊收集與使用</h2>
-            <p>我們（開發者）<strong>絕不會</strong>個人收集、存儲或共享您的任何個人資訊（如您的姓名、電子郵件地址或電話號碼）。</p>
-            <h2>2. 廣告展示</h2>
-            <p>為了支持遊戲的持續開發與營運，我們透過 AdMob 展示廣告。這些第三方廣告提供商可能會收集非個人數據，例如：</p>
-            <ul>
-                <li>設備廣告識別碼（iOS 的 IDFA 和 Android 的 AAID）。</li>
-                <li>設備資訊（設備型號、作業系統版本）。</li>
-                <li>大致地理位置數據（城市或國家級別）。</li>
-            </ul>
-            <h2>3. 第三方服務提供商</h2>
-            <p>本應用程式可能會出於功能需要使用以下提供商的庫：</p>
-            <ul>
-                <li>Google Play 服務 / Apple App Store</li>
-                <li>廣告網絡（Google AdMob）</li>
-            </ul>
-            <h2>4. 本政策的修訂</h2>
-            <p>我們可能會不時更新隱私政策。建議您定期查看此頁面以了解任何更改。本隱私政策的修訂自在此頁面上發布之日起立即生效。</p>
-            <h2>5. 聯絡我們</h2>
-            <p>如果您對我們的隱私政策有任何疑問或建議，歡迎隨時聯絡我們：<strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-ja" class="lang-content" lang="ja">
+<h1>プライバシーポリシー</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">最終更新日：2026年9月4日</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> は iOS / Android 向けのモバイル・ブロックパズルアーケードです。ゲーム内容は今後のアップデートで拡張される場合があります。プレイにアカウント作成は不要で、開発者が氏名、電話番号、住所などの直接的な個人情報の入力を求めることはありません。</p>
+<div class="highlight-box"><strong>概要：</strong> ゲーム進行状況と設定は端末内に保存されます。Google AdMob は広告配信のためにデータを処理する場合があり、Apple App Store / Google Play が購入と復元を処理します。Blokyra は現在、アカウント型クラウドセーブを提供していません。</div>
+<h2>1. 端末内に保存されるデータ</h2>
+<p>言語、BGM/SFX 音量、ミュート、再開可能なラン、スコア/ベストスコア、Rescue 使用状態、Remove Ads entitlement のローカルキャッシュ、インタースティシャル広告の頻度制御用タイムスタンプなどを端末内に保存します。</p>
+<p>これらは Blokyra のアカウントやクラウドへアップロードされません。アプリデータの消去やアンインストールにより削除される場合があります。</p>
+<h2>2. 広告と同意</h2>
+<p>Blokyra は <strong>Google AdMob</strong> を使用し、Rescue 用のリワード広告と、条件を満たす Quit 操作後のインタースティシャル広告を提供します。</p>
+<p>地域、端末設定、同意状況などに応じて、広告識別子（許可される場合の IDFA/AAID）、IP アドレス、端末/アプリ情報、OS 情報、診断情報、広告操作情報、ネットワークから推定されるおおよその位置情報が処理される場合があります。</p>
+<p>必要な場合は広告リクエスト前にプライバシー/同意選択肢を表示します。iOS では適用時に App Tracking Transparency の許可を求める場合があります。拒否しても基本ゲームプレイには影響しません。</p>
+<p><strong>Remove Ads</strong> entitlement が有効な場合、Rescue のリワード広告要件と対象の Quit インタースティシャル広告をスキップします。</p>
+<h2>3. アプリ内購入</h2>
+<p><strong>Remove Ads</strong> は一度購入する非消耗型商品です。支払いと復元は Apple App Store / Google Play が処理し、開発者は完全なカード情報を受け取りません。所有権の最終確認は各ストアが行います。</p>
+<h2>4. 第三者サービス</h2>
+<ul><li>Google AdMob / Google のプライバシー・同意サービス</li><li>Apple App Store / StoreKit</li><li>Google Play / Play Billing</li></ul>
+<h2>5. 保持とセキュリティ</h2>
+<p>ローカルデータは上書き・削除・アンインストールまで端末に残る場合があります。第三者データは各社ポリシーに従います。電子的な保存に完全な安全性を保証することはできません。</p>
+<h2>6. 本ポリシーの変更</h2>
+<p>機能、SDK、法令またはストア要件の変更に応じて更新する場合があります。更新版は本ページへの掲載時から有効です。</p>
+<h2>7. お問い合わせ</h2>
+<p>プライバシーに関するお問い合わせ：<a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- KOREAN CONTENT -->
-        <div id="content-ko" class="lang-content">
-            <h1>개인정보 처리방침</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">최종 업데이트: 2026년 5월 4일</p>
-            <p>귀하의 개인정보는 저희에게 매우 중요합니다. <strong>Blokyra</strong>는 광고 지원 앱으로 빌드되었습니다. 이 서비스는 개발자가 무료로 제공하며 있는 그대로 사용하도록 의도되었습니다.</p>
-            <div class="highlight-box">
-                <strong>요약:</strong> 저희는 개인을 식별할 수 있는 어떠한 정보도 직접 수집하지 않습니다. 광고를 표시하고 게임을 유지하기 위해 업계 표준의 제3자 서비스를 사용합니다.
-            </div>
-            <h2>1. 정보 수집 및 사용</h2>
-            <p>저희(개발자)는 귀하의 개인정보(이름, 이메일 주소, 전화번호 등)를 직접 수집, 저장 또는 공유하지 <strong>않습니다</strong>.</p>
-            <h2>2. 광고</h2>
-            <p>게임의 지속적인 개발을 지원하기 위해 AdMob을 통해 광고를 표시합니다. 이러한 제3자 광고 제공업체는 다음과 같은 비개인적 데이터를 수집할 수 있습니다:</p>
-            <ul>
-                <li>기기 광고 식별자 (iOS의 IDFA 및 Android의 AAID).</li>
-                <li>기기 정보 (모델, 운영체제 버전).</li>
-                <li>일반적인 위치 데이터 (도시 또는 국가 수준).</li>
-            </ul>
-            <h2>3. 제3자 서비스 제공업체</h2>
-            <p>앱은 기능적 목적을 위해 다음 제공업체의 라이브러리를 사용할 수 있습니다:</p>
-            <ul>
-                <li>Google Play 서비스 / Apple App Store</li>
-                <li>광고 네트워크 (Google AdMob)</li>
-            </ul>
-            <h2>4. 본 방침의 변경</h2>
-            <p>저희는 수시로 개인정보 처리방침을 업데이트할 수 있습니다. 따라서 변경 사항이 있는지 이 페이지를 정기적으로 확인하는 것이 좋습니다. 본 개인정보 처리방침의 변경 사항은 이 페이지에 게시되는 즉시 효력이 발생합니다.</p>
-            <h2>5. 문의하기</h2>
-            <p>개인정보 처리방침에 대해 질문이나 제안 사항이 있으시면 언제든지 다음 주소로 문의해 주십시오: <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-ko" class="lang-content" lang="ko">
+<h1>개인정보 처리방침</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">최종 업데이트: 2026년 9월 4일</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong>는 iOS와 Android용 모바일 블록 퍼즐 아케이드입니다. 게임 콘텐츠는 향후 업데이트를 통해 확장될 수 있습니다. 플레이를 위해 계정을 만들 필요가 없으며 개발자는 이름, 전화번호, 주소 등 직접적인 개인정보 입력을 요구하지 않습니다.</p>
+<div class="highlight-box"><strong>요약:</strong> 게임 진행 상황과 설정은 기기에 로컬로 저장됩니다. Google AdMob은 광고 제공을 위해 데이터를 처리할 수 있으며, Apple App Store / Google Play가 구매 및 복원을 처리합니다. 현재 계정 기반 클라우드 저장은 제공하지 않습니다.</div>
+<h2>1. 기기에 저장되는 데이터</h2>
+<p>언어, BGM/SFX 볼륨, 음소거, 재개 가능한 게임 상태, 점수/최고 점수, Rescue 사용 상태, Remove Ads entitlement 로컬 캐시, 전면 광고 빈도 제한용 타임스탬프 등이 기기에 저장됩니다.</p>
+<p>이 데이터는 Blokyra 계정이나 클라우드로 업로드되지 않습니다. 앱 데이터 삭제 또는 앱 제거 시 사라질 수 있습니다.</p>
+<h2>2. 광고 및 동의</h2>
+<p>Blokyra는 <strong>Google AdMob</strong>을 사용하여 Rescue용 보상형 광고와 조건을 충족한 Quit 동작 후의 전면 광고를 제공합니다.</p>
+<p>플랫폼, 지역, 동의 및 기기 설정에 따라 광고 식별자(IDFA/AAID가 허용되는 경우), IP 주소, 기기/앱 정보, OS 정보, 진단 정보, 광고 상호작용 및 네트워크 기반 대략적 위치가 처리될 수 있습니다.</p>
+<p>필요한 경우 광고 요청 전에 개인정보/동의 선택이 표시될 수 있으며, iOS에서는 적용 시 App Tracking Transparency 권한을 요청할 수 있습니다. 거부해도 핵심 게임 플레이는 이용할 수 있습니다.</p>
+<p><strong>Remove Ads</strong> entitlement가 활성화되면 Rescue 보상형 광고 요구와 해당 Quit 전면 광고를 건너뜁니다.</p>
+<h2>3. 인앱 구매</h2>
+<p><strong>Remove Ads</strong>는 일회성 비소모성 상품입니다. 결제와 복원은 Apple App Store 또는 Google Play가 처리하며 개발자는 전체 카드 정보를 받지 않습니다. 최종 소유권 확인은 스토어가 담당합니다.</p>
+<h2>4. 제3자 서비스</h2>
+<ul><li>Google AdMob 및 Google 개인정보/동의 서비스</li><li>Apple App Store / StoreKit</li><li>Google Play / Play Billing</li></ul>
+<h2>5. 보관 및 보안</h2>
+<p>로컬 데이터는 덮어쓰기, 삭제 또는 앱 제거 전까지 기기에 남을 수 있습니다. 제3자 데이터는 각 제공업체 정책에 따라 보관됩니다. 전자 저장 방식의 완전한 보안을 보장할 수는 없습니다.</p>
+<h2>6. 정책 변경</h2>
+<p>기능, SDK, 법률 또는 스토어 요구사항이 변경되면 본 정책을 업데이트할 수 있으며, 새 정책은 이 페이지에 게시되는 즉시 적용됩니다.</p>
+<h2>7. 문의</h2>
+<p>개인정보 관련 문의: <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- JAPANESE CONTENT -->
-        <div id="content-ja" class="lang-content">
-            <h1>プライバシーポリシー</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">最終更新日：2026年5月4日</p>
-            <p>お客様のプライバシーは私たちにとって非常に重要です。<strong>Blokyra</strong> は広告対応アプリとして構築されています。このサービスは開発者から無償で提供され、そのままの状態での利用を前提としています。</p>
-            <div class="highlight-box">
-                <strong>概要：</strong> 私たち開発者が個人を特定できる情報を直接収集することはありません。広告の表示およびゲームの維持のために、業界標準のサードパーティサービスを利用しています。
-            </div>
-            <h2>1. 情報の収集と利用</h2>
-            <p>私たち（開発者）は、お客様의個人情報（氏名、メールアドレス、電話番号など）を直接収集、保存、または共有することは<strong>ありません</strong>。</p>
-            <h2>2. 広告について</h2>
-            <p>ゲームの継続的な開発をサポートするために、AdMobを介して広告を表示しています。これらのサードパーティ広告配信事業者は、以下のような非個人データを収集する場合があります：</p>
-            <ul>
-                <li>デバイスの広告識別子（iOSのIDFAおよびAndroidのAAID）。</li>
-                <li>デバイス情報（端末モデル、OSのバージョン）。</li>
-                <li>大まかな位置データ（都市または国レベル）。</li>
-            </ul>
-            <h2>3. サードパーティサービスプロバイダー</h2>
-            <p>本アプリは、機能的な目的のために以下のプロバイダーのライブラリを使用する場合があります：</p>
-            <ul>
-                <li>Google Play サービス / Apple App Store</li>
-                <li>広告ネットワーク（Google AdMob）</li>
-            </ul>
-            <h2>4. 本ポリシーの変更について</h2>
-            <p>私たちはプライバシーポリシーを随時更新することがあります。変更がないか定期的にこのページを確認することをお勧めします。本プライバシーポリシーの変更は、このページに掲載された時点で有効になります。</p>
-            <h2>5. お問い合わせ</h2>
-            <p>プライバシーポリシーに関するご質問やご提案がございましたら、お気軽に次のアドレスまでお問い合わせください：<strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-fr" class="lang-content" lang="fr">
+<h1>Politique de confidentialité</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">Dernière mise à jour : 4 septembre 2026</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> est un arcade mobile de puzzles de blocs pour iOS et Android. Le contenu du jeu pourra s’enrichir au fil des futures mises à jour. Aucun compte n’est requis et le développeur ne vous demande pas de fournir votre nom, numéro de téléphone, adresse postale ou autre identifiant direct pour jouer.</p>
+<div class="highlight-box"><strong>Résumé :</strong> La progression et les réglages sont stockés localement sur votre appareil. Google AdMob peut traiter des données pour la publicité, tandis que l'Apple App Store et Google Play gèrent les achats et restaurations. Blokyra ne propose actuellement pas de sauvegarde cloud liée à un compte.</div>
+<h2>1. Données stockées localement</h2>
+<p>L'application conserve localement la langue, les volumes BGM/SFX, le mode muet, les parties pouvant être reprises, les scores et meilleurs scores, l'utilisation de Rescue, le cache local de l'entitlement Remove Ads et l'horodatage servant à limiter la fréquence des publicités interstitielles.</p>
+<p>Ces données ne sont pas envoyées vers un compte ou un service de sauvegarde cloud Blokyra. Effacer les données de l'application ou la désinstaller peut supprimer la progression locale.</p>
+<h2>2. Publicité et consentement</h2>
+<p>Blokyra utilise <strong>Google AdMob</strong> pour les publicités récompensées de Rescue et les publicités interstitielles pouvant apparaître après une action Quit éligible.</p>
+<p>Selon la plateforme, la région, vos choix de consentement et les réglages de l'appareil, Google et ses partenaires peuvent traiter des identifiants publicitaires autorisés (IDFA/AAID), l'adresse IP, des informations sur l'appareil et l'application, la version du système, des diagnostics, les interactions publicitaires et une localisation approximative déduite du réseau.</p>
+<p>Lorsque cela est requis, l'application peut afficher des choix de confidentialité/consentement avant une demande publicitaire. Sur iOS, l'autorisation App Tracking Transparency peut également être demandée lorsqu'elle s'applique. Un refus n'empêche pas le jeu principal.</p>
+<p>Lorsque l'entitlement <strong>Remove Ads</strong> est actif, l'exigence de publicité récompensée pour Rescue et les interstitiels Quit concernés sont ignorés.</p>
+<h2>3. Achats intégrés</h2>
+<p><strong>Remove Ads</strong> est un achat unique non consommable. Les paiements et restaurations sont traités par Apple App Store ou Google Play. Le développeur ne reçoit pas les détails complets de votre carte bancaire. Le store concerné reste l'autorité finale pour la propriété de l'achat.</p>
+<h2>4. Services tiers</h2>
+<ul><li>Google AdMob et services de consentement/confidentialité Google</li><li>Apple App Store / StoreKit</li><li>Google Play / Play Billing</li></ul>
+<h2>5. Conservation et sécurité</h2>
+<p>Les données locales restent généralement sur l'appareil jusqu'à leur écrasement, suppression ou désinstallation de l'application. Les données des tiers sont conservées selon leurs propres politiques. Aucune méthode de stockage électronique ne peut garantir une sécurité absolue.</p>
+<h2>6. Modifications</h2>
+<p>Cette politique peut être mise à jour lorsque les fonctionnalités, SDK, lois ou exigences des stores changent. La nouvelle version prend effet lorsqu'elle est publiée sur cette page.</p>
+<h2>7. Contact</h2>
+<p>Pour toute question relative à la confidentialité : <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- RUSSIAN CONTENT -->
-        <div id="content-ru" class="lang-content">
-            <h1>Политика конфиденциальности</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Последнее обновление: 4 мая 2026 г.</p>
-            <p>Ваша конфиденциальность очень важна для нас. Приложение <strong>Blokyra</strong> создано как приложение с поддержкой рекламы. Данная услуга предоставляется разработчиком бесплатно и предназначена для использования как есть.</p>
-            <div class="highlight-box">
-                <strong>Резюме:</strong> Мы лично не собираем никакую личную информацию. Мы используем стандартные сторонние сервисы для показа рекламы и технической поддержки игры.
-            </div>
-            <h2>1. Сбор и использование информации</h2>
-            <p>Мы (разработчик) <strong>НЕ</strong> собираем, не храним и не передаем лично вашу персональную информацию (такую как ваше имя, адрес электронной почты или номер телефона).</p>
-            <h2>2. Реклама</h2>
-            <p>Для поддержки дальнейшей разработки игры мы отображаем рекламу через AdMob. Эти сторонние рекламные провайдеры могут собирать неперсональные данные, такие как:</p>
-            <ul>
-                <li>Рекламные идентификаторы устройства (IDFA для iOS и AAID для Android).</li>
-                <li>Информация об устройстве (модель, версия операционной системы).</li>
-                <li>Общие данные о местоположении (на уровне города или страны).</li>
-            </ul>
-            <h2>3. Сторонние поставщики услуг</h2>
-            <p>Приложение может использовать библиотеки следующих поставщиков в функциональных целях:</p>
-            <ul>
-                <li>Сервисы Google Play / Apple App Store</li>
-                <li>Рекламные сети (Google AdMob)</li>
-            </ul>
-            <h2>4. Изменения в настоящей Политике</h2>
-            <p>Мы можем время от времени обновлять нашу Политику конфиденциальности. Вам рекомендуется периодически просматривать эту страницу на предмет изменений. Изменения вступают в силу с момента их публикации на этой странице.</p>
-            <h2>5. Контакты</h2>
-            <p>Если у вас есть какие-либо вопросы или предложения по поводу нашей Политики конфиденциальности, без колебаний обращайтесь к нам по адресу: <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-ru" class="lang-content" lang="ru">
+<h1>Политика конфиденциальности</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">Последнее обновление: 4 сентября 2026 г.</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> — мобильная аркада с блоковыми головоломками для iOS и Android. Игровой контент может расширяться в будущих обновлениях. Для игры не требуется учетная запись, а разработчик не просит указывать имя, номер телефона, почтовый адрес или другие прямые идентификаторы.</p>
+<div class="highlight-box"><strong>Кратко:</strong> игровой прогресс и настройки хранятся локально на устройстве. Google AdMob может обрабатывать данные для показа рекламы, а Apple App Store / Google Play обрабатывают покупки и восстановление. У Blokyra сейчас нет облачного сохранения, привязанного к аккаунту.</div>
+<h2>1. Локальные данные</h2>
+<p>На устройстве сохраняются язык, громкость BGM/SFX, Mute, состояние продолжаемой игры, очки и рекорды, использование Rescue, локальный кэш entitlement Remove Ads и метка времени для ограничения частоты межстраничной рекламы.</p>
+<p>Эти данные не загружаются в учетную запись или облако Blokyra. Очистка данных приложения или его удаление может стереть локальный прогресс.</p>
+<h2>2. Реклама и согласие</h2>
+<p>Blokyra использует <strong>Google AdMob</strong> для рекламы с вознаграждением в Rescue и межстраничной рекламы после подходящего действия Quit.</p>
+<p>В зависимости от платформы, региона, согласия и настроек устройства могут обрабатываться разрешенные рекламные идентификаторы (IDFA/AAID), IP-адрес, сведения об устройстве/приложении, ОС, диагностика, взаимодействия с рекламой и примерное местоположение по сети.</p>
+<p>Когда это требуется, перед рекламным запросом могут показываться настройки конфиденциальности/согласия. На iOS при необходимости может запрашиваться App Tracking Transparency. Отказ не блокирует основной игровой процесс.</p>
+<p>При активном <strong>Remove Ads</strong> Rescue не требует rewarded-рекламу, а соответствующие Quit interstitial не показываются намеренно.</p>
+<h2>3. Покупки в приложении</h2>
+<p><strong>Remove Ads</strong> — разовая нерасходуемая покупка. Платежи и восстановление обрабатываются Apple App Store или Google Play. Разработчик не получает полные данные платежной карты. Окончательное подтверждение владения выполняет магазин.</p>
+<h2>4. Сторонние сервисы</h2>
+<ul><li>Google AdMob и сервисы согласия/конфиденциальности Google</li><li>Apple App Store / StoreKit</li><li>Google Play / Play Billing</li></ul>
+<h2>5. Хранение и безопасность</h2>
+<p>Локальные данные могут оставаться на устройстве до перезаписи, очистки или удаления приложения. Данные сторонних сервисов хранятся по их правилам. Полную безопасность электронного хранения гарантировать невозможно.</p>
+<h2>6. Изменения</h2>
+<p>Политика может обновляться при изменении функций, SDK, закона или требований магазинов. Новая версия действует с момента публикации на этой странице.</p>
+<h2>7. Контакты</h2>
+<p>По вопросам конфиденциальности: <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- SPANISH CONTENT -->
-        <div id="content-es" class="lang-content">
-            <h1>Política de Privacidad</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Última actualización: 4 de mayo de 2026</p>
-            <p>Su privacidad es muy importante para nosotros. <strong>Blokyra</strong> se creó como una aplicación financiada con publicidad. Este servicio es proporcionado por el desarrollador sin costo alguno y está diseñado para ser utilizado tal cual.</p>
-            <div class="highlight-box">
-                <strong>Resumen:</strong> Nosotros personalmente no recopilamos ninguna información de identificación personal. Utilizamos servicios de terceros estándar de la industria para mostrar anuncios y mantener el juego.
-            </div>
-            <h2>1. Recopilación y uso de información</h2>
-            <p>Nosotros (el desarrollador) <strong>NO</strong> recopilamos, almacenamos ni compartimos personalmente ninguna de sus informaciones personales (como su nombre, dirección de correo electrónico o número de teléfono).</p>
-            <h2>2. Publicidad</h2>
-            <p>Para apoyar el desarrollo continuo del juego, mostramos anuncios a través de AdMob. Estos proveedores de anuncios de terceros pueden recopilar datos no personales, como:</p>
-            <ul>
-                <li>Identificadores de publicidad del dispositivo (IDFA para iOS y AAID para Android).</li>
-                <li>Información del dispositivo (modelo, versión del sistema operativo).</li>
-                <li>Datos de ubicación general (a nivel de ciudad o país).</li>
-            </ul>
-            <h2>3. Proveedores de servicios de terceros</h2>
-            <p>La aplicación puede utilizar bibliotecas de los siguientes proveedores para fines funcionales:</p>
-            <ul>
-                <li>Google Play Services / Apple App Store</li>
-                <li>Redes de anuncios (Google AdMob)</li>
-            </ul>
-            <h2>4. Cambios a esta política</h2>
-            <p>Es posible que actualicemos nuestra Política de Privacidad de vez en cuando. Se le aconseja revisar esta página periódicamente para ver si hay cambios. Los cambios en esta Política de Privacidad son efectivos cuando se publican en esta página.</p>
-            <h2>5. Contáctenos</h2>
-            <p>Si tiene alguna pregunta o sugerencia sobre nuestra Política de Privacidad, no dude en contactarnos en: <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-de" class="lang-content" lang="de">
+<h1>Datenschutzerklärung</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">Letzte Aktualisierung: 4. September 2026</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> ist eine mobile Block-Puzzle-Arcade für iOS und Android. Der Spielumfang kann in zukünftigen Updates erweitert werden. Zum Spielen ist kein Konto erforderlich, und der Entwickler fordert keinen Namen, keine Telefonnummer, Postanschrift oder andere direkte persönliche Identifikatoren an.</p>
+<div class="highlight-box"><strong>Zusammenfassung:</strong> Spielfortschritt und Einstellungen werden lokal auf dem Gerät gespeichert. Google AdMob kann Daten zur Werbebereitstellung verarbeiten; Apple App Store und Google Play verarbeiten Käufe und Wiederherstellungen. Eine kontobasierte Cloud-Speicherung gibt es derzeit nicht.</div>
+<h2>1. Lokal gespeicherte Daten</h2>
+<p>Gespeichert werden u. a. Sprache, BGM-/SFX-Lautstärke, Mute, fortsetzbare Spielstände, Punkte/Bestwerte, Rescue-Nutzung, ein lokaler Remove-Ads-Entitlement-Cache sowie ein Zeitstempel zur Begrenzung von Interstitial-Werbung.</p>
+<p>Diese Daten werden nicht in ein Blokyra-Konto oder eine Cloud-Speicherung hochgeladen. Das Löschen von App-Daten oder die Deinstallation kann lokale Fortschritte entfernen.</p>
+<h2>2. Werbung und Einwilligung</h2>
+<p>Blokyra verwendet <strong>Google AdMob</strong> für Rewarded Ads bei Rescue und Interstitial Ads nach einem berechtigten Quit-Vorgang.</p>
+<p>Abhängig von Plattform, Region, Einwilligung und Geräteeinstellungen können erlaubte Werbe-IDs (IDFA/AAID), IP-Adresse, Geräte-/App-Informationen, Betriebssystemdaten, Diagnosen, Werbeinteraktionen und aus dem Netzwerk abgeleitete ungefähre Standortdaten verarbeitet werden.</p>
+<p>Wenn erforderlich, werden vor Werbeanfragen Datenschutz-/Einwilligungsoptionen angezeigt. Unter iOS kann ggf. App Tracking Transparency angefragt werden. Eine Ablehnung verhindert das Kernspiel nicht.</p>
+<p>Bei aktivem <strong>Remove Ads</strong> wird die Rewarded-Ad-Anforderung für Rescue übersprungen und die davon abgedeckten Quit-Interstitials werden nicht absichtlich angezeigt.</p>
+<h2>3. In-App-Käufe</h2>
+<p><strong>Remove Ads</strong> ist ein einmaliger, nicht verbrauchbarer Kauf. Zahlung und Wiederherstellung werden von Apple App Store bzw. Google Play verarbeitet. Der Entwickler erhält keine vollständigen Zahlungskartendaten. Der jeweilige Store bleibt maßgeblich für den Besitz.</p>
+<h2>4. Drittanbieter</h2>
+<ul><li>Google AdMob und Google Datenschutz-/Einwilligungsdienste</li><li>Apple App Store / StoreKit</li><li>Google Play / Play Billing</li></ul>
+<h2>5. Aufbewahrung und Sicherheit</h2>
+<p>Lokale Daten verbleiben gewöhnlich bis zum Überschreiben, Löschen oder Deinstallieren auf dem Gerät. Daten Dritter folgen deren Richtlinien. Eine vollständig sichere elektronische Speicherung kann nicht garantiert werden.</p>
+<h2>6. Änderungen</h2>
+<p>Diese Erklärung kann bei Änderungen an Funktionen, SDKs, Gesetzen oder Store-Anforderungen aktualisiert werden. Die neue Version gilt ab Veröffentlichung auf dieser Seite.</p>
+<h2>7. Kontakt</h2>
+<p>Datenschutzfragen an: <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
 
-        <!-- GERMAN CONTENT -->
-        <div id="content-de" class="lang-content">
-            <h1>Datenschutzerklärung</h1>
-            <p style="text-align: center; color: #64748b; font-size: 0.9rem; margin-top: 0.5rem;">Letzte Aktualisierung: 4. Mai 2026</p>
-            <p>Ihre Privatsphäre ist uns sehr wichtig. <strong>Blokyra</strong> wird als werbefinanzierte App bereitgestellt. Dieser Dienst wird vom Entwickler kostenlos zur Verfügung gestellt und ist für die Nutzung im Ist-Zustand bestimmt.</p>
-            <div class="highlight-box">
-                <strong>Zusammenfassung:</strong> Wir persönlich sammeln keine personenbezogenen Daten. Wir nutzen branchenübliche Dienste von Drittanbietern, um Werbung anzuzeigen und das Spiel zu unterhalten.
-            </div>
-            <h2>1. Datenerhebung und -nutzung</h2>
-            <p>Wir (der Entwickler) sammeln, speichern oder teilen <strong>KEINE</strong> personenbezogenen Daten von Ihnen (wie Name, E-Mail-Adresse oder Telefonnummer).</p>
-            <h2>2. Werbung</h2>
-            <p>Um die laufende Entwicklung des Spiels zu unterstützen, zeigen wir Werbung über AdMob an. Diese Drittanbieter von Werbung können nicht-personenbezogene Daten sammeln, wie z. B.:</p>
-            <ul>
-                <li>Werbeidentifikatoren des Geräts (IDFA für iOS und AAID für Android).</li>
-                <li>Geräteinformationen (Modell, Version des Betriebssystems).</li>
-                <li>Allgemeine Standortdaten (auf Stadt- oder Landebene).</li>
-            </ul>
-            <h2>3. Drittanbieter von Dienstleistungen</h2>
-            <p>Die App kann Bibliotheken der folgenden Anbieter für funktionale Zwecke verwenden:</p>
-            <ul>
-                <li>Google Play Services / Apple App Store</li>
-                <li>Werbenetzwerke (Google AdMob)</li>
-            </ul>
-            <h2>4. Änderungen dieser Richtlinie</h2>
-            <p>Wir können unsere Datenschutzerklärung von Zeit zu Zeit aktualisieren. Es wird empfohlen, diese Seite regelmäßig auf Änderungen zu überprüfen. Änderungen dieser Datenschutzerklärung werden wirksam, wenn sie auf dieser Seite veröffentlicht werden.</p>
-            <h2>5. Kontaktieren Sie uns</h2>
-            <p>Wenn Fragen oder Anregungen zu unserer Datenschutzerklärung haben, zögern Sie nicht, uns zu kontaktieren unter: <strong>nghiadoan2901@gmail.com</strong></p>
+        <div id="content-es" class="lang-content" lang="es">
+<h1>Política de Privacidad</h1>
+<p style="text-align:center;color:#64748b;font-size:.9rem;margin-top:.5rem;">Última actualización: 4 de septiembre de 2026</p>
+<p><strong>Blokyra: Block Puzzle Arcade</strong> es un arcade móvil de puzles de bloques para iOS y Android. El contenido del juego puede ampliarse en futuras actualizaciones. No se necesita una cuenta para jugar y el desarrollador no solicita nombre, teléfono, dirección postal u otros identificadores personales directos.</p>
+<div class="highlight-box"><strong>Resumen:</strong> El progreso y la configuración se guardan localmente en el dispositivo. Google AdMob puede procesar datos para ofrecer publicidad, y Apple App Store / Google Play gestionan compras y restauraciones. Blokyra no ofrece actualmente guardado en la nube asociado a una cuenta.</div>
+<h2>1. Datos almacenados localmente</h2>
+<p>La app guarda idioma, volumen BGM/SFX, silencio, partidas reanudables, puntuaciones y mejores puntuaciones, uso de Rescue, caché local del entitlement Remove Ads y la marca de tiempo usada para limitar la frecuencia de anuncios intersticiales.</p>
+<p>Estos datos no se suben a una cuenta o nube de Blokyra. Borrar los datos de la app o desinstalarla puede eliminar el progreso local.</p>
+<h2>2. Publicidad y consentimiento</h2>
+<p>Blokyra usa <strong>Google AdMob</strong> para anuncios recompensados de Rescue y anuncios intersticiales que pueden aparecer después de una acción Quit elegible.</p>
+<p>Según la plataforma, región, consentimiento y ajustes del dispositivo, Google y sus socios pueden procesar identificadores publicitarios permitidos (IDFA/AAID), dirección IP, información del dispositivo/app, sistema operativo, diagnósticos, interacción con anuncios y ubicación aproximada inferida de la red.</p>
+<p>Cuando corresponda, la app puede mostrar opciones de privacidad/consentimiento antes de solicitar anuncios. En iOS también puede solicitarse App Tracking Transparency cuando aplique. Rechazarlo no impide el juego principal.</p>
+<p>Con <strong>Remove Ads</strong> activo, Rescue no requiere anuncio recompensado y no se muestran intencionadamente los intersticiales Quit cubiertos por ese entitlement.</p>
+<h2>3. Compras dentro de la app</h2>
+<p><strong>Remove Ads</strong> es una compra única no consumible. Apple App Store o Google Play procesan el pago y la restauración. El desarrollador no recibe los datos completos de la tarjeta. La tienda correspondiente es la autoridad final sobre la propiedad de la compra.</p>
+<h2>4. Servicios de terceros</h2>
+<ul><li>Google AdMob y servicios de privacidad/consentimiento de Google</li><li>Apple App Store / StoreKit</li><li>Google Play / Play Billing</li></ul>
+<h2>5. Retención y seguridad</h2>
+<p>Los datos locales suelen permanecer hasta que se sobrescriben, se borran o se desinstala la app. Los datos de terceros se conservan según sus políticas. Ningún método de almacenamiento electrónico puede garantizar seguridad absoluta.</p>
+<h2>6. Cambios</h2>
+<p>Podemos actualizar esta política cuando cambien funciones, SDK, leyes o requisitos de las tiendas. La versión revisada entra en vigor al publicarse en esta página.</p>
+<h2>7. Contacto</h2>
+<p>Consultas de privacidad: <a href="mailto:nghiadoan2901@gmail.com" style="color:var(--accent);"><strong>nghiadoan2901@gmail.com</strong></a></p>
         </div>
-
-        <footer>
-            &copy; 2026 Blokyra. Developed by D.H.N.
-        </footer>
+        <footer>© 2026 Blokyra. All rights reserved.</footer>
     </div>
-
-    <!-- Active Language Switching Logic & Auto-detect -->
     <script>
         function switchLanguage(langCode) {
             // Remove active class from all buttons
