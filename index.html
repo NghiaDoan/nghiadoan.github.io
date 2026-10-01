@@ -26,6 +26,8 @@
             --gs-b: #0ea5e9;
             --nb-a: #f472b6;   /* neon pink — Neon Busters */
             --nb-b: #c026d3;
+            --bk-a: #2dd4bf;   /* luminous teal — Blokyra */
+            --bk-b: #06b6d4;
         }
 
         html { scroll-behavior: smooth; }
@@ -162,6 +164,12 @@
         .game-card.rs .game-mood { background: linear-gradient(160deg, rgba(167,139,250,0.15), rgba(99,102,241,0.08)); }
         .game-card.gs .game-mood { background: linear-gradient(160deg, rgba(56,189,248,0.15), rgba(14,165,233,0.08)); }
         .game-card.nb .game-mood { background: linear-gradient(160deg, rgba(244,114,182,0.18), rgba(192,38,211,0.08)); }
+
+        .game-card.bk { border-color: rgba(45,212,191,0.2); }
+        .game-card.bk .game-mood { background: linear-gradient(160deg, rgba(45,212,191,0.18), rgba(6,182,212,0.08)); }
+        .game-card.bk .game-icon-placeholder { background: linear-gradient(135deg, var(--bk-b), var(--bk-a)); }
+        .game-card.bk .game-tag { color: var(--bk-a); background: rgba(45,212,191,0.12); }
+        .game-card.bk .btn-store { background: var(--bk-a); }
 
         .game-mood::after {
             content: '';
@@ -475,6 +483,38 @@
                     </a>
                     <a href="./neon-busters-hub/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
                     <a href="./neon-busters-hub/support.html" class="btn btn-ghost">Support</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Blokyra -->
+        <div class="game-card bk">
+            <div class="game-mood">
+                <img class="game-icon" src="./assets/images/Blokyra_Logo.png" alt="Blokyra icon"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-icon-placeholder" style="display:none;">B</div>
+            </div>
+            <div class="game-body">
+                <div class="game-meta">
+                    <span class="game-tag">Puzzle · Arcade</span>
+                    <span class="platform-badge">iOS</span>
+                    <span class="platform-badge">Android</span>
+                </div>
+                <h2 class="game-title">Blokyra: Block Puzzle Arcade</h2>
+                <p class="game-desc">
+                    A colorful collection of block puzzles and arcade minigames. Stack, fit, merge, and shift your way through high-score challenges, or slow down with thoughtful puzzles. Bright neon blocks, satisfying feedback, and saved progress make it easy to jump in for a quick break or settle into a longer session.
+                </p>
+                <div class="game-links">
+                    <a href="https://apps.apple.com/us/app/blokyra-block-puzzle-arcade/id6808188081" class="btn btn-store" target="_blank" rel="noopener">
+                        <img class="img-logo" src="./assets/images/Apple_Logo.png"/>
+                        <p>App Store</p>
+                    </a>
+                    <!-- <a href="https://play.google.com/store/apps/details?id=com.dhn.neonbusters.hub" class="btn btn-store" target="_blank" rel="noopener">
+                        <img class="img-logo" src="./assets/images/GooglePlay_Logo.png"/>
+                        <p>Google Play</p>
+                    </a> -->
+                    <a href="./blokyra/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
+                    <a href="./blokyra/support.html" class="btn btn-ghost">Support</a>
                 </div>
             </div>
         </div>
