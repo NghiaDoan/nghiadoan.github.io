@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pocket Cue Support</title>
+    <meta name="description" content="Get help with Pocket Cue, an 8-ball pool game. Find gameplay tips, troubleshooting advice and support contact information.">
+    <meta name="theme-color" content="#eeeeee">
+    <style>
+        :root {
+            --bg: #eeeeee;
+            --card-bg: #ffffff;
+            --accent: #1565c0;
+            --text-main: #212121;
+            --text-dim: #555555;
+        }
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem;
+            min-height: 100vh;
+            position: relative;
+            isolation: isolate;
+        }
+        /* Same photo, overlay and background height as the privacy policy.
+           Photo credit: Michael Elkan (http://www.offset.com/photos/394244). */
+        body::before {
+            content: "";
+            position: absolute;
+            inset: 0 0 auto;
+            height: 480px;
+            z-index: -1;
+            background: linear-gradient(rgba(0, 0, 0, .26), rgba(0, 0, 0, .26)),
+                url("https://themes.googleusercontent.com/image?id=L1lcAxxz0CLgsDzixEprHJ2F38TyEjCyE3RSAjynQDks0lT1BDc1OxXKaTEdLc89HPvdB11X9FDw") center top / cover no-repeat;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 3rem;
+            border-radius: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+        }
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .app-icon {
+            width: 150px;
+            height: 150px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+        }
+        .back-link {
+            display: inline-block;
+            margin-bottom: 2rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        h1 { border-bottom: 2px solid #e0e0e0; padding-bottom: 0.5rem; margin-top: 0; text-align: center; }
+        h2 { color: var(--accent); margin-top: 2rem; font-size: 1.5rem; }
+        h3 { color: var(--text-main); margin-top: 1.5rem; font-size: 1.1rem; }
+        p, li { color: var(--text-dim); }
+        .contact-box {
+            background: #f7f7f7;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            border-left: 4px solid var(--accent);
+        }
+        ul { padding-left: 1.2rem; }
+        a { color: var(--accent); text-underline-offset: 3px; overflow-wrap: anywhere; }
+        a:hover { text-decoration-thickness: 2px; }
+        a:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+        footer { text-align: center; margin-top: 3rem; color: var(--text-dim); font-size: 0.8rem; }
+        @media (max-width: 600px) {
+            body { padding: 1rem; }
+            .container { padding: 1.5rem; }
+            .app-icon { width: 120px; height: 120px; }
+        }
+    </style>
+</head>
+<body>
+    <main class="container">
+        <!-- <a href="../index.html" class="back-link">&larr; Back to Home</a> -->
+
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/PocketCue_Logo.jpg" alt="Pocket Cue Icon">
+            </div>
+            <div>
+                <h1>Pocket Cue Support</h1>
+            </div>
+        </div>
+        
+        <p>Last updated: October 23, 2026</p>
+        
+        <p>Welcome to <strong>Pocket Cue</strong>, an 8-ball pool game. Find help with the basics, tips for your next match and troubleshooting advice below. If you need more help or want to share feedback, contact us by email.</p>
+
+        <h2>Frequently Asked Questions (FAQ)</h2>
+        
+        <h3>Q: How do I play Pocket Cue?</h3>
+        <p>A: Aim your cue, adjust the shot power and strike the cue ball to pocket your object balls. In 8-ball pool, the goal is to pocket your assigned group of balls (solids or stripes), then legally pocket the 8 ball to win. Follow the game's on-screen prompts for controls, turns and fouls.</p>
+
+        <h3>Q: When should I pocket the 8 ball?</h3>
+        <p>A: Pocket the 8 ball only after clearing your assigned group. Pocketing it too early can lose the game. Avoid a scratch (pocketing the cue ball), especially when shooting at the 8 ball, and follow the rules shown in the game.</p>
+
+        <h3>Q: Does the game require an internet connection?</h3>
+        <p>A: You can play Pocket Cue without an internet connection. Advertisements require a connection; if an advertisement is unavailable, you can still continue playing.</p>
+
+        <h3>Q: The game is lagging or crashing. What should I do?</h3>
+        <p>A: Check for an available game update, close and reopen the app, and restart your device. Closing other apps and freeing up storage may also help. If the issue continues, email us your device model, operating system version, game version and the steps that caused the problem.</p>
+
+        <h3>Q: Where is my progress saved?</h3>
+        <p>A: Game progress, achievements and preferences are stored locally on your device. Clearing the app's data or uninstalling it may remove that progress. Avoid these steps when troubleshooting unless you are prepared to lose local data. Device backups depend on your device and account settings.</p>
+
+        <h3>Q: How can I change my privacy choices?</h3>
+        <p>A: Open the game's settings with the gear button, then select <strong>Privacy</strong>. You can view the privacy policy, update your age group and, where available, open <strong>Ad privacy choices</strong>.</p>
+
+        <h2>Contact Us</h2>
+        <div class="contact-box">
+            <p>If your question wasn't answered above, please feel free to reach out to us:</p>
+            <ul>
+                <li><strong>Email Support:</strong> <a href="mailto:trang.lth610@gmail.com">trang.lth610@gmail.com</a></li>
+                <li><strong>Suggested subject:</strong> Pocket Cue — Support Request</li>
+                <li><strong>Include:</strong> A description of the issue, your device model, operating system version, game version and a screenshot if helpful.</li>
+            </ul>
+        </div>
+
+        <h2>Helpful Tips</h2>
+        <ul>
+            <li><strong>Plan your next shot:</strong> Think about where the cue ball will stop after contact, as well as which ball you want to pocket.</li>
+            <li><strong>Control your power:</strong> Use only as much power as the shot needs. Softer shots can make cue ball positioning easier.</li>
+            <li><strong>Check the angles:</strong> Take time to line up the object ball with the pocket and watch for balls blocking its path.</li>
+            <li><strong>Protect the cue ball:</strong> Consider its path after impact to reduce the chance of a scratch.</li>
+        </ul>
+
+        <h2>Technical Information</h2>
+        <ul>
+            <li><strong>Compatibility:</strong> Check the game's listing in your app store for current device and system requirements.</li>
+            <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html" style="color: var(--accent);">View here</a></li>
+        </ul>
+
+        <footer>
+            &copy; 2026 Pocket Cue. Developed by D.H.N.
+        </footer>
+    </main>
+</body>
+</html>
