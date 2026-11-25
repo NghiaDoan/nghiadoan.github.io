@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F6F7FA" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#10151C" media="(prefers-color-scheme: dark)">
+    <title>Support - Clearance Check</title>
+    <style>
+        /* Colours, radii and type follow the Clearance Check app (light and dark theme tokens of the app). */
+        :root {
+            color-scheme: light dark;
+            --bg: #F6F7FA;
+            --card-bg: #FFFFFF;
+            --text-main: #182331;
+            --text-dim: #4D5D70;
+            --border: #CBD5E1;
+            --control-border: #7D8DA1;
+            --accent: #315A91;
+            --on-accent: #FFFFFF;
+            --accent-soft: #E6EDF7;
+            --clear: #176B50;
+            --error: #AD3435;
+            --shadow: 0 1px 2px rgba(24, 35, 49, 0.06), 0 8px 24px rgba(24, 35, 49, 0.06);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #10151C;
+                --card-bg: #1B2430;
+                --text-main: #E9F0F7;
+                --text-dim: #B4C0CF;
+                --border: #526174;
+                --control-border: #7F90A5;
+                --accent: #9BC1F5;
+                --on-accent: #10151C;
+                --accent-soft: #243650;
+                --clear: #75DAB0;
+                --error: #FFA3A3;
+                --shadow: none;
+            }
+        }
+        body {
+            /* The app uses the system font of the phone. */
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            margin: 0;
+            padding: 2rem 1rem;
+            -webkit-text-size-adjust: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Language choice: the app's segmented control */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 0.5rem;
+            padding-bottom: 0.25rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--control-border) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+        .lang-scroll-container::-webkit-scrollbar { height: 4px; }
+        .lang-scroll-container::-webkit-scrollbar-track { background: transparent; }
+        .lang-scroll-container::-webkit-scrollbar-thumb { background-color: var(--control-border); border-radius: 2px; }
+        .lang-btn {
+            font: inherit;
+            background: var(--card-bg);
+            color: var(--text-dim);
+            border: 1px solid var(--control-border);
+            padding: 0.6rem 1.1rem;
+            min-height: 44px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .lang-btn:hover { border-color: var(--accent); color: var(--text-main); }
+        .lang-btn:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--on-accent);
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .app-icon {
+            width: 112px;
+            height: 112px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+            border: 1px solid var(--border);
+        }
+
+        h1 { text-align: center; font-weight: 700; font-size: 1.9rem; line-height: 1.25; margin: 0; color: var(--text-main); }
+        h2 { color: var(--text-main); margin-top: 2.25rem; margin-bottom: 0.5rem; font-size: 1.25rem; line-height: 1.4; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+        h3 { color: var(--accent); margin-top: 1.5rem; margin-bottom: 0.25rem; font-size: 1.05rem; line-height: 1.4; font-weight: 700; }
+        p, li { color: var(--text-dim); font-size: 1rem; }
+        strong { color: var(--text-main); }
+        a { color: var(--accent); }
+        .updated { text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem; }
+        .highlight-box {
+            background: var(--accent-soft);
+            color: var(--text-main);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+        .contact-box {
+            background: var(--accent-soft);
+            padding: 0.5rem 1.25rem;
+            border-radius: 12px;
+        }
+        .contact-box li, .highlight-box { color: var(--text-main); }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight, .highlight strong { color: var(--accent); font-weight: 700; }
+        .warning { color: var(--error); font-weight: 700; }
+        footer { text-align: center; margin-top: 3.5rem; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+
+        /* Language section toggling */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.75rem; }
+            .container { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container" aria-label="Language">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+            </div>
+        </div>
+
+
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/ClearanceCheck_Logo.png"
+                     onerror="this.src='assets/images/ClearanceCheck_Logo.png'; this.onerror=null;"
+                     alt="Clearance Check Logo">
+            </div>
+        </div>
+
+        <div id="content-en" class="lang-content active" lang="en">
+<h1>Support Center</h1>
+<p class="updated">Latest Update: November 25, 2026</p>
+<p>Welcome to the support page for <strong>Clearance Check</strong>, a mobile utility for iOS and Android that checks whether a door, a drawer or a chair has room to move.</p>
+<h2>Frequently Asked Questions</h2>
+<h3>Q: What is Clearance Check?</h3>
+<p>A: It is a planning tool. You type the size of the moving part, add the things standing nearby as rectangles, and the app tells you whether the movement fits, and how far it can go if it does not. It covers three cases: a swing door, a sliding drawer and a chair pulled out from a table.</p>
+<h3>Q: How do I run a check?</h3>
+<p>A: On Home, choose what moves and enter its measurements. Add up to 10 obstacles on the Layout screen, set the clearance margin, then tap <span class="highlight">Run check</span>. You can step through the movement on the Simulation screen and open the Result.</p>
+<h3>Q: What do the results mean?</h3>
+<p>A: <strong>CLEAR</strong>: the whole movement fits in the layout you entered. <strong>COLLISION</strong>: the part touches an obstacle or gets closer than your margin; the app shows how far it can move and which obstacle is in the way. <strong>UNCERTAIN</strong>: the case is too close to call, and the app says so instead of guessing.</p>
+<h3>Q: Is this a safety check?</h3>
+<p>A: No. The result covers only the obstacles you declare, in a flat, top-down layout. The app does not scan the room and does not use the camera. Use it to plan, and measure again before you drill, buy or build.</p>
+<h3>Q: Are my layouts saved?</h3>
+<p>A: No. A scenario is kept only while you work on it, and nothing is uploaded. The app saves your settings only. To keep a result, use Copy or Share on the Result screen.</p>
+<h3>Q: Can I use it offline?</h3>
+<p>A: Yes. All checks are calculated on your phone. An internet connection is needed only for advertisements and to buy or restore Remove Ads.</p>
+<h3>Q: Where do ads appear?</h3>
+<p>A: A banner on Home, Result and Settings, and occasionally a full-screen ad after you start a new scenario from the Result screen. No ad appears while you enter measurements, edit the layout or run a simulation.</p>
+<h3>Q: What does Remove Ads do?</h3>
+<p>A: It is a one-time, non-consumable purchase that turns off the banner and the full-screen ads. Open <span class="highlight">Settings</span> and choose Remove Ads. If you bought it before with the same store account, use <span class="highlight">Restore Purchases</span>. Every feature works the same with or without ads.</p>
+<h3>Q: Where can I change the unit, language or appearance?</h3>
+<p>A: Open <span class="highlight">Settings</span> from the Home screen. You can choose centimetres, inches or metres, set the default clearance margin, pick English, Vietnamese, Japanese or Korean, and select a light or dark appearance.</p>
+<h3>Q: Which devices are supported?</h3>
+<p>A: Smartphones running iOS or Android, including foldable phones, open or closed. The app is not designed for tablets.</p>
+<h2>Contact Support</h2>
+<div class="contact-box">
+<ul>
+<li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li>
+<li><strong>Please include:</strong> platform (iOS/Android), app version, the scenario you were checking (door, drawer or chair), and a short description of the issue. Screenshots are helpful when available.</li>
+</ul>
+</div>
+<h2>Technical Information</h2>
+<ul>
+<li><strong>Platforms:</strong> iOS and Android smartphones. Please refer to the App Store / Google Play listing for the current minimum OS requirement.</li>
+<li><strong>Privacy Policy:</strong> <a href="privacy-policy.html">View Privacy Policy</a></li>
+</ul>
+        </div>
+
+        <div id="content-vi" class="lang-content" lang="vi">
+<h1>Trung Tâm Hỗ Trợ</h1>
+<p class="updated">Cập nhật mới nhất: Ngày 25 tháng 11 năm 2026</p>
+<p>Chào mừng bạn đến với trang hỗ trợ của <strong>Clearance Check</strong>, ứng dụng tiện ích cho iOS và Android dùng để kiểm tra xem cửa, ngăn kéo hay ghế có đủ chỗ để chuyển động hay không.</p>
+<h2>Câu Hỏi Thường Gặp</h2>
+<h3>Q: Clearance Check là gì?</h3>
+<p>A: Đây là công cụ hỗ trợ lên kế hoạch. Bạn nhập kích thước của vật chuyển động, thêm các vật ở gần dưới dạng hình chữ nhật, và ứng dụng cho biết chuyển động có vừa không, nếu không thì đi được bao xa. Ứng dụng có ba tình huống: cửa xoay, ngăn kéo trượt và ghế kéo ra khỏi bàn.</p>
+<h3>Q: Làm sao để chạy một lần kiểm tra?</h3>
+<p>A: Ở Home, chọn vật chuyển động và nhập số đo. Thêm tối đa 10 vật cản ở màn hình Layout, đặt khoảng hở, rồi chạm <span class="highlight">Run check</span>. Bạn có thể xem chuyển động từng bước ở màn hình Simulation và mở Result.</p>
+<h3>Q: Các kết quả có nghĩa là gì?</h3>
+<p>A: <strong>ĐỦ CHỖ</strong>: toàn bộ chuyển động vừa với bố trí bạn đã nhập. <strong>VA CHẠM</strong>: bộ phận chạm vào vật cản hoặc lại gần hơn khoảng hở bạn đặt; ứng dụng cho biết nó đi được bao xa và vật cản nào chắn đường. <strong>CHƯA XÁC ĐỊNH</strong>: trường hợp quá sát để kết luận, và ứng dụng nói rõ thay vì đoán.</p>
+<h3>Q: Đây có phải là kiểm tra an toàn không?</h3>
+<p>A: Không. Kết quả chỉ xét những vật cản bạn khai báo, trên mặt bằng phẳng nhìn từ trên xuống. Ứng dụng không quét phòng và không dùng camera. Hãy dùng để lên kế hoạch, và đo lại trước khi khoan, mua hay đóng đồ.</p>
+<h3>Q: Bố trí của tôi có được lưu không?</h3>
+<p>A: Không. Kịch bản chỉ được giữ trong lúc bạn làm việc, và không có gì được tải lên. Ứng dụng chỉ lưu cài đặt. Để giữ kết quả, hãy dùng Copy hoặc Share ở màn hình Result.</p>
+<h3>Q: Tôi có dùng ngoại tuyến được không?</h3>
+<p>A: Được. Mọi phép kiểm tra được tính trên điện thoại. Kết nối Internet chỉ cần cho quảng cáo và khi mua hoặc khôi phục Remove Ads.</p>
+<h3>Q: Quảng cáo xuất hiện ở đâu?</h3>
+<p>A: Một biểu ngữ ở Home, Result và Settings, và thỉnh thoảng một quảng cáo toàn màn hình sau khi bạn bắt đầu kịch bản mới từ màn hình Result. Không có quảng cáo khi bạn đang nhập số đo, chỉnh bố trí hay chạy mô phỏng.</p>
+<h3>Q: Remove Ads có tác dụng gì?</h3>
+<p>A: Đây là sản phẩm mua một lần, không tiêu hao, dùng để tắt biểu ngữ và quảng cáo toàn màn hình. Mở <span class="highlight">Settings</span> và chọn Remove Ads. Nếu đã mua trước đó bằng cùng tài khoản cửa hàng, hãy dùng <span class="highlight">Restore Purchases</span>. Mọi tính năng hoạt động như nhau dù có hay không có quảng cáo.</p>
+<h3>Q: Tôi đổi đơn vị, ngôn ngữ hoặc giao diện ở đâu?</h3>
+<p>A: Mở <span class="highlight">Settings</span> từ màn hình Home. Bạn có thể chọn centimet, inch hoặc mét, đặt khoảng hở mặc định, chọn tiếng Anh, tiếng Việt, tiếng Nhật hoặc tiếng Hàn, và chọn giao diện sáng hoặc tối.</p>
+<h3>Q: Ứng dụng hỗ trợ thiết bị nào?</h3>
+<p>A: Điện thoại thông minh chạy iOS hoặc Android, kể cả điện thoại gập khi mở hoặc đóng. Ứng dụng không được thiết kế cho máy tính bảng.</p>
+<h2>Liên Hệ Hỗ Trợ</h2>
+<div class="contact-box">
+<ul>
+<li><strong>Email:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li>
+<li><strong>Vui lòng cho biết:</strong> nền tảng (iOS/Android), phiên bản ứng dụng, tình huống bạn đang kiểm tra (cửa, ngăn kéo hay ghế) và mô tả ngắn về sự cố. Ảnh chụp màn hình sẽ rất hữu ích nếu có.</li>
+</ul>
+</div>
+<h2>Thông Tin Kỹ Thuật</h2>
+<ul>
+<li><strong>Nền tảng:</strong> Điện thoại thông minh iOS và Android. Vui lòng xem trang ứng dụng trên App Store / Google Play để biết yêu cầu hệ điều hành tối thiểu hiện tại.</li>
+<li><strong>Chính Sách Bảo Mật:</strong> <a href="privacy-policy.html">Xem Chính Sách Bảo Mật</a></li>
+</ul>
+        </div>
+
+        <div id="content-ja" class="lang-content" lang="ja">
+<h1>サポートセンター</h1>
+<p class="updated">最終更新日：2026年11月25日</p>
+<p><strong>Clearance Check</strong> のサポートページへようこそ。ドア・引き出し・椅子が動くためのスペースがあるかを確認する、iOS / Android 向けのユーティリティアプリです。</p>
+<h2>よくある質問</h2>
+<h3>Q: Clearance Check とは何ですか？</h3>
+<p>A: 計画のためのツールです。動く部分のサイズを入力し、近くにある物を長方形として追加すると、動きが収まるかどうか、収まらない場合はどこまで動かせるかを表示します。開き戸、引き出し、テーブルから引く椅子の3つのケースに対応しています。</p>
+<h3>Q: チェックはどのように実行しますか？</h3>
+<p>A: Home で動かす物を選び、寸法を入力します。Layout 画面で障害物を最大10個まで追加し、クリアランスマージンを設定して、<span class="highlight">Run check</span> をタップします。Simulation 画面で動きを一歩ずつ確認し、Result を開くことができます。</p>
+<h3>Q: 結果の意味を教えてください。</h3>
+<p>A: <strong>クリア</strong>：入力したレイアウトで動き全体が収まります。<strong>衝突</strong>：障害物に当たる、または設定したマージンより近づきます。どこまで動かせるかと、どの障害物が当たるかを表示します。<strong>判定不能</strong>：きわどくて判定できない場合で、推測せずにそう表示します。</p>
+<h3>Q: これは安全性の確認ですか？</h3>
+<p>A: いいえ。結果は、上から見た平面上で、入力した障害物だけを対象にしています。アプリは部屋をスキャンせず、カメラも使いません。計画に役立て、穴あけ・購入・製作の前にもう一度測ってください。</p>
+<h3>Q: レイアウトは保存されますか？</h3>
+<p>A: いいえ。シナリオは作業中のみ保持され、アップロードされることはありません。保存されるのは設定だけです。結果を残したい場合は、Result 画面の Copy または Share をお使いください。</p>
+<h3>Q: オフラインで使えますか？</h3>
+<p>A: はい。チェックはすべて端末内で計算されます。インターネット接続が必要なのは、広告の表示と Remove Ads の購入・復元のときだけです。</p>
+<h3>Q: 広告はどこに表示されますか？</h3>
+<p>A: Home、Result、Settings にバナーが表示され、Result 画面から新しいシナリオを始めたときに全画面広告が表示されることがあります。寸法の入力中、レイアウトの編集中、シミュレーションの実行中には表示されません。</p>
+<h3>Q: Remove Ads とは何ですか？</h3>
+<p>A: バナーと全画面広告を非表示にする、一度きりの非消耗型の購入です。<span class="highlight">Settings</span> を開いて Remove Ads を選びます。同じストアアカウントで購入済みの場合は <span class="highlight">Restore Purchases</span> をお使いください。広告の有無にかかわらず、すべての機能は同じように使えます。</p>
+<h3>Q: 単位、言語、外観はどこで変更できますか？</h3>
+<p>A: Home から <span class="highlight">Settings</span> を開きます。センチメートル・インチ・メートルの選択、既定のクリアランスマージンの設定、英語・ベトナム語・日本語・韓国語の選択、ライト／ダークの外観の選択ができます。</p>
+<h3>Q: 対応している端末は？</h3>
+<p>A: iOS または Android のスマートフォンです。折りたたみスマートフォンでも、開いても閉じても使えます。タブレット向けには設計されていません。</p>
+<h2>お問い合わせ</h2>
+<div class="contact-box">
+<ul>
+<li><strong>メール：</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li>
+<li><strong>お知らせいただきたい情報：</strong> プラットフォーム（iOS/Android）、アプリのバージョン、確認していたシナリオ（ドア、引き出し、椅子）、問題の簡単な説明。スクリーンショットがあれば添付してください。</li>
+</ul>
+</div>
+<h2>技術情報</h2>
+<ul>
+<li><strong>対応プラットフォーム：</strong> iOS および Android のスマートフォン。現在の最小 OS 要件は App Store / Google Play のページでご確認ください。</li>
+<li><strong>プライバシーポリシー：</strong> <a href="privacy-policy.html">プライバシーポリシーを見る</a></li>
+</ul>
+        </div>
+
+        <div id="content-ko" class="lang-content" lang="ko">
+<h1>지원 센터</h1>
+<p class="updated">최종 업데이트: 2026년 11월 25일</p>
+<p><strong>Clearance Check</strong> 지원 페이지에 오신 것을 환영합니다. 문, 서랍, 의자가 움직일 공간이 있는지 확인하는 iOS / Android용 유틸리티 앱입니다.</p>
+<h2>자주 묻는 질문</h2>
+<h3>Q: Clearance Check는 무엇인가요?</h3>
+<p>A: 계획을 돕는 도구입니다. 움직이는 부분의 크기를 입력하고 주변 물건을 직사각형으로 추가하면, 움직임이 들어맞는지, 그렇지 않다면 어디까지 움직일 수 있는지 알려 줍니다. 여닫이문, 서랍, 식탁에서 빼는 의자의 세 가지 상황을 지원합니다.</p>
+<h3>Q: 검사는 어떻게 실행하나요?</h3>
+<p>A: Home에서 움직이는 대상을 고르고 치수를 입력합니다. Layout 화면에서 장애물을 최대 10개까지 추가하고 여유 간격을 설정한 다음 <span class="highlight">Run check</span>를 누릅니다. Simulation 화면에서 움직임을 단계별로 확인하고 Result를 열 수 있습니다.</p>
+<h3>Q: 결과는 무엇을 의미하나요?</h3>
+<p>A: <strong>여유 있음</strong>: 입력한 배치에서 전체 움직임이 들어맞습니다. <strong>충돌</strong>: 장애물에 닿거나 설정한 여유 간격보다 가까워집니다. 어디까지 움직일 수 있는지와 어떤 장애물이 막는지 보여 줍니다. <strong>불확실</strong>: 판단하기에 너무 아슬아슬한 경우로, 추측하지 않고 그렇게 알려 줍니다.</p>
+<h3>Q: 안전 검사인가요?</h3>
+<p>A: 아닙니다. 결과는 위에서 내려다본 평면에서, 입력한 장애물만 대상으로 합니다. 앱은 방을 스캔하지 않으며 카메라를 사용하지 않습니다. 계획에 활용하고, 구멍을 뚫거나 구매하거나 제작하기 전에 다시 측정하세요.</p>
+<h3>Q: 배치가 저장되나요?</h3>
+<p>A: 아니요. 시나리오는 작업하는 동안에만 유지되며 업로드되지 않습니다. 앱은 설정만 저장합니다. 결과를 남기려면 Result 화면의 Copy 또는 Share를 사용하세요.</p>
+<h3>Q: 오프라인에서 사용할 수 있나요?</h3>
+<p>A: 네. 모든 검사는 휴대폰에서 계산됩니다. 인터넷 연결은 광고 표시와 Remove Ads 구매·복원에만 필요합니다.</p>
+<h3>Q: 광고는 어디에 표시되나요?</h3>
+<p>A: Home, Result, Settings에 배너가 표시되고, Result 화면에서 새 시나리오를 시작할 때 가끔 전체 화면 광고가 표시됩니다. 치수를 입력하거나 배치를 편집하거나 시뮬레이션을 실행하는 동안에는 표시되지 않습니다.</p>
+<h3>Q: Remove Ads는 무엇인가요?</h3>
+<p>A: 배너와 전체 화면 광고를 끄는, 한 번만 구매하는 비소모성 상품입니다. <span class="highlight">Settings</span>를 열고 Remove Ads를 선택하세요. 같은 스토어 계정으로 이미 구매했다면 <span class="highlight">Restore Purchases</span>를 사용하세요. 광고가 있든 없든 모든 기능은 똑같이 작동합니다.</p>
+<h3>Q: 단위, 언어, 화면 모드는 어디에서 바꾸나요?</h3>
+<p>A: Home 화면에서 <span class="highlight">Settings</span>를 엽니다. 센티미터·인치·미터 선택, 기본 여유 간격 설정, 영어·베트남어·일본어·한국어 선택, 라이트/다크 화면 선택을 할 수 있습니다.</p>
+<h3>Q: 어떤 기기를 지원하나요?</h3>
+<p>A: iOS 또는 Android 스마트폰입니다. 폴더블 스마트폰에서도 펼치든 접든 사용할 수 있습니다. 태블릿용으로 설계되지 않았습니다.</p>
+<h2>지원 문의</h2>
+<div class="contact-box">
+<ul>
+<li><strong>이메일:</strong> <a href="mailto:nghiadoan2901@gmail.com" class="highlight">nghiadoan2901@gmail.com</a></li>
+<li><strong>함께 알려 주세요:</strong> 플랫폼(iOS/Android), 앱 버전, 확인하던 시나리오(문, 서랍, 의자), 문제에 대한 간단한 설명. 스크린샷이 있으면 도움이 됩니다.</li>
+</ul>
+</div>
+<h2>기술 정보</h2>
+<ul>
+<li><strong>플랫폼:</strong> iOS 및 Android 스마트폰. 현재 최소 OS 요구 사항은 App Store / Google Play 페이지를 확인하세요.</li>
+<li><strong>개인정보 처리방침:</strong> <a href="privacy-policy.html">개인정보 처리방침 보기</a></li>
+</ul>
+        </div>
+
+        <footer>© 2026 Clearance Check. All rights reserved.</footer>
+    </div>
+    <script>
+        function switchLanguage(langCode) {
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Hide all content blocks
+            const contents = document.querySelectorAll('.lang-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to selected button
+            const clickedBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes("'" + langCode + "'"));
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+
+                // Smooth scroll the active tab to center if needed
+                clickedBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            // Add active class to selected content block
+            const targetContent = document.getElementById('content-' + langCode);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+            document.documentElement.lang = langCode;
+        }
+
+        // Auto-detect browser language on load (English when the language is not one of the four)
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage || '';
+            const lowerLang = userLang.toLowerCase();
+            if (lowerLang.startsWith('vi')) switchLanguage('vi');
+            else if (lowerLang.startsWith('ja')) switchLanguage('ja');
+            else if (lowerLang.startsWith('ko')) switchLanguage('ko');
+            else switchLanguage('en');
+        });
+    </script>
+</body>
+</html>

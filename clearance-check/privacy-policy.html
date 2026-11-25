@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#F6F7FA" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#10151C" media="(prefers-color-scheme: dark)">
+    <title>Privacy Policy - Clearance Check</title>
+    <style>
+        /* Colours, radii and type follow the Clearance Check app (light and dark theme tokens of the app). */
+        :root {
+            color-scheme: light dark;
+            --bg: #F6F7FA;
+            --card-bg: #FFFFFF;
+            --text-main: #182331;
+            --text-dim: #4D5D70;
+            --border: #CBD5E1;
+            --control-border: #7D8DA1;
+            --accent: #315A91;
+            --on-accent: #FFFFFF;
+            --accent-soft: #E6EDF7;
+            --clear: #176B50;
+            --error: #AD3435;
+            --shadow: 0 1px 2px rgba(24, 35, 49, 0.06), 0 8px 24px rgba(24, 35, 49, 0.06);
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #10151C;
+                --card-bg: #1B2430;
+                --text-main: #E9F0F7;
+                --text-dim: #B4C0CF;
+                --border: #526174;
+                --control-border: #7F90A5;
+                --accent: #9BC1F5;
+                --on-accent: #10151C;
+                --accent-soft: #243650;
+                --clear: #75DAB0;
+                --error: #FFA3A3;
+                --shadow: none;
+            }
+        }
+        body {
+            /* The app uses the system font of the phone. */
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Roboto, 'Helvetica Neue', 'Noto Sans', 'Noto Sans JP', 'Noto Sans KR', Arial, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.5;
+            margin: 0;
+            padding: 2rem 1rem;
+            -webkit-text-size-adjust: 100%;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2rem 1.5rem;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        .back-link:hover { text-decoration: underline; }
+
+        /* Language choice: the app's segmented control */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--border);
+            padding-bottom: 1rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            overflow-x: auto;
+            white-space: nowrap;
+            gap: 0.5rem;
+            padding-bottom: 0.25rem;
+            scrollbar-width: thin;
+            scrollbar-color: var(--control-border) transparent;
+            -webkit-overflow-scrolling: touch;
+        }
+        .lang-scroll-container::-webkit-scrollbar { height: 4px; }
+        .lang-scroll-container::-webkit-scrollbar-track { background: transparent; }
+        .lang-scroll-container::-webkit-scrollbar-thumb { background-color: var(--control-border); border-radius: 2px; }
+        .lang-btn {
+            font: inherit;
+            background: var(--card-bg);
+            color: var(--text-dim);
+            border: 1px solid var(--control-border);
+            padding: 0.6rem 1.1rem;
+            min-height: 44px;
+            border-radius: 999px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: 500;
+        }
+        .lang-btn:hover { border-color: var(--accent); color: var(--text-main); }
+        .lang-btn:focus-visible, a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+        .lang-btn.active {
+            background: var(--accent);
+            color: var(--on-accent);
+            border-color: var(--accent);
+            font-weight: 700;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 1.5rem;
+        }
+        .app-icon {
+            width: 112px;
+            height: 112px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0.5rem;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+            border: 1px solid var(--border);
+        }
+
+        h1 { text-align: center; font-weight: 700; font-size: 1.9rem; line-height: 1.25; margin: 0; color: var(--text-main); }
+        h2 { color: var(--text-main); margin-top: 2.25rem; margin-bottom: 0.5rem; font-size: 1.25rem; line-height: 1.4; font-weight: 600; border-bottom: 1px solid var(--border); padding-bottom: 0.4rem; }
+        h3 { color: var(--accent); margin-top: 1.5rem; margin-bottom: 0.25rem; font-size: 1.05rem; line-height: 1.4; font-weight: 700; }
+        p, li { color: var(--text-dim); font-size: 1rem; }
+        strong { color: var(--text-main); }
+        a { color: var(--accent); }
+        .updated { text-align: center; color: var(--text-dim); font-size: 0.9rem; margin-top: 0.5rem; }
+        .highlight-box {
+            background: var(--accent-soft);
+            color: var(--text-main);
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+            margin-top: 1.5rem;
+        }
+        .contact-box {
+            background: var(--accent-soft);
+            padding: 0.5rem 1.25rem;
+            border-radius: 12px;
+        }
+        .contact-box li, .highlight-box { color: var(--text-main); }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        .highlight, .highlight strong { color: var(--accent); font-weight: 700; }
+        .warning { color: var(--error); font-weight: 700; }
+        footer { text-align: center; margin-top: 3.5rem; color: var(--text-dim); font-size: 0.85rem; border-top: 1px solid var(--border); padding-top: 1.5rem; }
+
+        /* Language section toggling */
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+
+        @media (max-width: 480px) {
+            body { padding: 1rem 0.75rem; }
+            .container { padding: 1.5rem 1rem; }
+            h1 { font-size: 1.6rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container" aria-label="Language">
+                <button class="lang-btn active" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" onclick="switchLanguage('vi')">Tiếng Việt</button>
+                <button class="lang-btn" onclick="switchLanguage('ja')">日本語</button>
+                <button class="lang-btn" onclick="switchLanguage('ko')">한국어</button>
+            </div>
+        </div>
+
+
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/ClearanceCheck_Logo.png"
+                     onerror="this.src='assets/images/ClearanceCheck_Logo.png'; this.onerror=null;"
+                     alt="Clearance Check Logo">
+            </div>
+        </div>
+
+        <div id="content-en" class="lang-content active" lang="en">
+<h1>Privacy Policy</h1>
+<p class="updated">Latest Update: November 25, 2026</p>
+<p><strong>Clearance Check</strong> is a mobile utility for iOS and Android that checks whether a door, a drawer or a chair has room to move, from measurements you type in. The app does not require a user account, and the developer does not ask for your name, phone number, postal address or other direct personal identifiers.</p>
+<div class="highlight-box"><strong>Summary:</strong> All checks are calculated on your device. Your measurements, layouts and results are not uploaded and are not stored after you leave them. Only your settings are saved on the device. Google AdMob may process data to show advertisements, and Apple App Store / Google Play handle the purchase and its restoration.</div>
+<h2>1. Data Handled on Your Device</h2>
+<p>The app keeps the scenario you are working on (sizes of the moving part, obstacles, clearance margin and the result) in memory only while you use it. It is not written to storage, not uploaded, and it is gone when you start a new scenario or close the app.</p>
+<p>The app saves the following on your device:</p>
+<ul>
+<li>Your settings: measurement unit, default clearance margin, language and appearance (light or dark).</li>
+<li>A local record that the Remove Ads purchase is active, so ads stay off without a network.</li>
+<li>A note that the explanation about ads has already been shown.</li>
+</ul>
+<p>This data is not sent to the developer, because the app has no account system, no server and no cloud storage. Clearing the app data or uninstalling the app removes it.</p>
+<p>The app does not use the camera, the microphone, your location, your photos or your contacts.</p>
+<h2>2. Advertising and Consent</h2>
+<p>Clearance Check uses <strong>Google AdMob</strong> to show a banner on the Home, Result and Settings screens, and occasionally a full-screen advertisement after you choose to start a new scenario from the Result screen. No advertisement is shown while you enter measurements, edit the layout or run a simulation.</p>
+<p>Depending on your platform, region, consent choices and device settings, Google and its advertising partners may process information such as:</p>
+<ul>
+<li>Advertising identifiers where permitted (for example IDFA on iOS or the advertising ID on Android).</li>
+<li>IP address, device and app information, operating-system information, diagnostics and advertising interaction data.</li>
+<li>Approximate location inferred from network information.</li>
+</ul>
+<p>Before the first advertisement is requested, the app shows an explanation and, where required, privacy and consent choices. On iOS, the App Tracking Transparency permission may be requested. Refusing does not limit any feature of the app; advertising may simply be less personalized.</p>
+<p>Your measurements, layouts and results are never passed to the advertising service.</p>
+<p>If the <strong>Remove Ads</strong> purchase is active, the app shows no banner and no full-screen advertisement, and does not request advertisements.</p>
+<h2>3. In-App Purchases</h2>
+<p>Clearance Check offers a one-time, non-consumable <strong>Remove Ads</strong> purchase (listed in the store as "Remove advertisement"). Purchases and restores are processed by Apple App Store or Google Play. The developer does not receive your payment-card details.</p>
+<p>The app keeps a local record of the purchase so that ads stay off while offline; the store remains the authority for ownership and restoration.</p>
+<h2>4. Copying and Sharing a Result</h2>
+<p>A result leaves the app only when you tap Copy or Share. The text then goes to the clipboard or to the app you choose in the system share sheet, and is handled by that app under its own terms.</p>
+<h2>5. Third-Party Services</h2>
+<p>The app may use the following third-party services:</p>
+<ul>
+<li>Google AdMob and Google consent/privacy services for advertising.</li>
+<li>Apple App Store / StoreKit for iOS purchases and restoration.</li>
+<li>Google Play / Play Billing for Android purchases and restoration.</li>
+</ul>
+<p>These providers process data under their own terms and privacy policies.</p>
+<h2>6. Data Retention and Security</h2>
+<p>Settings stay on your device until you change them, clear the app data or remove the app. Data processed by third-party providers is retained according to their own policies. We keep the data handled by the app limited to what is needed for the checks, the settings, the advertisements and the purchase, but no electronic storage method can be guaranteed to be completely secure.</p>
+<h2>7. Changes to This Policy</h2>
+<p>We may update this Privacy Policy when app features, SDKs, legal requirements or store requirements change. Updates become effective when the revised policy is posted on this page.</p>
+<h2>8. Contact Us</h2>
+<p>If you have questions about this Privacy Policy, contact: <a href="mailto:nghiadoan2901@gmail.com"><strong>nghiadoan2901@gmail.com</strong></a></p>
+        </div>
+
+        <div id="content-vi" class="lang-content" lang="vi">
+<h1>Chính Sách Bảo Mật</h1>
+<p class="updated">Cập nhật mới nhất: Ngày 25 tháng 11 năm 2026</p>
+<p><strong>Clearance Check</strong> là một ứng dụng tiện ích cho iOS và Android, dùng để kiểm tra xem cửa, ngăn kéo hay ghế có đủ chỗ để chuyển động hay không, dựa trên các số đo bạn nhập. Ứng dụng không yêu cầu tài khoản, và nhà phát triển không yêu cầu bạn cung cấp tên, số điện thoại, địa chỉ hay thông tin định danh cá nhân trực tiếp nào khác.</p>
+<div class="highlight-box"><strong>Tóm tắt:</strong> Mọi phép kiểm tra đều được tính ngay trên thiết bị của bạn. Số đo, bố trí và kết quả không được tải lên và không được lưu lại sau khi bạn rời khỏi chúng. Chỉ có cài đặt được lưu trên thiết bị. Google AdMob có thể xử lý dữ liệu để hiển thị quảng cáo, còn Apple App Store / Google Play xử lý việc mua và khôi phục giao dịch.</div>
+<h2>1. Dữ Liệu Được Xử Lý Trên Thiết Bị</h2>
+<p>Ứng dụng chỉ giữ kịch bản bạn đang làm (kích thước vật chuyển động, vật cản, khoảng hở và kết quả) trong bộ nhớ khi bạn đang dùng. Dữ liệu này không được ghi vào bộ nhớ lưu trữ, không được tải lên, và mất đi khi bạn bắt đầu kịch bản mới hoặc đóng ứng dụng.</p>
+<p>Ứng dụng lưu trên thiết bị các dữ liệu sau:</p>
+<ul>
+<li>Cài đặt của bạn: đơn vị đo, khoảng hở mặc định, ngôn ngữ và giao diện (sáng hoặc tối).</li>
+<li>Một bản ghi cục bộ cho biết giao dịch Remove Ads đang có hiệu lực, để quảng cáo vẫn tắt khi không có mạng.</li>
+<li>Một ghi chú rằng phần giải thích về quảng cáo đã được hiển thị.</li>
+</ul>
+<p>Các dữ liệu này không được gửi cho nhà phát triển, vì ứng dụng không có hệ thống tài khoản, không có máy chủ và không có lưu trữ đám mây. Xóa dữ liệu ứng dụng hoặc gỡ cài đặt sẽ xóa chúng.</p>
+<p>Ứng dụng không dùng camera, micro, vị trí, ảnh hay danh bạ của bạn.</p>
+<h2>2. Quảng Cáo và Sự Đồng Ý</h2>
+<p>Clearance Check dùng <strong>Google AdMob</strong> để hiển thị một biểu ngữ ở màn hình Home, Result và Settings, và thỉnh thoảng một quảng cáo toàn màn hình sau khi bạn chọn bắt đầu kịch bản mới từ màn hình Result. Không có quảng cáo nào xuất hiện khi bạn đang nhập số đo, chỉnh bố trí hay chạy mô phỏng.</p>
+<p>Tùy theo nền tảng, khu vực, lựa chọn đồng ý và cài đặt thiết bị, Google và các đối tác quảng cáo của Google có thể xử lý các thông tin như:</p>
+<ul>
+<li>Mã định danh quảng cáo khi được phép (ví dụ IDFA trên iOS hoặc mã quảng cáo trên Android).</li>
+<li>Địa chỉ IP, thông tin thiết bị và ứng dụng, thông tin hệ điều hành, dữ liệu chẩn đoán và dữ liệu tương tác với quảng cáo.</li>
+<li>Vị trí gần đúng suy ra từ thông tin mạng.</li>
+</ul>
+<p>Trước khi yêu cầu quảng cáo đầu tiên, ứng dụng hiển thị một phần giải thích và, ở nơi có yêu cầu, các lựa chọn về quyền riêng tư và sự đồng ý. Trên iOS, quyền App Tracking Transparency có thể được hỏi. Từ chối không làm hạn chế tính năng nào của ứng dụng; quảng cáo chỉ có thể kém phù hợp hơn.</p>
+<p>Số đo, bố trí và kết quả của bạn không bao giờ được chuyển cho dịch vụ quảng cáo.</p>
+<p>Khi giao dịch <strong>Remove Ads</strong> đang có hiệu lực, ứng dụng không hiển thị biểu ngữ, không hiển thị quảng cáo toàn màn hình và không yêu cầu quảng cáo.</p>
+<h2>3. Mua Hàng Trong Ứng Dụng</h2>
+<p>Clearance Check cung cấp sản phẩm <strong>Remove Ads</strong> dạng mua một lần, không tiêu hao (trên cửa hàng có tên "Xóa quảng cáo"). Việc mua và khôi phục được xử lý bởi Apple App Store hoặc Google Play. Nhà phát triển không nhận thông tin thẻ thanh toán của bạn.</p>
+<p>Ứng dụng giữ một bản ghi cục bộ về giao dịch để quảng cáo vẫn tắt khi ngoại tuyến; cửa hàng vẫn là nơi xác nhận quyền sở hữu và khôi phục.</p>
+<h2>4. Sao Chép và Chia Sẻ Kết Quả</h2>
+<p>Kết quả chỉ rời khỏi ứng dụng khi bạn chạm Copy hoặc Share. Khi đó văn bản được đưa vào bộ nhớ tạm hoặc tới ứng dụng bạn chọn trong bảng chia sẻ của hệ thống, và do ứng dụng đó xử lý theo điều khoản riêng.</p>
+<h2>5. Dịch Vụ Bên Thứ Ba</h2>
+<p>Ứng dụng có thể dùng các dịch vụ bên thứ ba sau:</p>
+<ul>
+<li>Google AdMob và các dịch vụ đồng ý/quyền riêng tư của Google cho quảng cáo.</li>
+<li>Apple App Store / StoreKit cho việc mua và khôi phục trên iOS.</li>
+<li>Google Play / Play Billing cho việc mua và khôi phục trên Android.</li>
+</ul>
+<p>Các nhà cung cấp này xử lý dữ liệu theo điều khoản và chính sách bảo mật riêng của họ.</p>
+<h2>6. Lưu Giữ Dữ Liệu và Bảo Mật</h2>
+<p>Cài đặt nằm trên thiết bị cho tới khi bạn thay đổi, xóa dữ liệu ứng dụng hoặc gỡ ứng dụng. Dữ liệu do bên thứ ba xử lý được lưu giữ theo chính sách của họ. Chúng tôi giới hạn dữ liệu mà ứng dụng xử lý ở mức cần cho việc kiểm tra, cài đặt, quảng cáo và giao dịch mua, nhưng không phương thức lưu trữ điện tử nào được bảo đảm an toàn tuyệt đối.</p>
+<h2>7. Thay Đổi Chính Sách</h2>
+<p>Chúng tôi có thể cập nhật Chính Sách Bảo Mật khi tính năng, SDK, yêu cầu pháp lý hoặc yêu cầu của cửa hàng thay đổi. Bản cập nhật có hiệu lực khi được đăng trên trang này.</p>
+<h2>8. Liên Hệ</h2>
+<p>Nếu có câu hỏi về Chính Sách Bảo Mật, vui lòng liên hệ: <a href="mailto:nghiadoan2901@gmail.com"><strong>nghiadoan2901@gmail.com</strong></a></p>
+        </div>
+
+        <div id="content-ja" class="lang-content" lang="ja">
+<h1>プライバシーポリシー</h1>
+<p class="updated">最終更新日：2026年11月25日</p>
+<p><strong>Clearance Check</strong> は、入力した寸法をもとに、ドア・引き出し・椅子が動くためのスペースがあるかを確認する iOS / Android 向けのユーティリティアプリです。アカウントは不要で、開発者が氏名、電話番号、住所、その他の直接的な個人識別情報の提供を求めることはありません。</p>
+<div class="highlight-box"><strong>概要：</strong> チェックの計算はすべて端末内で行われます。寸法、レイアウト、結果はアップロードされず、画面を離れた後に保存されることもありません。端末に保存されるのは設定のみです。Google AdMob は広告配信のためにデータを処理する場合があり、購入と復元は Apple App Store / Google Play が処理します。</div>
+<h2>1. 端末内で扱うデータ</h2>
+<p>作業中のシナリオ（動く部分のサイズ、障害物、クリアランスマージン、結果）は、使用中のみメモリ上に保持されます。ストレージには書き込まれず、アップロードもされず、新しいシナリオを始めるかアプリを閉じると消えます。</p>
+<p>アプリが端末に保存するのは次の情報です。</p>
+<ul>
+<li>設定：長さの単位、既定のクリアランスマージン、言語、外観（ライト／ダーク）。</li>
+<li>Remove Ads の購入が有効であることを示すローカル記録（オフラインでも広告を非表示にするため）。</li>
+<li>広告についての説明を表示済みであることの記録。</li>
+</ul>
+<p>アプリにはアカウント機能、サーバー、クラウド保存がないため、これらのデータが開発者に送信されることはありません。アプリのデータを消去するかアンインストールすると削除されます。</p>
+<p>アプリはカメラ、マイク、位置情報、写真、連絡先を使用しません。</p>
+<h2>2. 広告と同意</h2>
+<p>Clearance Check は <strong>Google AdMob</strong> を使用し、Home、Result、Settings の各画面にバナーを表示します。また、Result 画面から新しいシナリオを始めたときに、全画面広告を表示することがあります。寸法の入力中、レイアウトの編集中、シミュレーションの実行中に広告が表示されることはありません。</p>
+<p>プラットフォーム、地域、同意の選択、端末設定に応じて、Google およびその広告パートナーは次のような情報を処理する場合があります。</p>
+<ul>
+<li>許可されている場合の広告識別子（iOS の IDFA、Android の広告 ID など）。</li>
+<li>IP アドレス、端末およびアプリの情報、OS 情報、診断情報、広告とのやり取りに関するデータ。</li>
+<li>ネットワーク情報から推定されるおおよその位置。</li>
+</ul>
+<p>最初の広告をリクエストする前に、アプリは説明を表示し、必要な地域ではプライバシーと同意の選択肢を表示します。iOS では App Tracking Transparency の許可を求める場合があります。拒否してもアプリの機能は制限されず、広告のパーソナライズ度が下がるだけです。</p>
+<p>寸法、レイアウト、結果が広告サービスに渡されることはありません。</p>
+<p><strong>Remove Ads</strong> の購入が有効な場合、バナーも全画面広告も表示されず、広告のリクエストも行われません。</p>
+<h2>3. アプリ内購入</h2>
+<p>Clearance Check は、一度きりの非消耗型の購入 <strong>Remove Ads</strong>（ストアでの名称は「広告を削除する」）を提供します。購入と復元は Apple App Store または Google Play が処理します。開発者が支払いカード情報を受け取ることはありません。</p>
+<p>オフラインでも広告を非表示に保つため、アプリは購入のローカル記録を保持します。所有と復元の最終的な判断はストアが行います。</p>
+<h2>4. 結果のコピーと共有</h2>
+<p>結果がアプリの外に出るのは、Copy または Share をタップしたときだけです。テキストはクリップボード、またはシステムの共有シートで選んだアプリに渡され、そのアプリの規約に従って扱われます。</p>
+<h2>5. 第三者サービス</h2>
+<p>アプリは次の第三者サービスを使用する場合があります。</p>
+<ul>
+<li>広告のための Google AdMob および Google の同意／プライバシーサービス。</li>
+<li>iOS での購入と復元のための Apple App Store / StoreKit。</li>
+<li>Android での購入と復元のための Google Play / Play Billing。</li>
+</ul>
+<p>これらの提供者は、それぞれの規約とプライバシーポリシーに従ってデータを処理します。</p>
+<h2>6. データの保持と安全性</h2>
+<p>設定は、変更するか、アプリのデータを消去するか、アプリを削除するまで端末に残ります。第三者が処理するデータは、各社のポリシーに従って保持されます。アプリが扱うデータは、チェック、設定、広告、購入に必要な範囲に限っていますが、電子的な保存方法に完全な安全性を保証できるものはありません。</p>
+<h2>7. ポリシーの変更</h2>
+<p>機能、SDK、法令、ストア要件の変更に応じて、本ポリシーを更新する場合があります。改定版は、このページに掲載された時点で有効になります。</p>
+<h2>8. お問い合わせ</h2>
+<p>プライバシーに関するお問い合わせ：<a href="mailto:nghiadoan2901@gmail.com"><strong>nghiadoan2901@gmail.com</strong></a></p>
+        </div>
+
+        <div id="content-ko" class="lang-content" lang="ko">
+<h1>개인정보 처리방침</h1>
+<p class="updated">최종 업데이트: 2026년 11월 25일</p>
+<p><strong>Clearance Check</strong>는 입력한 치수를 바탕으로 문, 서랍, 의자가 움직일 공간이 있는지 확인하는 iOS / Android용 유틸리티 앱입니다. 계정이 필요 없으며, 개발자는 이름, 전화번호, 주소 등 직접적인 개인 식별 정보를 요구하지 않습니다.</p>
+<div class="highlight-box"><strong>요약:</strong> 모든 검사는 기기에서 계산됩니다. 치수, 배치, 결과는 업로드되지 않으며, 화면을 벗어난 뒤에는 저장되지 않습니다. 기기에 저장되는 것은 설정뿐입니다. Google AdMob은 광고 제공을 위해 데이터를 처리할 수 있으며, 구매와 복원은 Apple App Store / Google Play가 처리합니다.</div>
+<h2>1. 기기에서 처리되는 데이터</h2>
+<p>작업 중인 시나리오(움직이는 부분의 크기, 장애물, 여유 간격, 결과)는 사용하는 동안에만 메모리에 유지됩니다. 저장 공간에 기록되지 않고 업로드되지 않으며, 새 시나리오를 시작하거나 앱을 닫으면 사라집니다.</p>
+<p>앱이 기기에 저장하는 정보는 다음과 같습니다.</p>
+<ul>
+<li>설정: 길이 단위, 기본 여유 간격, 언어, 화면 모드(라이트/다크).</li>
+<li>Remove Ads 구매가 활성 상태임을 나타내는 로컬 기록(오프라인에서도 광고를 끄기 위함).</li>
+<li>광고에 대한 안내를 이미 표시했다는 기록.</li>
+</ul>
+<p>앱에는 계정 시스템, 서버, 클라우드 저장소가 없으므로 이 데이터는 개발자에게 전송되지 않습니다. 앱 데이터를 지우거나 앱을 삭제하면 함께 삭제됩니다.</p>
+<p>앱은 카메라, 마이크, 위치, 사진, 연락처를 사용하지 않습니다.</p>
+<h2>2. 광고 및 동의</h2>
+<p>Clearance Check는 <strong>Google AdMob</strong>을 사용해 Home, Result, Settings 화면에 배너를 표시하고, Result 화면에서 새 시나리오를 시작할 때 가끔 전체 화면 광고를 표시합니다. 치수를 입력하거나 배치를 편집하거나 시뮬레이션을 실행하는 동안에는 광고가 표시되지 않습니다.</p>
+<p>플랫폼, 지역, 동의 선택, 기기 설정에 따라 Google과 광고 파트너는 다음과 같은 정보를 처리할 수 있습니다.</p>
+<ul>
+<li>허용된 경우의 광고 식별자(예: iOS의 IDFA, Android의 광고 ID).</li>
+<li>IP 주소, 기기 및 앱 정보, 운영체제 정보, 진단 정보, 광고 상호작용 데이터.</li>
+<li>네트워크 정보로 추정한 대략적인 위치.</li>
+</ul>
+<p>첫 광고를 요청하기 전에 앱은 안내를 표시하며, 필요한 지역에서는 개인정보 및 동의 선택 화면을 표시합니다. iOS에서는 App Tracking Transparency 권한을 요청할 수 있습니다. 거부해도 앱의 기능은 제한되지 않으며, 광고가 덜 맞춤화될 뿐입니다.</p>
+<p>치수, 배치, 결과는 광고 서비스에 전달되지 않습니다.</p>
+<p><strong>Remove Ads</strong> 구매가 활성 상태이면 배너와 전체 화면 광고가 표시되지 않으며 광고 요청도 하지 않습니다.</p>
+<h2>3. 인앱 구매</h2>
+<p>Clearance Check는 한 번만 구매하는 비소모성 상품 <strong>Remove Ads</strong>(스토어 표시 이름 "광고 제거")를 제공합니다. 구매와 복원은 Apple App Store 또는 Google Play가 처리합니다. 개발자는 결제 카드 정보를 받지 않습니다.</p>
+<p>오프라인에서도 광고를 끈 상태로 유지하기 위해 앱은 구매의 로컬 기록을 보관합니다. 소유 여부와 복원의 최종 기준은 스토어입니다.</p>
+<h2>4. 결과 복사 및 공유</h2>
+<p>결과는 Copy 또는 Share를 누를 때에만 앱 밖으로 나갑니다. 텍스트는 클립보드 또는 시스템 공유 시트에서 선택한 앱으로 전달되며, 해당 앱의 약관에 따라 처리됩니다.</p>
+<h2>5. 제3자 서비스</h2>
+<p>앱은 다음 제3자 서비스를 사용할 수 있습니다.</p>
+<ul>
+<li>광고를 위한 Google AdMob 및 Google 동의/개인정보 서비스.</li>
+<li>iOS 구매 및 복원을 위한 Apple App Store / StoreKit.</li>
+<li>Android 구매 및 복원을 위한 Google Play / Play Billing.</li>
+</ul>
+<p>이들 제공자는 각자의 약관과 개인정보 처리방침에 따라 데이터를 처리합니다.</p>
+<h2>6. 데이터 보관 및 보안</h2>
+<p>설정은 변경하거나 앱 데이터를 지우거나 앱을 삭제할 때까지 기기에 남습니다. 제3자가 처리하는 데이터는 각 사의 정책에 따라 보관됩니다. 앱이 다루는 데이터는 검사, 설정, 광고, 구매에 필요한 범위로 제한하지만, 어떤 전자적 저장 방식도 완전한 보안을 보장할 수는 없습니다.</p>
+<h2>7. 방침 변경</h2>
+<p>기능, SDK, 법률, 스토어 요건이 바뀌면 본 방침을 업데이트할 수 있습니다. 개정본은 이 페이지에 게시되는 즉시 효력이 발생합니다.</p>
+<h2>8. 문의</h2>
+<p>개인정보 관련 문의: <a href="mailto:nghiadoan2901@gmail.com"><strong>nghiadoan2901@gmail.com</strong></a></p>
+        </div>
+
+        <footer>© 2026 Clearance Check. All rights reserved.</footer>
+    </div>
+    <script>
+        function switchLanguage(langCode) {
+            // Remove active class from all buttons
+            const buttons = document.querySelectorAll('.lang-btn');
+            buttons.forEach(btn => btn.classList.remove('active'));
+
+            // Hide all content blocks
+            const contents = document.querySelectorAll('.lang-content');
+            contents.forEach(content => content.classList.remove('active'));
+
+            // Add active class to selected button
+            const clickedBtn = Array.from(buttons).find(btn => btn.getAttribute('onclick').includes("'" + langCode + "'"));
+            if (clickedBtn) {
+                clickedBtn.classList.add('active');
+
+                // Smooth scroll the active tab to center if needed
+                clickedBtn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+            }
+
+            // Add active class to selected content block
+            const targetContent = document.getElementById('content-' + langCode);
+            if (targetContent) {
+                targetContent.classList.add('active');
+            }
+            document.documentElement.lang = langCode;
+        }
+
+        // Auto-detect browser language on load (English when the language is not one of the four)
+        window.addEventListener('DOMContentLoaded', () => {
+            const userLang = navigator.language || navigator.userLanguage || '';
+            const lowerLang = userLang.toLowerCase();
+            if (lowerLang.startsWith('vi')) switchLanguage('vi');
+            else if (lowerLang.startsWith('ja')) switchLanguage('ja');
+            else if (lowerLang.startsWith('ko')) switchLanguage('ko');
+            else switchLanguage('en');
+        });
+    </script>
+</body>
+</html>
