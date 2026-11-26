@@ -28,6 +28,8 @@
             --nb-b: #c026d3;
             --bk-a: #2dd4bf;   /* luminous teal — Blokyra */
             --bk-b: #06b6d4;
+            --ig-a: #4ade80;   /* guardian green — Inkfall Guardians */
+            --ig-b: #312e81;   /* ink indigo */
         }
 
         html { scroll-behavior: smooth; }
@@ -170,6 +172,12 @@
         .game-card.bk .game-icon-placeholder { background: linear-gradient(135deg, var(--bk-b), var(--bk-a)); }
         .game-card.bk .game-tag { color: var(--bk-a); background: rgba(45,212,191,0.12); }
         .game-card.bk .btn-store { background: var(--bk-a); }
+
+        .game-card.ig { border-color: rgba(74,222,128,0.2); }
+        .game-card.ig .game-mood { background: linear-gradient(160deg, rgba(74,222,128,0.16), rgba(49,46,129,0.22)); }
+        .game-card.ig .game-icon-placeholder { background: linear-gradient(135deg, var(--ig-b), var(--ig-a)); }
+        .game-card.ig .game-tag { color: var(--ig-a); background: rgba(74,222,128,0.12); }
+        .game-card.ig .btn-store { background: var(--ig-a); }
 
         .game-mood::after {
             content: '';
@@ -515,6 +523,40 @@
                     </a>
                     <a href="./blokyra/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
                     <a href="./blokyra/support.html" class="btn btn-ghost">Support</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Inkfall Guardians -->
+        <div class="game-card ig">
+            <div class="game-mood">
+                <img class="game-icon" src="./assets/images/InkfallGuardians_Logo.png" alt="Inkfall Guardians icon"
+                     onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                <div class="game-icon-placeholder" style="display:none;">IG</div>
+            </div>
+            <div class="game-body">
+                <div class="game-meta">
+                    <span class="game-tag">Strategy · Tower Defense</span>
+                    <span class="platform-badge">iOS</span>
+                    <span class="platform-badge">Android</span>
+                    <span class="platform-badge">Coming Soon</span>
+                </div>
+                <h2 class="game-title">Inkfall Guardians</h2>
+                <p class="game-desc">
+                    An anime tower defense game where every tower is a character. A forbidden book has been opened at a floating academy, and creatures of living ink are marching on the Star Tree that holds the island aloft. Each of the twelve chibi guardians can stand on the field only once, so every choice counts: who you bring, where they stand, and who you power up first. A five-chapter story campaign, five bosses, and an Endless mode where you pick bonus cards to shape your team.
+                </p>
+                <div class="game-links">
+                    <!-- Store links: enable when the game is live. Replace APP_STORE_ID with the real App Store ID.
+                    <a href="https://apps.apple.com/us/app/inkfall-guardians/idAPP_STORE_ID" class="btn btn-store" target="_blank" rel="noopener">
+                        <img class="img-logo" src="./assets/images/Apple_Logo.png"/>
+                        <p>App Store</p>
+                    </a>
+                    <a href="https://play.google.com/store/apps/details?id=com.dhn.inkfallguardians" class="btn btn-store" target="_blank" rel="noopener">
+                        <img class="img-logo" src="./assets/images/GooglePlay_Logo.png"/>
+                        <p>Google Play</p>
+                    </a> -->
+                    <a href="./inkfall-guardians/privacy-policy.html" class="btn btn-ghost">Privacy Policy</a>
+                    <a href="./inkfall-guardians/support.html" class="btn btn-ghost">Support</a>
                 </div>
             </div>
         </div>

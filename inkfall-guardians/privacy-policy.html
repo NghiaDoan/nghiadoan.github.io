@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Inkfall Guardians</title>
+    <style>
+        :root {
+            --bg: #0e0b1f;            /* night ink */
+            --card-bg: #17132e;
+            --panel: #1f1a3d;
+            --border: rgba(94, 234, 212, 0.2);
+            --accent: #5eead4;        /* Star Tree teal */
+            --accent-gold: #ffd166;   /* starlight gold */
+            --text-main: #f4f0ff;
+            --text-dim: #a59fc4;
+            --text-faint: #6f6a92;
+        }
+        body {
+            font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem 1rem;
+            background-image:
+                radial-gradient(circle at top, rgba(94, 234, 212, 0.08), transparent 60%),
+                radial-gradient(circle at 85% 90%, rgba(167, 139, 250, 0.07), transparent 55%);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 0 35px rgba(94, 234, 212, 0.1), inset 0 0 15px rgba(94, 234, 212, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        /* Language switcher */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            padding-bottom: 1rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .lang-btn {
+            background: var(--panel);
+            color: var(--text-dim);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-main);
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #0e0b1f;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+            border: 2px solid rgba(94, 234, 212, 0.3);
+            box-shadow: 0 0 18px rgba(94, 234, 212, 0.18);
+        }
+        .app-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        h1 { text-align: center; font-weight: 900; font-size: 2.2rem; margin: 0; letter-spacing: 1px; color: #fff; }
+        h2 { color: var(--accent-gold); margin-top: 2.5rem; font-size: 1.3rem; letter-spacing: 0.5px; border-bottom: 1.5px dashed rgba(255, 209, 102, 0.25); padding-bottom: 0.35rem; }
+        p, li { color: var(--text-dim); font-size: 1rem; }
+        strong { color: var(--text-main); }
+        a { color: var(--accent); }
+        .updated { text-align: center; color: var(--text-faint); font-size: 0.9rem; margin-top: 0.5rem; }
+        .highlight-box {
+            background: var(--panel);
+            padding: 1.25rem;
+            border-radius: 0.5rem;
+            margin-top: 1.5rem;
+            border-left: 4px solid var(--accent);
+            color: var(--text-dim);
+        }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.5rem; }
+        footer { text-align: center; margin-top: 4rem; color: var(--text-faint); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.07); padding-top: 1.5rem; }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container">
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" data-lang="vi" onclick="switchLanguage('vi')">Tiếng Việt</button>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/InkfallGuardians_Logo.png" alt="Inkfall Guardians icon">
+            </div>
+            <div class="app-name">Inkfall Guardians</div>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div id="content-en" class="lang-content active">
+            <h1>Privacy Policy</h1>
+            <p class="updated">Latest Update: November 26, 2026</p>
+            <p>Your privacy is important to us. <strong>Inkfall Guardians</strong> is a free game. The mobile version is supported by optional rewarded video ads and offers one optional purchase that removes them. The web version has no ads and no purchases.</p>
+            <div class="highlight-box">
+                <strong>Summary:</strong> We, the developer, do not collect any personal information. The game needs no account, and your progress stays on your device. On mobile, ads are shown only when you choose to watch one, and they are served by Google AdMob, which may collect some device data as described below.
+            </div>
+
+            <h2>1. Information We Collect</h2>
+            <p>We (the developer) <strong>DO NOT</strong> collect, store, or share any of your personal information, such as your name, email address, or phone number. The game has no account system and no analytics of our own.</p>
+
+            <h2>2. Data Stored on Your Device</h2>
+            <p>The game saves the following data locally on your device so that you can continue playing:</p>
+            <ul>
+                <li>Campaign progress, stars, badges, and unlocked guardians.</li>
+                <li>Your settings and selected costumes.</li>
+                <li>Endless mode records and any unfinished Endless run.</li>
+                <li>Whether the Remove Ads purchase is active on this device.</li>
+            </ul>
+            <p>This data is never sent to us. It is deleted if you uninstall the game or clear its data.</p>
+
+            <h2>3. Advertisements (Mobile Version Only)</h2>
+            <p>The mobile version shows rewarded video ads through <strong>Google AdMob</strong>. An ad plays only when you tap a button that clearly says it will show an ad, for example to revive in a Campaign stage or to redraw bonus cards in Endless mode. There are no banners and no ads that appear on their own.</p>
+            <p>When ads are requested, AdMob and its partners may collect data such as:</p>
+            <ul>
+                <li>Device advertising identifiers (IDFA on iOS, Advertising ID on Android).</li>
+                <li>Device information (model, operating system version, language).</li>
+                <li>IP address and general location (city or country level).</li>
+                <li>Information about how you interact with ads.</li>
+            </ul>
+            <p>Your game progress and gameplay data are never shared with advertising providers. To learn how Google uses this data, see <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">How Google uses information from sites or apps that use its services</a>.</p>
+
+            <h2>4. Your Choices</h2>
+            <ul>
+                <li><strong>Watching ads is optional.</strong> You can play the whole game without watching any ad.</li>
+                <li><strong>Tracking permission (iOS).</strong> The first time you choose to watch an ad, the game explains why and then iOS may ask whether the app may track your activity. If you decline, you can still watch ads, but they may not be personalized.</li>
+                <li><strong>Consent (where required).</strong> In regions that require it, you will be asked for your consent choices before any ad is requested.</li>
+                <li><strong>Device settings.</strong> You can reset or limit your advertising identifier at any time in your device's privacy settings.</li>
+                <li><strong>Remove Ads.</strong> After this purchase, the game no longer requests ads.</li>
+            </ul>
+
+            <h2>5. In-App Purchase</h2>
+            <p>The mobile version offers one optional, one-time purchase: <strong>Remove Ads</strong>. Payment is handled entirely by the Apple App Store or Google Play. We never receive or store your payment details. You can restore the purchase on a new device from the game's Settings.</p>
+
+            <h2>6. Third-Party Service Providers</h2>
+            <p>The mobile version uses services from the following providers, each with its own privacy policy:</p>
+            <ul>
+                <li>Google AdMob (advertising) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+                <li>Apple App Store (distribution and purchases) — <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Apple Privacy Policy</a></li>
+                <li>Google Play (distribution and purchases) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+            </ul>
+
+            <h2>7. Changes to This Policy</h2>
+            <p>We may update this Privacy Policy from time to time. You are advised to review this page periodically for any changes. Changes are effective when they are posted on this page.</p>
+
+            <h2>8. Contact Us</h2>
+            <p>If you have any questions or suggestions about this Privacy Policy, do not hesitate to contact us at: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
+
+        <!-- VIETNAMESE CONTENT -->
+        <div id="content-vi" class="lang-content">
+            <h1>Chính Sách Bảo Mật</h1>
+            <p class="updated">Cập nhật mới nhất: Ngày 26 tháng 11 năm 2026</p>
+            <p>Quyền riêng tư của bạn rất quan trọng với chúng tôi. <strong>Inkfall Guardians</strong> (Hộ Vệ Đêm Mực) là trò chơi miễn phí. Bản di động được hỗ trợ bằng quảng cáo video có thưởng do bạn tự chọn xem, và có một gói mua tùy chọn để xóa quảng cáo. Bản web không có quảng cáo và không có mua hàng.</p>
+            <div class="highlight-box">
+                <strong>Tóm tắt:</strong> Chúng tôi, nhà phát triển, không thu thập bất kỳ thông tin cá nhân nào. Trò chơi không cần tài khoản và tiến trình của bạn nằm trên thiết bị của bạn. Trên bản di động, quảng cáo chỉ hiện khi bạn chọn xem, và do Google AdMob cung cấp; AdMob có thể thu thập một số dữ liệu thiết bị như mô tả bên dưới.
+            </div>
+
+            <h2>1. Thông Tin Chúng Tôi Thu Thập</h2>
+            <p>Chúng tôi (nhà phát triển) <strong>KHÔNG</strong> thu thập, lưu trữ hay chia sẻ bất kỳ thông tin cá nhân nào của bạn, chẳng hạn như tên, địa chỉ email hoặc số điện thoại. Trò chơi không có hệ thống tài khoản và chúng tôi không tự phân tích dữ liệu người chơi.</p>
+
+            <h2>2. Dữ Liệu Lưu Trên Thiết Bị Của Bạn</h2>
+            <p>Trò chơi lưu các dữ liệu sau ngay trên thiết bị để bạn chơi tiếp được:</p>
+            <ul>
+                <li>Tiến trình Chiến dịch, số sao, huy hiệu và các hộ vệ đã mở.</li>
+                <li>Cài đặt và trang phục bạn đã chọn.</li>
+                <li>Kỷ lục chế độ Vô tận và lượt Vô tận đang chơi dở.</li>
+                <li>Trạng thái đã mua gói Xóa quảng cáo trên thiết bị này.</li>
+            </ul>
+            <p>Dữ liệu này không bao giờ được gửi cho chúng tôi. Nó sẽ bị xóa nếu bạn gỡ trò chơi hoặc xóa dữ liệu của trò chơi.</p>
+
+            <h2>3. Quảng Cáo (Chỉ Bản Di Động)</h2>
+            <p>Bản di động hiển thị quảng cáo video có thưởng thông qua <strong>Google AdMob</strong>. Quảng cáo chỉ chạy khi bạn bấm vào một nút ghi rõ là sẽ xem quảng cáo, ví dụ để hồi sinh trong một màn Chiến dịch hoặc để đổi thẻ bonus trong chế độ Vô tận. Không có banner và không có quảng cáo tự bật lên.</p>
+            <p>Khi quảng cáo được yêu cầu, AdMob và các đối tác của họ có thể thu thập dữ liệu như:</p>
+            <ul>
+                <li>Mã định danh quảng cáo của thiết bị (IDFA trên iOS, Advertising ID trên Android).</li>
+                <li>Thông tin thiết bị (mẫu máy, phiên bản hệ điều hành, ngôn ngữ).</li>
+                <li>Địa chỉ IP và vị trí tổng quát (ở mức thành phố hoặc quốc gia).</li>
+                <li>Thông tin về cách bạn tương tác với quảng cáo.</li>
+            </ul>
+            <p>Tiến trình và dữ liệu chơi của bạn không bao giờ được chia sẻ với nhà cung cấp quảng cáo. Để biết Google dùng dữ liệu này như thế nào, xem <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Cách Google sử dụng thông tin từ các trang web hoặc ứng dụng dùng dịch vụ của Google</a>.</p>
+
+            <h2>4. Lựa Chọn Của Bạn</h2>
+            <ul>
+                <li><strong>Xem quảng cáo là tùy chọn.</strong> Bạn có thể chơi trọn trò chơi mà không xem quảng cáo nào.</li>
+                <li><strong>Quyền theo dõi (iOS).</strong> Lần đầu bạn chọn xem quảng cáo, trò chơi sẽ giải thích lý do, sau đó iOS có thể hỏi bạn có cho ứng dụng theo dõi hoạt động hay không. Nếu từ chối, bạn vẫn xem được quảng cáo, nhưng quảng cáo có thể không được cá nhân hóa.</li>
+                <li><strong>Sự đồng ý (ở nơi có yêu cầu).</strong> Tại những khu vực có quy định, bạn sẽ được hỏi lựa chọn đồng ý trước khi bất kỳ quảng cáo nào được yêu cầu.</li>
+                <li><strong>Cài đặt thiết bị.</strong> Bạn có thể đặt lại hoặc giới hạn mã định danh quảng cáo bất cứ lúc nào trong phần quyền riêng tư của thiết bị.</li>
+                <li><strong>Xóa quảng cáo.</strong> Sau khi mua gói này, trò chơi không còn yêu cầu quảng cáo nữa.</li>
+            </ul>
+
+            <h2>5. Mua Trong Ứng Dụng</h2>
+            <p>Bản di động có một gói mua tùy chọn, mua một lần: <strong>Xóa quảng cáo</strong>. Việc thanh toán do Apple App Store hoặc Google Play xử lý hoàn toàn. Chúng tôi không bao giờ nhận hay lưu thông tin thanh toán của bạn. Bạn có thể khôi phục giao dịch trên thiết bị mới trong phần Cài đặt của trò chơi.</p>
+
+            <h2>6. Nhà Cung Cấp Dịch Vụ Bên Thứ Ba</h2>
+            <p>Bản di động dùng dịch vụ của các nhà cung cấp sau, mỗi bên có chính sách bảo mật riêng:</p>
+            <ul>
+                <li>Google AdMob (quảng cáo) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách bảo mật của Google</a></li>
+                <li>Apple App Store (phân phối và mua hàng) — <a href="https://www.apple.com/legal/privacy/" target="_blank" rel="noopener">Chính sách bảo mật của Apple</a></li>
+                <li>Google Play (phân phối và mua hàng) — <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Chính sách bảo mật của Google</a></li>
+            </ul>
+
+            <h2>7. Thay Đổi Đối Với Chính Sách Này</h2>
+            <p>Chúng tôi có thể cập nhật Chính sách Bảo mật này theo thời gian. Bạn nên xem lại trang này định kỳ để nắm các thay đổi. Thay đổi có hiệu lực ngay khi được đăng trên trang này.</p>
+
+            <h2>8. Liên Hệ Với Chúng Tôi</h2>
+            <p>Nếu bạn có câu hỏi hoặc góp ý về Chính sách Bảo mật này, đừng ngần ngại liên hệ tại: <strong>nghiadoan2901@gmail.com</strong></p>
+        </div>
+
+        <footer>
+            &copy; 2026 Inkfall Guardians. Developed by D.H.N.
+        </footer>
+    </div>
+
+    <script>
+        function switchLanguage(langCode) {
+            document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                btn.classList.toggle('active', btn.dataset.lang === langCode);
+            });
+            document.querySelectorAll('.lang-content').forEach(function (content) {
+                content.classList.toggle('active', content.id === 'content-' + langCode);
+            });
+            document.documentElement.lang = langCode;
+        }
+
+        // Auto-detect browser language on load: Vietnamese if the browser prefers it, otherwise English
+        window.addEventListener('DOMContentLoaded', function () {
+            var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            switchLanguage(userLang.indexOf('vi') === 0 ? 'vi' : 'en');
+        });
+    </script>
+</body>
+</html>

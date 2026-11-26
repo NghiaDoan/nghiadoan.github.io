@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support - Inkfall Guardians</title>
+    <style>
+        :root {
+            --bg: #0e0b1f;            /* night ink */
+            --card-bg: #17132e;
+            --panel: #1f1a3d;
+            --border: rgba(94, 234, 212, 0.2);
+            --accent: #5eead4;        /* Star Tree teal */
+            --accent-gold: #ffd166;   /* starlight gold */
+            --text-main: #f4f0ff;
+            --text-dim: #a59fc4;
+            --text-faint: #6f6a92;
+            --warning: #ff6b8b;       /* ink-creature red */
+        }
+        body {
+            font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            margin: 0;
+            padding: 2rem 1rem;
+            background-image:
+                radial-gradient(circle at top, rgba(94, 234, 212, 0.08), transparent 60%),
+                radial-gradient(circle at 85% 90%, rgba(167, 139, 250, 0.07), transparent 55%);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border-radius: 16px;
+            box-shadow: 0 0 35px rgba(94, 234, 212, 0.1), inset 0 0 15px rgba(94, 234, 212, 0.04);
+            border: 1px solid var(--border);
+        }
+
+        /* Language switcher */
+        .lang-selector-wrapper {
+            margin-bottom: 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+            padding-bottom: 1rem;
+        }
+        .lang-scroll-container {
+            display: flex;
+            gap: 0.5rem;
+        }
+        .lang-btn {
+            background: var(--panel);
+            color: var(--text-dim);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.5rem 1.1rem;
+            border-radius: 20px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            font-family: inherit;
+            transition: all 0.2s ease;
+        }
+        .lang-btn:hover {
+            border-color: var(--accent);
+            color: var(--text-main);
+        }
+        .lang-btn.active {
+            background: var(--accent);
+            color: #0e0b1f;
+            border-color: var(--accent);
+            font-weight: 600;
+        }
+
+        .header {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+        .app-icon {
+            width: 120px;
+            height: 120px;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        .app-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 22%;
+            border: 2px solid rgba(94, 234, 212, 0.3);
+            box-shadow: 0 0 18px rgba(94, 234, 212, 0.18);
+        }
+        .app-name {
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 0.18em;
+            text-transform: uppercase;
+            color: var(--accent);
+        }
+
+        h1 { text-align: center; font-weight: 900; font-size: 2.2rem; margin: 0; letter-spacing: 1px; color: #fff; }
+        h2 { color: var(--accent-gold); margin-top: 2.5rem; font-size: 1.3rem; letter-spacing: 0.5px; border-bottom: 1.5px dashed rgba(255, 209, 102, 0.25); padding-bottom: 0.35rem; }
+        h3 { color: var(--accent); margin-top: 1.75rem; font-size: 1.1rem; border-left: 3px solid var(--accent); padding-left: 12px; font-weight: bold; }
+        p, li { color: var(--text-dim); font-size: 0.95rem; }
+        strong { color: var(--text-main); }
+        a { color: var(--accent); }
+        .updated { text-align: center; color: var(--text-faint); font-size: 0.9rem; margin-top: 0.5rem; font-weight: bold; }
+        .contact-box {
+            background: var(--panel);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin-top: 1.5rem;
+            border: 1px solid rgba(94, 234, 212, 0.12);
+            border-left: 4px solid var(--accent);
+        }
+        ul { padding-left: 1.5rem; }
+        li { margin-bottom: 0.6rem; }
+        .highlight { color: var(--accent); font-weight: 600; }
+        .warning { color: var(--warning); font-weight: 600; }
+        footer { text-align: center; margin-top: 4.5rem; color: var(--text-faint); font-size: 0.85rem; border-top: 1px solid rgba(255, 255, 255, 0.07); padding-top: 1.5rem; font-weight: 500; }
+
+        .lang-content { display: none; }
+        .lang-content.active { display: block; }
+    </style>
+</head>
+<body>
+    <div class="container">
+
+        <div class="lang-selector-wrapper">
+            <div class="lang-scroll-container">
+                <button class="lang-btn active" data-lang="en" onclick="switchLanguage('en')">English</button>
+                <button class="lang-btn" data-lang="vi" onclick="switchLanguage('vi')">Tiếng Việt</button>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="app-icon">
+                <img src="../assets/images/InkfallGuardians_Logo.png" alt="Inkfall Guardians icon">
+            </div>
+            <div class="app-name">Inkfall Guardians</div>
+        </div>
+
+        <!-- ENGLISH CONTENT -->
+        <div id="content-en" class="lang-content active">
+            <h1>Support Center</h1>
+            <p class="updated">Latest Update: November 26, 2026</p>
+            <p>Welcome to the <strong>Inkfall Guardians</strong> support page. Inkfall Guardians is an anime tower defense game: a forbidden book has been opened at a floating academy, and you lead a team of chibi guardians to protect the Star Tree from creatures of living ink. If you run into a technical issue or need help with the game, you are in the right place.</p>
+
+            <h2>Frequently Asked Questions (FAQ)</h2>
+
+            <h3>Q: What kind of game is Inkfall Guardians?</h3>
+            <p>A: It is a tower defense game where every tower is a character. There are twelve guardians, each with a unique role and an ultimate skill, and each one can stand on the field only once per stage. You choose who to bring, where to place them, and who to upgrade first.</p>
+
+            <h3>Q: What game modes are there?</h3>
+            <p>A: <span class="highlight">Campaign</span> is a five-chapter story with 45 stages and five bosses. <span class="highlight">Endless</span> unlocks after you finish the Campaign: waves keep coming until the Star Tree falls, and you pick bonus cards along the way to strengthen the guardians on the field. Endless also has a Daily Arena that changes every day.</p>
+
+            <h3>Q: How is my progress saved?</h3>
+            <p>A: Progress, settings, and records are saved automatically on your device. An Endless run is also saved as you play, so you can close the game and pick it up later with the <span class="highlight">Continue</span> button on the title screen. <span class="warning">Warning:</span> there is no cloud save. Uninstalling the game or clearing its data erases your progress.</p>
+
+            <h3>Q: Can I play without an internet connection?</h3>
+            <p>A: Yes. Both game modes are fully playable offline. An internet connection is needed only to watch a rewarded ad, or to buy or restore the Remove Ads purchase.</p>
+
+            <h3>Q: Where do ads appear?</h3>
+            <p>A: Only in the mobile version, and only when you choose to watch one. There are two places: to <span class="highlight">revive once per Campaign stage</span> (the Star Tree comes back with 5 HP), and to <span class="highlight">redraw your bonus cards for free up to 3 times per Endless run</span>. After those three, you can keep redrawing with the crystals you earn in the run. There are no banners and no ads that appear on their own. The web version has no ads.</p>
+
+            <h3>Q: What does Remove Ads do, and how do I restore it?</h3>
+            <p>A: Remove Ads is a one-time purchase in the mobile version. After buying it, you get the same revive and the same three free redraws instantly, without watching anything. If you reinstall the game or change devices, open <span class="highlight">Settings</span> and tap <span class="highlight">Restore Purchases</span> while signed in to the same store account.</p>
+
+            <h3>Q: A rewarded ad did not load, or I did not get my reward.</h3>
+            <p>A: Check your internet connection and try again in a moment; sometimes no ad is available. If an ad is closed before it finishes, the reward is not given, but your attempt is not used up either. If the problem keeps happening, please contact us with your device model and OS version.</p>
+
+            <h3>Q: Can guardians use their ultimate skills automatically?</h3>
+            <p>A: Yes. Turn on <span class="highlight">Auto Ultimate</span> with the button next to Pause and Speed, or in Settings. Guardians will then use their ultimate as soon as it is ready. You can switch it on or off at any time, in both modes.</p>
+
+            <h2>Contact Us</h2>
+            <div class="contact-box">
+                <p>If you find a bug, face a technical issue, or have a suggestion, please reach out:</p>
+                <ul>
+                    <li><strong>Email Support:</strong> <span class="highlight">nghiadoan2901@gmail.com</span></li>
+                    <li><strong>Response Time:</strong> Within 24-48 business hours</li>
+                    <li><strong>Helpful details:</strong> your device model, OS version, and what you were doing when the problem happened</li>
+                </ul>
+            </div>
+
+            <h2>Helpful Tips</h2>
+            <ul>
+                <li><strong>Check the enemy list first:</strong> before each stage you can see which ink creatures will appear. Each kind has a guardian that counters it, such as magic damage against armored enemies.</li>
+                <li><strong>Hold the tricky ultimates:</strong> Auto Ultimate fires skills as early as possible. For skills that are best saved for a big wave or a boss, tapping them yourself usually works better.</li>
+                <li><strong>Foldable phones:</strong> when the phone is unfolded, one half shows the battlefield and the other half shows your guardians and controls.</li>
+            </ul>
+
+            <h2>Technical Information</h2>
+            <ul>
+                <li><strong>Platforms:</strong> iPhone and Android phones, including foldable phones. Played in landscape.</li>
+                <li><strong>Minimum OS version:</strong> see the game's page on the App Store or Google Play.</li>
+                <li><strong>Privacy Policy:</strong> <a href="privacy-policy.html">View here</a></li>
+            </ul>
+        </div>
+
+        <!-- VIETNAMESE CONTENT -->
+        <div id="content-vi" class="lang-content">
+            <h1>Trung Tâm Hỗ Trợ</h1>
+            <p class="updated">Cập nhật mới nhất: Ngày 26 tháng 11 năm 2026</p>
+            <p>Chào mừng bạn đến với trang hỗ trợ của <strong>Inkfall Guardians</strong> (Hộ Vệ Đêm Mực). Đây là trò chơi thủ thành phong cách anime: một cuốn sách cấm vừa bị mở ra ở học viện trên đảo bay, và bạn dẫn dắt nhóm hộ vệ chibi bảo vệ cây Tinh Thụ trước những sinh vật bằng mực. Nếu bạn gặp sự cố kỹ thuật hoặc cần trợ giúp về trò chơi, bạn đã đến đúng nơi.</p>
+
+            <h2>Câu Hỏi Thường Gặp (FAQ)</h2>
+
+            <h3>Q: Inkfall Guardians là trò chơi như thế nào?</h3>
+            <p>A: Đây là trò chơi thủ thành mà mỗi "tháp" là một nhân vật. Có 12 hộ vệ, mỗi người một vai trò và một chiêu cuối riêng, và mỗi người chỉ ra sân được một lần trong một màn. Bạn chọn mang ai theo, đặt ai ở đâu và nâng cấp ai trước.</p>
+
+            <h3>Q: Trò chơi có những chế độ nào?</h3>
+            <p>A: <span class="highlight">Chiến dịch</span> là cốt truyện 5 chương với 45 màn và 5 boss. <span class="highlight">Vô tận</span> mở sau khi bạn hoàn thành Chiến dịch: quái kéo tới từng đợt cho đến khi Tinh Thụ ngã xuống, và bạn chọn thẻ bonus trên đường đi để tăng sức cho các hộ vệ trên sân. Vô tận còn có Đấu trường hằng ngày, mỗi ngày một khác.</p>
+
+            <h3>Q: Tiến trình của tôi được lưu như thế nào?</h3>
+            <p>A: Tiến trình, cài đặt và kỷ lục được lưu tự động trên thiết bị của bạn. Lượt Vô tận cũng được lưu trong lúc chơi, nên bạn có thể tắt trò chơi rồi chơi tiếp sau bằng nút <span class="highlight">Tiếp tục</span> ở màn Tiêu đề. <span class="warning">Lưu ý:</span> trò chơi không lưu lên đám mây. Gỡ trò chơi hoặc xóa dữ liệu của nó sẽ làm mất tiến trình.</p>
+
+            <h3>Q: Tôi có thể chơi khi không có kết nối Internet không?</h3>
+            <p>A: Có. Cả hai chế độ đều chơi được trọn vẹn khi ngoại tuyến. Chỉ cần Internet khi bạn xem quảng cáo có thưởng, hoặc khi mua hay khôi phục gói Xóa quảng cáo.</p>
+
+            <h3>Q: Quảng cáo xuất hiện ở đâu?</h3>
+            <p>A: Chỉ có ở bản di động, và chỉ khi bạn chọn xem. Có hai chỗ: để <span class="highlight">hồi sinh 1 lần mỗi màn Chiến dịch</span> (Tinh Thụ hồi lại 5 máu), và để <span class="highlight">đổi thẻ bonus miễn phí tối đa 3 lần mỗi lượt Vô tận</span>. Hết ba lần đó, bạn vẫn đổi thẻ tiếp được bằng Tinh Thạch kiếm trong lượt chơi. Không có banner và không có quảng cáo tự bật lên. Bản web không có quảng cáo.</p>
+
+            <h3>Q: Gói Xóa quảng cáo có tác dụng gì, và khôi phục thế nào?</h3>
+            <p>A: Xóa quảng cáo là gói mua một lần trên bản di động. Sau khi mua, bạn nhận đúng lượt hồi sinh và ba lần đổi thẻ miễn phí đó ngay lập tức, không cần xem gì. Nếu cài lại trò chơi hoặc đổi máy, hãy mở <span class="highlight">Cài đặt</span> và bấm <span class="highlight">Khôi phục giao dịch</span> khi đang đăng nhập đúng tài khoản cửa hàng đã mua.</p>
+
+            <h3>Q: Quảng cáo không tải được, hoặc tôi không nhận được thưởng.</h3>
+            <p>A: Hãy kiểm tra kết nối Internet và thử lại sau ít phút; đôi khi không có quảng cáo để hiện. Nếu quảng cáo bị đóng trước khi chạy xong thì không có thưởng, nhưng bạn cũng không bị mất lượt. Nếu lỗi lặp lại, vui lòng liên hệ với chúng tôi kèm mẫu máy và phiên bản hệ điều hành.</p>
+
+            <h3>Q: Hộ vệ có thể tự dùng chiêu cuối không?</h3>
+            <p>A: Có. Bật <span class="highlight">Tự động chiêu cuối</span> bằng nút cạnh Tạm dừng và Tốc độ, hoặc trong Cài đặt. Khi đó hộ vệ sẽ dùng chiêu cuối ngay khi sẵn sàng. Bạn bật tắt được bất cứ lúc nào, ở cả hai chế độ.</p>
+
+            <h2>Liên Hệ Với Chúng Tôi</h2>
+            <div class="contact-box">
+                <p>Nếu bạn phát hiện lỗi, gặp sự cố kỹ thuật hoặc có góp ý, vui lòng liên hệ:</p>
+                <ul>
+                    <li><strong>Email hỗ trợ:</strong> <span class="highlight">nghiadoan2901@gmail.com</span></li>
+                    <li><strong>Thời gian phản hồi:</strong> Trong vòng 24-48 giờ làm việc</li>
+                    <li><strong>Thông tin nên gửi kèm:</strong> mẫu máy, phiên bản hệ điều hành, và bạn đang làm gì khi lỗi xảy ra</li>
+                </ul>
+            </div>
+
+            <h2>Mẹo Chơi Hữu Ích</h2>
+            <ul>
+                <li><strong>Xem danh sách quái trước:</strong> trước mỗi màn bạn xem được những loại quái mực sẽ xuất hiện. Loại nào cũng có hộ vệ khắc chế, ví dụ sát thương phép với quái có giáp.</li>
+                <li><strong>Giữ lại các chiêu cuối cần đúng lúc:</strong> Tự động chiêu cuối dùng chiêu sớm nhất có thể. Với những chiêu nên để dành cho đợt quái lớn hoặc boss, tự bấm tay thường hiệu quả hơn.</li>
+                <li><strong>Điện thoại gập:</strong> khi mở máy ra, một nửa màn hình là bàn chơi, nửa còn lại là hộ vệ và các nút điều khiển.</li>
+            </ul>
+
+            <h2>Thông Tin Kỹ Thuật</h2>
+            <ul>
+                <li><strong>Nền tảng:</strong> iPhone và điện thoại Android, kể cả điện thoại gập. Chơi ở màn hình ngang.</li>
+                <li><strong>Phiên bản hệ điều hành tối thiểu:</strong> xem trang của trò chơi trên App Store hoặc Google Play.</li>
+                <li><strong>Chính sách bảo mật:</strong> <a href="privacy-policy.html">Xem tại đây</a></li>
+            </ul>
+        </div>
+
+        <footer>
+            &copy; 2026 Inkfall Guardians. All Rights Reserved. Developed by D.H.N.
+        </footer>
+    </div>
+
+    <script>
+        function switchLanguage(langCode) {
+            document.querySelectorAll('.lang-btn').forEach(function (btn) {
+                btn.classList.toggle('active', btn.dataset.lang === langCode);
+            });
+            document.querySelectorAll('.lang-content').forEach(function (content) {
+                content.classList.toggle('active', content.id === 'content-' + langCode);
+            });
+            document.documentElement.lang = langCode;
+        }
+
+        // Auto-detect browser language on load: Vietnamese if the browser prefers it, otherwise English
+        window.addEventListener('DOMContentLoaded', function () {
+            var userLang = (navigator.language || navigator.userLanguage || '').toLowerCase();
+            switchLanguage(userLang.indexOf('vi') === 0 ? 'vi' : 'en');
+        });
+    </script>
+</body>
+</html>
